@@ -54,8 +54,8 @@
               <input type="text" class="form-control" name="website" value={{ $imformation->website }} />
           </div>
 
-          <div class="form-group">
-              <label for="person">編輯人:</label>
+          <div class="form-group" style="display:none">
+              <label for="person" >編輯人:</label>
               <input type="text" class="form-control" name="person" value={{ Auth::user()->name }} />
           </div>
 

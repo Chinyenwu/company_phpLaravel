@@ -26,4 +26,5 @@ Route::resource('pages', 'PageController');
 Route::resource('imformations', 'ImformationController');
 Route::resource('imformation_classes', 'Imformation_ClassController');
 Route::resource('users', 'UserController');
+Route::resource('page_classes', 'Page_ClassController');
 

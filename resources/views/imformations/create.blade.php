@@ -50,7 +50,7 @@
               <label for="website">網站:</label>
               <input type="text" class="form-control" name="website"/>
           </div>
-          <div class="form-group">
+          <div class="form-group" style="display:none">
               <label for="person">編輯人:</label>
               <input type="text" class="form-control" name="person" value="{{ Auth::user()->name }}"/>
           </div>

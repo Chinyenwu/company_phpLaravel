@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
-use App\Page;
+use App\Page_Class;
 
-class PageController extends Controller
+class Page_ClassController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::all();
-        return view('pages.index', compact('pages'));
+        $page_classes = Page_Class::all();
+
+        return view('page_classes.index', compact('page_classes'));
     }
 
     /**
@@ -26,7 +27,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('pages.create');
+        return view('page_classes.create');
     }
 
     /**
@@ -38,19 +39,14 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'=>'required',
+            'class'=>'required',
         ]);
 
-        $page = new Page([
-            'class' => $request->get('class'),
-            'editer' => $request->get('editer'),
-            'title' => $request->get('title'),
-            'context' => $request->get('context'),
-            'edit_time' => $request->get('edit_time')
-
+        $page_classes = new Page_Class([
+            'class' => $request->get('class')
         ]);
-        $page->save();
-        return redirect('/pages')->with('success', 'page saved!');
+        $page_classes->save();
+        return redirect('/page_classes')->with('success', 'Class saved!');
     }
 
     /**
@@ -72,8 +68,8 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        $page = Page::find($id);
-        return view('pages.edit', compact('page')); 
+        $page_class = Page_Class::find($id);
+        return view('page_classes.edit', compact('page_class')); 
     }
 
     /**
@@ -85,18 +81,15 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $request->validate([
-            'title'=>'required',
+        $request->validate([
+            'class'=>'required',
         ]);
-            $page = Page::find($id);
-            $page->class = $request->get('class');
-            $page->editer = $request->get('editer');
-            $page->title = $request->get('title');
-            $page->context = $request->get('context');
-            $page->edit_time = $request->get('edit_time');
-            $page->save();
 
-        return redirect('/pages')->with('success', 'page update!');
+        $page_class = page_Class::find($id);
+        $page_class->class =  $request->get('class');
+        $page_class->save();
+
+        return redirect('/page_classes')->with('success', 'page_class updated!');
     }
 
     /**
@@ -107,9 +100,9 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-        $page = Page::find($id);
-        $page->delete();
+        $page_class = page_Class::find($id);
+        $page_class->delete();
 
-        return redirect('/pages')->with('success', 'Page deleted!');
+        return redirect('/page_classes')->with('success', 'page_class deleted!');
     }
 }
