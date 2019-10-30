@@ -4,16 +4,7 @@
 <div class="row">
 <div class="col-sm-12">
   <h1 class="display-3">公告</h1>    
-<!--<div class="col-sm-12">
-
-  @if(session()->get('success'))
-    <div class="alert alert-success">
-      {{ session()->get('success') }}  
-    </div>
-  @endif
-</div>-->
-    <div>
-    <!--<a style="margin: 19px;" href="{{ route('pages.create')}}" class="btn btn-primary">新增公告</a>-->
+  <div>
   <table class="table table-striped">
     <thead>
         <tr>
@@ -46,4 +37,8 @@
         @endforeach
     </tbody>
   </table>
+</div>
+<div>
+  <?php echo $pages->links(); ?>
+</div>
 @endsection

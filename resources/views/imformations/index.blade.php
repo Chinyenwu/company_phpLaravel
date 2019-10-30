@@ -48,4 +48,7 @@
         @endforeach
     </tbody>
   </table>
+  <div>
+    <?php echo $imformations->links(); ?>
+  </div>
 @endsection

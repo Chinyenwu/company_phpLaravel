@@ -15,7 +15,7 @@ class ImformationController extends Controller
      */
     public function index()
     {
-        $imformations = Imformation::all();
+        $imformations = Imformation::paginate(10);
         return view('imformations.index', compact('imformations'));
     }
 

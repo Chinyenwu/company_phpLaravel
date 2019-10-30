@@ -1,7 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
-<script src="//cdn.ckeditor.com/4.12.1/full/ckeditor.js"></script>
+
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
     <h1 class="display-3">新增公告</h1>
@@ -56,11 +55,12 @@
           </div>
           <div class="form-group">
               <label for="context">內文:</label>
-              <textarea id="editor1"  name="context"></textarea>
-          </div>           
-<script>
-CKEDITOR.replace( "editor1" );
-</script>               
+              <textarea id="context"  name="context"></textarea>
+              <script>
+              CKEDITOR.replace( "context" );
+              </script> 
+          </div>   
+   
           <button type="submit" class="btn btn-primary">新增公告</button>
       </form>
   </div>

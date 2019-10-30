@@ -15,7 +15,7 @@ class Page_ClassController extends Controller
      */
     public function index()
     {
-        $page_classes = Page_Class::all();
+        $page_classes = Page_Class::paginate(10);
 
         return view('page_classes.index', compact('page_classes'));
     }

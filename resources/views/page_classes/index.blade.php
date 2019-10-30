@@ -34,5 +34,7 @@
     </tbody>
   </table>
 <div>
+  <?php echo $page_classes->links(); ?>
 </div>
 @endsection
+

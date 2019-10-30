@@ -1,6 +1,6 @@
 @extends('layouts.app') 
 @section('content')
-<script src="//cdn.ckeditor.com/4.12.1/full/ckeditor.js"></script>
+
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
         <h1 class="display-3">編輯頁面</h1>
@@ -36,11 +36,11 @@
 
           <div class="form-group">
               <label for="context">內文:</label>
-              <textarea id="editor1"  name="context" >{{ $page->context }}</textarea>
+              <textarea id="context"  name="context" >{{ $page->context }}</textarea>
           </div>    
                                
             <script>
-            CKEDITOR.replace( "editor1" );
+            CKEDITOR.replace( "context" );
             </script> 
 
           <div class="form-group" style="display:none">
