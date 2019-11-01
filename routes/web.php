@@ -21,11 +21,16 @@ Auth::routes();
 Route::get('/member', 'MemberController@index')->name('member');
 Auth::routes();
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-
-Route::resource('pages', 'PageController');
-Route::resource('imformations', 'ImformationController');
-Route::resource('imformation_classes', 'Imformation_ClassController');
 Route::resource('users', 'UserController');
+
+Route::resource('imformation_classes', 'Imformation_ClassController');
+Route::resource('imformations', 'ImformationController');
 Route::resource('page_classes', 'Page_ClassController');
+Route::resource('pages', 'PageController');
 Route::resource('fileroom_classes', 'Fileroom_ClassController');
+Route::resource('filerooms', 'FileroomController');
+Route::resource('auth', 'UserController');
+
+
+
 

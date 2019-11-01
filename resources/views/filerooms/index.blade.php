@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 <div class="col-sm-12">
-  <h1 class="display-3">頁面</h1>    
+  <h1 class="display-3">檔案室</h1>    
   <div>
   <table class="table table-striped">
     <thead>
@@ -16,18 +16,18 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($pages as $page)
+        @foreach($filerooms as $fileroom)
         <tr>
-            <td>{{$page->id}}</td>
-            <td>{{$page->class}}</td>
-            <td>{{$page->title}}</td>
-            <td>{{$page->editer}}</td>
-            <td>{{$page->edit_time}}</td>
+            <td>{{$fileroom->id}}</td>
+            <td>{{$fileroom->class}}</td>
+            <td>{{$fileroom->title}}</td>
+            <td>{{$fileroom->editer}}</td>
+            <td>{{$fileroom->edit_time}}</td>
             <td>
-                <a href="{{ route('pages.edit',$page->id)}}" class="btn btn-primary">編輯</a>
+                <a href="{{ route('filerooms.edit',$fileroom->id)}}" class="btn btn-primary">編輯</a>
             </td>
             <td>
-                <form action="{{ route('pages.destroy', $page->id)}}" method="post">
+                <form action="{{ route('filerooms.destroy', $fileroom->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">刪除</button>
@@ -39,6 +39,6 @@
   </table>
 </div>
 <div>
-  <?php echo $pages->links(); ?>
+  <?php echo $filerooms->links(); ?>
 </div>
 @endsection

@@ -91,7 +91,16 @@
                     <li><a class="btn btn-light" href="{{ url('/page_classes') }}" >類別</a></li>
                 </ul>
                 </li>
-            </ul>          
+            </ul>   
+            <ul class="nav nav-tabs">
+                <li class="dropdown"><a class="btn btn-light"class="dropdown-toggle"  data-toggle="dropdown" href="#">檔案室</a>
+                <ul class="dropdown-menu">
+                    <li><a class="btn btn-light" href="{{ url('/filerooms') }}" >列表</a></li>
+                    <li><a class="btn btn-light" href="{{ url('/filerooms/create') }}" >新增</a></li>
+                    <li><a class="btn btn-light" href="{{ url('/fileroom_classes') }}" >類別</a></li>
+                </ul>
+                </li>
+            </ul>         
         </div>
         <main class="py-4">
             @yield('content')

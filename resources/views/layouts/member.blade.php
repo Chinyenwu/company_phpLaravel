@@ -79,7 +79,7 @@
                 <li><a class="btn btn-light" href="{{ url('/person') }}" >個人資料</a></li>
             </ul>   
             <ul class="nav nav-tabs">   
-                <li><a class="btn btn-light" href="{{ url('/index') }}" >人員列表</a></li>
+                <li><a class="btn btn-light" href="{{ url('/auth') }}" >人員列表</a></li>
             </ul>   
             <ul class="nav nav-tabs">   
                 <li><a class="btn btn-light" href="{{ url('/password/reset') }}" >密碼重置</a></li>
