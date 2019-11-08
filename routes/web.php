@@ -29,6 +29,7 @@ Route::resource('page_classes', 'Page_ClassController');
 Route::resource('pages', 'PageController');
 Route::resource('fileroom_classes', 'Fileroom_ClassController');
 Route::resource('filerooms', 'FileroomController');
+Route::resource('positions', 'PositionController');
 Route::resource('auth', 'UserController');
 
 

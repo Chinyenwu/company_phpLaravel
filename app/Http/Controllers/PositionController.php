@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
-use App\Page;
+use App\Position;
 
-class PageController extends Controller
+class PositionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::paginate(10);
-        return view('pages.index', compact('pages'));
+        $positions = Position::paginate(10);
+
+        return view('positions.index', compact('positions'));
     }
 
     /**
@@ -26,7 +27,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('pages.create');
+        return view('positions.create');
     }
 
     /**
@@ -38,20 +39,15 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'=>'required',
-            'class'=>'required',
+            'class'=>'required'
         ]);
 
-        $page = new Page([
+        $contact = new Position([
             'class' => $request->get('class'),
-            'editer' => $request->get('editer'),
-            'title' => $request->get('title'),
-            'context' => $request->get('context'),
-            'edit_time' => $request->get('edit_time')
-
+            'position' => $request->get('position')
         ]);
-        $page->save();
-        return redirect('/pages')->with('success', 'page saved!');
+        $contact->save();
+        return redirect('/positions')->with('success', 'Positon saved!');
     }
 
     /**
@@ -73,9 +69,8 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        $page = Page::find($id);
-        return view('pages.edit', compact('page')); 
-    }
+        $position = Position::find($id);
+        return view('positions.edit', compact('position'));     }
 
     /**
      * Update the specified resource in storage.
@@ -86,19 +81,16 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $request->validate([
-            'title'=>'required',
-            'class'=>'required',
+        $request->validate([
+            'class'=>'required'
         ]);
-            $page = Page::find($id);
-            $page->class = $request->get('class');
-            $page->editer = $request->get('editer');
-            $page->title = $request->get('title');
-            $page->context = $request->get('context');
-            $page->edit_time = $request->get('edit_time');
-            $page->save();
 
-        return redirect('/pages')->with('success', 'page update!');
+        $position = Position::find($id);
+        $position->class =  $request->get('class');
+        $position->position = $request->get('position');
+        $position->save();
+
+        return redirect('/positions')->with('success', 'Position updated!');
     }
 
     /**
@@ -109,9 +101,8 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-        $page = Page::find($id);
-        $page->delete();
-
-        return redirect('/pages')->with('success', 'Page deleted!');
+        $position = Position::find($id);
+        $position->delete();
+        return redirect('/positions')->with('success', 'Position deleted!');
     }
 }

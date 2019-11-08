@@ -39,6 +39,7 @@ class FileroomController extends Controller
     {
         $request->validate([
             'title'=>'required',
+            'class'=>'required',
         ]);
 
         $fileroom = new fileroom([
@@ -73,19 +74,8 @@ class FileroomController extends Controller
      */
     public function edit($id)
     {
-       $request->validate([
-            'title'=>'required',
-        ]);
-            $fileroom = Fileroom::find($id);
-            $fileroom->class = $request->get('class');
-            $fileroom->title = $request->get('title');
-            $fileroom->filename = $request->get('filename');
-            $fileroom->file_type = $request->get('file_path');
-            $fileroom->editer = $request->get('editer');
-            $fileroom->edit_time = $request->get('edit_time');
-            $fileroom->save();
-
-        return redirect('/filerooms')->with('success', 'fileroom update!');
+        $fileroom = Fileroom::find($id);
+        return view('filerooms.edit', compact('fileroom'));  
     }
 
     /**
@@ -97,7 +87,20 @@ class FileroomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $request->validate([
+            'title'=>'required',
+            'class'=>'required',
+        ]);
+            $fileroom = Fileroom::find($id);
+            $fileroom->class = $request->get('class');
+            $fileroom->title = $request->get('title');
+            $fileroom->filename = $request->get('filename');
+            $fileroom->file_path = $request->get('file_path');
+            $fileroom->editer = $request->get('editer');
+            $fileroom->edit_time = $request->get('edit_time');
+            $fileroom->save();
+
+        return redirect('/filerooms')->with('success', 'fileroom update!');
     }
 
     /**

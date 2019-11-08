@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.create');
     }
 
     /**
@@ -37,9 +37,37 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$name)
     {
-        //
+        $request->validate([
+            'first_name' => [ 'max:255'],
+            'last_name' => [ 'max:255'],
+            'email' => [ 'email', 'max:255'],
+            'staff_number' => [ 'max:255'],
+            'contact_phone' => [ 'max:255'],
+            'fax' => [ 'max:255'],
+            'cell_phone' => [ 'max:255'],
+            'gender' => [ 'max:255'],
+            'birthday' => [ 'max:255'],
+            'contact_address' => [ 'max:255'],
+            'class' => [ 'max:255'],
+            'position' => [ 'max:255'],
+        ]);
+
+        $user = User::find($name);
+        $user->first_name =  $request->get('first_name');
+        $user->last_name = $request->get('last_name');
+        $user->email = $request->get('email');
+        $user->staff_number = $request->get('staff_number');
+        $user->contact_phone = $request->get('contact_phone');
+        $user->gender = $request->get('gender');
+        $user->birthday = $request->get('birthday');
+        $user->contact_address = $request->get('contact_address');
+        $user->class = $request->get('class');
+        $user->position = $request->get('position');
+        $user->save();
+
+        return redirect('/auth/create')->with('success', 'member update!');
     }
 
     /**
@@ -78,7 +106,7 @@ class UserController extends Controller
             'first_name' => [ 'max:255'],
             'last_name' => [ 'max:255'],
             'email' => [ 'email', 'max:255'],
-            'staff_number' => [ 'max:255','unique:users'],
+            'staff_number' => [ 'max:255'],
             'contact_phone' => [ 'max:255'],
             'fax' => [ 'max:255'],
             'cell_phone' => [ 'max:255'],
@@ -104,7 +132,6 @@ class UserController extends Controller
 
         return redirect('/auth')->with('success', 'member update!');
     }
-
     /**
      * Remove the specified resource from storage.
      *

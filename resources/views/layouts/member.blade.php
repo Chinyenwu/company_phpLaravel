@@ -76,7 +76,7 @@
         </nav>
          <div style="float:left;">
             <ul class="nav nav-tabs">
-                <li><a class="btn btn-light" href="{{ url('/person') }}" >個人資料</a></li>
+                <li><a class="btn btn-light" href="{{ url('/auth/create') }}" >個人資料</a></li>
             </ul>   
             <ul class="nav nav-tabs">   
                 <li><a class="btn btn-light" href="{{ url('/auth') }}" >人員列表</a></li>
@@ -86,6 +86,9 @@
             </ul>  
             <ul class="nav nav-tabs">    
                 <li><a class="btn btn-light" href="{{ url('/register') }}" >新增成員</a></li>               
+            </ul>  
+            <ul class="nav nav-tabs">    
+                <li><a class="btn btn-light" href="{{ url('/positions') }}" >教師職稱調整</a></li>               
             </ul>            
         </div> 
         <main class="py-4">

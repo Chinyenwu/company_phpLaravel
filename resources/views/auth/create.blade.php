@@ -1,10 +1,10 @@
 @extends('layouts.member') 
 @section('content')
 
-<div class="row">
-    <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">編輯成員</h1>
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+          <h1>這是個人頁面</h1>
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -15,7 +15,7 @@
         </div>
         <br /> 
         @endif
-        <form method="post" action="{{ route('auth.update', $user->id) }}">
+        <form method="post" action="{{ route('auth.store', $user->Auth::user()->name) }}">
             @method('PATCH') 
             @csrf
           <div class="form-group">
@@ -86,8 +86,8 @@
             <button type="submit" class="btn btn-primary">更新</button>
 
         </form>
+        </div>
     </div>
 </div>
+
 @endsection
-
-

@@ -40,8 +40,8 @@
           </div>
 
           <div class="form-group">
-              <label for="file_path">檔案種類:</label>
-              <input type="text" class="form-control" name="file_type" value={{ $fileroom->file_path }}/>
+              <label for="file_path">檔案路徑:</label>
+              <input type="text" class="form-control" name="file_path" value={{ $fileroom->file_path }}/>
           </div>    
 
           <div class="form-group" style="display:none">

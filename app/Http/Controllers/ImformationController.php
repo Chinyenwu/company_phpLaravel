@@ -39,6 +39,7 @@ class ImformationController extends Controller
     {
         $request->validate([
             'title'=>'required',
+            'class'=>'required',
         ]);
 
         $imformation = new Imformation([
@@ -90,6 +91,7 @@ class ImformationController extends Controller
     {
        $request->validate([
             'title'=>'required',
+            'class'=>'required',
         ]);
             $imformation = Imformation::find($id);
             $imformation->class = $request->get('class');

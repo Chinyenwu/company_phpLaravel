@@ -24,7 +24,7 @@
               <?php $imformation_classes = DB::table('imformation_classes')->get();?>
               <select class="form-control" name="class" >
                   @foreach($imformation_classes as $imformation_class)
-                  <option value="{{$imformation_class->class}}">{{$imformation_class->class}}</option>
+                  <option value="{{$imformation_class->class}}" >{{$imformation_class->class}}</option>
                   @endforeach
               </select> 
           </div>
