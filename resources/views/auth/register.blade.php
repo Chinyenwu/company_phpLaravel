@@ -194,8 +194,8 @@
 
                             <div class="col-md-6">
 
-                                <input id="class" type="radio"  name="class" value="{{ '教師' }}" >教師
-                                <input id="class" type="radio"  name="class" value="{{ '行政人員' }}" >行政人員
+                                <input id="class" type="radio"  name="class" class="register_teacher" value="{{ '教師' }}" >教師
+                                <input id="class" type="radio"  name="class" class="register_staff" value="{{ '行政人員' }}" >行政人員
                                 @error('class')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -207,15 +207,26 @@
                          <div class="form-group row">
                             <label for="position" class="col-md-4 col-form-label text-md-right">{{ __('職務名稱') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="position" type="text" class="form-control @error('cell_phone') is-invalid @enderror" name="position" value="{{ old('position') }}" >
+                            <div class="col-md-6" id="register_position1" style="display:none">
+                            <?php $positions = DB::table('positions')->where('class','=','教師')->get();?>
+                            <select class="form-control" name="position" >
+                                @foreach($positions as $position)
+                                    <option value="{{$position->position}}">{{$position->position}}</option>
+                                @endforeach
+                            </select> 
 
-                                @error('position')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
+
+                           <div class="col-md-6" id="register_position2" style="display:none">
+                            <?php $positions2 = DB::table('positions')->where('class','=','行政人員')->get();?>
+                            <select class="form-control" name="position" >
+                                @foreach($positions2 as $position2)
+                                    <option value="{{$position2->position}}">{{$position2->position}}</option>
+                                @endforeach
+                            </select> 
+                            
+                            </div>
+
                         </div>
 
                         <div class="form-group row mb-0">

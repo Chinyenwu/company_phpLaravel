@@ -49502,3 +49502,15 @@ module.exports = __webpack_require__(/*! C:\wamp64\www\company\resources\sass\ap
 
 /******/ });
 
+
+
+
+$(".register_teacher").click(function(){
+  $("#register_position2").hide();
+  $("#register_position1").show();
+});
+
+$(".register_staff").click(function(){
+  $("#register_position1").hide();
+  $("#register_position2").show();
+});
