@@ -89,7 +89,23 @@
             </ul>  
             <ul class="nav nav-tabs">    
                 <li><a class="btn btn-light" href="{{ url('/positions') }}" >教師職稱調整</a></li>               
-            </ul>            
+            </ul>
+            <ul class="nav nav-tabs">
+                <li class="dropdown"><a class="btn btn-light"class="dropdown-toggle"  data-toggle="dropdown" href="#">教師外掛</a>
+                <ul class="dropdown-menu">
+                    <li><a class="btn btn-light" href="{{ url('/person_lists/activities') }}" >活動</a></li>
+                    <li><a class="btn btn-light" href="{{ url('/person_lists/educations') }}" >學歷</a></li>
+                    <li><a class="btn btn-light" href="{{ url('/person_lists/experiences') }}" >經驗</a></li>
+                    <li><a class="btn btn-light" href="{{ url('/person_lists/honors') }}" >榮譽</a></li>
+                    <li><a class="btn btn-light" href="{{ url('/person_lists/journals') }}" >期刊</a></li>
+                    <li><a class="btn btn-light" href="{{ url('/person_lists/patents') }}" >專利</a></li>
+                    <li><a class="btn btn-light" href="{{ url('/person_lists/projects') }}" >專案</a></li>
+                    <li><a class="btn btn-light" href="{{ url('/person_lists/reserches') }}" >研究</a></li>
+                    <li><a class="btn btn-light" href="{{ url('/person_lists/seminars') }}" >研討會</a></li>
+                    <li><a class="btn btn-light" href="{{ url('/person_lists/special_books') }}" >專書</a></li>
+                </ul>
+                </li>
+            </ul>                        
         </div> 
         <main class="py-4">
             @yield('content')

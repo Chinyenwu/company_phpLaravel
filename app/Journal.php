@@ -22,7 +22,7 @@ class Journal extends Model
         'ISI_Number',
         'file',
         'file_path',
-        'website'
+        'website',
         'language',
         'project_name',
         'remark'       

@@ -31,7 +31,15 @@ Route::resource('fileroom_classes', 'Fileroom_ClassController');
 Route::resource('filerooms', 'FileroomController');
 Route::resource('positions', 'PositionController');
 Route::resource('auth', 'UserController');
-
-
+Route::resource('person_lists/activities', 'ActivityController');
+Route::resource('person_lists/educations', 'EducationController');
+Route::resource('person_lists/experiences', 'ExperienceController');
+Route::resource('person_lists/honors', 'HonorController');
+Route::resource('person_lists/journals', 'JournalController');
+Route::resource('person_lists/patents', 'PatentController');
+Route::resource('person_lists/projects', 'ProjectController');
+Route::resource('person_lists/reserches', 'ReserchController');
+Route::resource('person_lists/seminars', 'SeminarController');
+Route::resource('person_lists/special_books', 'Special_BookController');
 
 

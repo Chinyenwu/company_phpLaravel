@@ -72,16 +72,16 @@
                     @else
                         <a href="{{ route('login') }}">登入</a>
 
-                        @if (Route::has('register'))
+                        <!--@if (Route::has('register'))
                             <a href="{{ route('register') }}">註冊</a>
-                        @endif
+                        @endif-->
                     @endauth
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    主畫面
                 </div>
 
                 <div class="links">

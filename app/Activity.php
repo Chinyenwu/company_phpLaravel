@@ -10,6 +10,7 @@ class Activity extends Model
         'name',
         'title',
         'agency',
+        'job_title',
         'publish_agency',
         'brief',
         'year',
