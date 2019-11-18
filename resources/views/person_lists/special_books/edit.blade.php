@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-    <h1 class="display-3">新增類別</h1>
+    <h1 class="display-3">專書編輯</h1>
   <div>
     @if ($errors->any())
       <div class="alert alert-danger">
@@ -14,6 +14,7 @@
         </ul>
       </div><br />
     @endif
+      <!-- 有問題 -->
       <form method="post" action="{{ route('special_books.update',special_book->id) }}">
           @method('PATCH')
           @csrf

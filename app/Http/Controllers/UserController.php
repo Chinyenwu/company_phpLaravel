@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -23,7 +23,7 @@ class UserController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @param
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -39,35 +39,40 @@ class UserController extends Controller
      */
     public function store(Request $request,$name)
     {
+        
         $request->validate([
-            'first_name' => [ 'max:255'],
-            'last_name' => [ 'max:255'],
-            'email' => [ 'email', 'max:255'],
-            'staff_number' => [ 'max:255'],
-            'contact_phone' => [ 'max:255'],
-            'fax' => [ 'max:255'],
-            'cell_phone' => [ 'max:255'],
-            'gender' => [ 'max:255'],
-            'birthday' => [ 'max:255'],
-            'contact_address' => [ 'max:255'],
-            'class' => [ 'max:255'],
-            'position' => [ 'max:255'],
+            'password' => [ 'max:255'],
+            'comfirm_password' => [ 'max:255'],
         ]);
 
-        $user = User::find($name);
-        $user->first_name =  $request->get('first_name');
-        $user->last_name = $request->get('last_name');
-        $user->email = $request->get('email');
-        $user->staff_number = $request->get('staff_number');
-        $user->contact_phone = $request->get('contact_phone');
-        $user->gender = $request->get('gender');
-        $user->birthday = $request->get('birthday');
-        $user->contact_address = $request->get('contact_address');
-        $user->class = $request->get('class');
-        $user->position = $request->get('position');
-        $user->save();
 
-        return redirect('/auth/create')->with('success', 'member update!');
+        $comfirm_password =  $request->get('comfirm_password');
+        $password =  $request->get('password');
+        
+        if($comfirm_password == $password){
+            $user = User::find($name);
+            $user->password = Hash::make($request->get('password'));
+            $user->save();
+
+            return redirect('member')->with('success', 'password update!');            
+        }
+
+        else{
+            return redirect('auth/show')->with('fial', 'password not math');   
+        }
+        
+        /*
+        $request->validate([
+            'password' => [ 'max:255'],
+        ]);
+
+
+            $user = User::find($name);
+            $user->password = Hash::make($request->get('password'));
+            $user->save();
+
+            return redirect('member')->with('success', 'password update!');            
+        */
     }
 
     /**
@@ -76,9 +81,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view('auth.changepassword');
     }
 
     /**
@@ -96,7 +101,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     *   \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

@@ -59,7 +59,7 @@ class ActivityController extends Controller
             'remark' => $request->get('remark')
         ]);
         $activity->save();
-        return redirect('/person_lists/activites')->with('success', 'Activity saved!');
+        return redirect('/person_lists/activities')->with('success', 'Activity saved!');
     }
 
     /**

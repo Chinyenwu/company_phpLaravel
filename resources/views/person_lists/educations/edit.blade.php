@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">活動編輯</h1>
+        <h1 class="display-3">學歷編輯</h1>
 
         @if ($errors->any())
         <div class="alert alert-danger">
