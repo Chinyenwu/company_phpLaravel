@@ -28,11 +28,11 @@
           </div>
           <div class="form-group">    
               <label for="job_name">工作:</label>
-              <input type="text" class="form-control" name="job_name" value={{ $experience->angency_name}}/>
+              <input type="text" class="form-control" name="job_name" value={{ $experience->job_name}}/>
           </div>
           <div class="form-group">    
               <label for="start_date">起始日期:</label>
-              <input type="text" class="form-control" name="start_date" value={{ $experience->job_name}}/>
+              <input type="text" class="form-control" name="start_date" value={{ $experience->start_date}}/>
           </div>
           <div class="form-group">    
               <label for="end_date">結束日期:</label>
@@ -44,7 +44,7 @@
           </div>
           <div class="form-group">    
               <label for="remark">備註:</label>
-              <input type="text" class="form-control" name="remark" value={{ $experience->remark"}}/>
+              <input type="text" class="form-control" name="remark" value={{ $experience->remark}}/>
           </div> 
                      
           <button type="submit" class="btn btn-primary">新增</button>

@@ -28,7 +28,7 @@
           </div>
           <div class="form-group">    
               <label for="all_editer">全部作者:</label>
-              <input type="text" class="form-control" name="all_editer" value={{ $reserch->all_editer}/>
+              <input type="text" class="form-control" name="all_editer" value={{ $reserch->all_editer}}/>
           </div>
           <div class="form-group">    
               <label for="year">年度:</label>
@@ -48,19 +48,19 @@
           </div>
           <div class="form-group">    
               <label for="file_path">檔案路徑:</label>
-              <input type="text" class="form-control" name="file_path" value={{ $reserch->file_path}/>
+              <input type="text" class="form-control" name="file_path" value={{ $reserch->file_path}}/>
           </div>  
           <div class="form-group">    
               <label for="website">網站:</label>
-              <input type="text" class="form-control" name="website" value={{$reserch->website}}/>
+              <input type="text" class="form-control" name="website" value={{ $reserch->website}}/>
           </div>
           <div class="form-group">    
               <label for="language">語言:</label>
-              <input type="text" class="form-control" name="language" value={{$reserch->language}}/>
+              <input type="text" class="form-control" name="language" value={{ $reserch->language}}/>
           </div>
           <div class="form-group">    
               <label for="remark">備註:</label>
-              <input type="text" class="form-control" name="remark" value={{$reserch->remark}}/>
+              <input type="text" class="form-control" name="remark" value={{ $reserch->remark}}/>
           </div> 
                      
           <button type="submit" class="btn btn-primary">新增</button>
