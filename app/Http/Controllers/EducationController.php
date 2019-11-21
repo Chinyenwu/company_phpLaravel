@@ -15,7 +15,7 @@ class EducationController extends Controller
      */
     public function index()
     {
-        $educations = Education::all();
+        $educations = Education::paginate(10);
         return view('person_lists/educations.index', compact('educations'));
     }
 

@@ -29,7 +29,7 @@
           </div>
           <div class="form-group">
               <label for="title">標題:</label>
-              <input type="text" class="form-control" name="title"/>
+              <input type="text" class="form-control" name="title">
           </div>
 
           <div class="form-group">
@@ -42,12 +42,12 @@
 
           <div class="form-group" style="display:none">
               <label for="person">編輯人:</label>
-              <input type="text" class="form-control" name="editer" value="{{ Auth::user()->name }}"/>
+              <input type="text" class="form-control" name="editer" value="{{ Auth::user()->name }}">
           </div>
 
           <div class="form-group" style="display:none">    
               <label for="start_date">編輯日期:</label>
-              <input type="date" class="form-control" name="edit_time" value="{{date('Y-m-d')}}" />
+              <input type="date" class="form-control" name="edit_time" value="{{date('Y-m-d')}}" >
           </div>  
 
           <button type="submit" class="btn btn-primary">新增頁面</button>

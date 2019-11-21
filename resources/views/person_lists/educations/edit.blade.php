@@ -21,35 +21,35 @@
           @csrf
           <div class="form-group">    
               <label for="name">校名:</label>
-              <input type="text" class="form-control" name="name" value={{ $education->name}} />
+              <input type="text" class="form-control" name="name" value={{ $education->name}} >
           </div>
           <div class="form-group">    
               <label for="country">國家:</label>
-              <input type="text" class="form-control" name="country" value={{ $education->country}}/>
+              <input type="text" class="form-control" name="country" value={{ $education->country}}>
           </div>
           <div class="form-group">    
               <label for="department">科系:</label>
-              <input type="text" class="form-control" name="department" value={{ $education->department}}/>
+              <input type="text" class="form-control" name="department" value={{ $education->department}}>
           </div>
           <div class="form-group">    
               <label for="degree">學位:</label>
-              <input type="text" class="form-control" name="degree" value={{ $education->degree}}/>
+              <input type="text" class="form-control" name="degree" value={{ $education->degree}}>
           </div>
           <div class="form-group">    
               <label for="start_date">起始日期:</label>
-              <input type="text" class="form-control" name="start_date" value={{ $education->start_date}}/>
+              <input type="date" class="form-control" name="start_date" value={{ $education->start_date}}>
           </div>
           <div class="form-group">    
               <label for="end_date">結束日期:</label>
-              <input type="text" class="form-control" name="end_date" value={{ $education->end_date}}/>
+              <input type="date" class="form-control" name="end_date" value={{ $education->end_date}}>
           </div>  
           <div class="form-group">    
               <label for="website">網站:</label>
-              <input type="text" class="form-control" name="website" value={{ $education->website}}/>
+              <input type="text" class="form-control" name="website" value={{ $education->website}}>
           </div>
           <div class="form-group">    
               <label for="remark">備註:</label>
-              <input type="text" class="form-control" name="remark" value={{ $education->remark}}/>
+              <textarea class="form-control" name="remark" >{{ $education->remark}}</textarea>
           </div> 
                      
           <button type="submit" class="btn btn-primary">新增</button>

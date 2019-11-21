@@ -36,6 +36,6 @@
   </table>
 </div>
 <div>
-
+<?php echo $projects->links(); ?>
 </div>
 @endsection

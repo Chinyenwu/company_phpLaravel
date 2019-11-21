@@ -15,7 +15,7 @@ class PatentController extends Controller
      */
     public function index()
     {
-        $patents = Patent::all();
+        $patents = Patent::paginate(10);
         return view('person_lists/patents.index', compact('patents'));
     }
 

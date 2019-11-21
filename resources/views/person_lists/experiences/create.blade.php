@@ -18,31 +18,31 @@
           @csrf
           <div class="form-group">    
               <label for="angency_name">機構名字:</label>
-              <input type="text" class="form-control" name="angency_name"/>
+              <input type="text" class="form-control" name="angency_name">
           </div>
           <div class="form-group">    
               <label for="agency">機構:</label>
-              <input type="text" class="form-control" name="agency"/>
+              <input type="text" class="form-control" name="agency">
           </div>
           <div class="form-group">    
               <label for="job_name">工作:</label>
-              <input type="text" class="form-control" name="job_name"/>
+              <input type="text" class="form-control" name="job_name">
           </div>
           <div class="form-group">    
               <label for="start_date">起始日期:</label>
-              <input type="text" class="form-control" name="start_date"/>
+              <input type="date" class="form-control" name="start_date" value = "{{date('Y-m-d')}}">
           </div>
           <div class="form-group">    
               <label for="end_date">結束日期:</label>
-              <input type="text" class="form-control" name="end_date"/>
+              <input type="date" class="form-control" name="end_date" value = "{{date('Y-m-d', strtotime('+1 year'))}}">
           </div>           
           <div class="form-group">    
               <label for="website">網站:</label>
-              <input type="text" class="form-control" name="website"/>
+              <input type="text" class="form-control" name="website">
           </div>
           <div class="form-group">    
               <label for="remark">備註:</label>
-              <input type="text" class="form-control" name="remark"/>
+              <textarea  class="form-control" name="remark"></textarea>
           </div> 
                      
           <button type="submit" class="btn btn-primary">新增</button>

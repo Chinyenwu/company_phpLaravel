@@ -15,7 +15,7 @@ class JournalController extends Controller
      */
     public function index()
     {
-        $journals = Journal::all();
+        $journals = Journal::paginate(10);
         return view('person_lists/journals.index', compact('journals'));
     }
 

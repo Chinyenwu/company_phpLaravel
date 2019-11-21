@@ -15,7 +15,7 @@ class SeminarController extends Controller
      */
     public function index()
     {
-        $seminars = Seminar::all();
+        $seminars = Seminar::paginate(10);
         return view('person_lists/seminars.index', compact('seminars'));
     }
 

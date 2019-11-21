@@ -165,7 +165,7 @@
                             <label for="birthday" class="col-md-4 col-form-label text-md-right">{{ __('生日') }}</label>
 
                             <div class="col-md-6">
-                                <input id="birthday" type="date" class="form-control @error('cell_phone') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" >
+                                <input id="birthday" type="date" class="form-control @error('cell_phone') is-invalid @enderror" name="birthday" value = "{{date('Y-m-d')}}">
 
                                 @error('birthday')
                                     <span class="invalid-feedback" role="alert">

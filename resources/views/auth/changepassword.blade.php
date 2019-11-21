@@ -16,15 +16,14 @@
         <br /> 
         @endif
         <form method="post" action="{{ route('auth.store', Auth::user() ) }}">
-            @method('POST') 
-            @csrf
+          @csrf
           <div class="form-group">
               <label for="password">密碼:</label>
-              <input type="password" class="form-control" name="password"  />
+              <input type="password" class="form-control" name="password"  >
           </div>
           <div class="form-group">
               <label for="comfirm_password">確認密碼:</label>
-              <input type="password" class="form-control" name="comfirm_password"  />
+              <input type="password" class="form-control" name="comfirm_password"  >
           </div>
 
         <button type="submit" class="btn btn-primary">更新</button>

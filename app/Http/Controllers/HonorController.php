@@ -15,7 +15,7 @@ class HonorController extends Controller
      */
     public function index()
     {
-        $honors = Honor::all();
+        $honors = Honor::paginate(10);
         return view('person_lists/honors.index', compact('honors'));
     }
 

@@ -19,75 +19,84 @@
           @csrf
           <div class="form-group">    
               <label for="speech_name">演講名稱:</label>
-              <input type="text" class="form-control" name="speech_name" value={{ $journal->speech_name}} />
+              <input type="text" class="form-control" name="speech_name" value={{ $journal->speech_name}} >
           </div>
           <div class="form-group">    
               <label for="journal_name">期刊名稱:</label>
-              <input type="text" class="form-control" name="journal_name" value={{ $journal->journal_name}}/>
+              <input type="text" class="form-control" name="journal_name" value={{ $journal->journal_name}}>
           </div>
           <div class="form-group">    
               <label for="all_editer">所有作者:</label>
-              <input type="text" class="form-control" name="all_editer" value={{ $journal->all_editer}}/>
+              <input type="text" class="form-control" name="all_editer" value={{ $journal->all_editer}}>
           </div>
             <div class="form-group">    
               <label for="year">年度:</label>
-              <input type="text" class="form-control" name="year" value={{ $journal->year}}/>
+              <input type="text" class="form-control" name="year" value={{ $journal->year}}>
           </div>
           <div class="form-group">    
               <label for="level">等級:</label>
-              <input type="text" class="form-control" name="level" value={{ $journal->level}}/>
+              <input  type="radio"  name="level"  value="{{ 'SCI' }}" >SCI
+              <input  type="radio"  name="level"  value="{{ 'SSCI' }}" >SSCI
+              <input  type="radio"  name="level"  value="{{ 'EI' }}" >EI
+              <input  type="radio"  name="level"  value="{{ 'AHCI' }}" >AHCI
+              <input  type="radio"  name="level"  value="{{ 'TSSCI' }}" >TSSCI
+              <input  type="radio"  name="level"  value="{{ '其他' }}" >其他 
           </div>   
           <div class="form-group">    
               <label for="date">日期:</label>
-              <input type="text" class="form-control" name="date" value={{ $journal->date}}/>
+              <input type="text" class="form-control" name="date" value={{ $journal->date}}>
           </div>
           <div class="form-group">    
               <label for="book_number">書號:</label>
-              <input type="text" class="form-control" name="book_number" value={{ $journal->book_number}}/>
+              <input type="text" class="form-control" name="book_number" value={{ $journal->book_number}}>
           </div>
             <div class="form-group">    
               <label for="journal_number">刊號:</label>
-              <input type="text" class="form-control" name="journal_number" value={{ $journal->journal_number}}/>
+              <input type="text" class="form-control" name="journal_number" value={{ $journal->journal_number}}>
           </div>
           <div class="form-group">    
               <label for="page">頁數:</label>
-              <input type="text" class="form-control" name="page" value={{ $journal->page}}/>
+              <input type="text" class="form-control" name="page" value={{ $journal->page}}>
           </div>  
           <div class="form-group">    
               <label for="editer_number">作者人數:</label>
-              <input type="text" class="form-control" name="editer_number" value={{ $journal->editer_number}}/>
+              <input type="text" class="form-control" name="editer_number" value={{ $journal->editer_number}}>
           </div>   
           <div class="form-group">    
-              <label for="editer_type">作者類別:</label>
-              <input type="text" class="form-control" name="editer_type" value={{ $journal->editer_type}}/>
+              <label for="editer_type">作者型態:</label>
+              <input  type="radio"  name="editer_type"  value="{{'First Author'}}" >First Author
+              <input  type="radio"  name="editer_type"  value="{{'Corresponding Author'}}" >Corresponding Author
+              <input  type="radio"  name="editer_type"  value="{{'Other'}}" >Other
           </div>
           <div class="form-group">    
               <label for="ISSN">ISSN:</label>
-              <input type="text" class="form-control" name="ISSN" value={{ $journal->ISSN}}/>
+              <input type="text" class="form-control" name="ISSN" value={{ $journal->ISSN}}>
           </div>
             <div class="form-group">    
               <label for="ISI_Number">ISI_Number:</label>
-              <input type="text" class="form-control" name="ISI_Number" value={{ $journal->ISI_Number}}/>
+              <input type="text" class="form-control" name="ISI_Number" value={{ $journal->ISI_Number}}>
           </div>
           <div class="form-group">    
               <label for="file">檔案名稱:</label>
-              <input type="text" class="form-control" name="file" value={{ $journal->file}}/>
+              <input type="text" class="form-control" name="file" value={{ $journal->file}}>
           </div>
           <div class="form-group">    
               <label for="file_path">檔案路徑:</label>
-              <input type="text" class="form-control" name="file_path" value={{ $journal->file_path}}/>
+              <input type="text" class="form-control" name="file_path" value={{ $journal->file_path}}>
           </div>
           <div class="form-group">    
               <label for="website">網站:</label>
-              <input type="text" class="form-control" name="website" value={{ $journal->website}}/>
+              <input type="text" class="form-control" name="website" value={{ $journal->website}}>
           </div>
             <div class="form-group">    
               <label for="language">語言:</label>
-              <input type="text" class="form-control" name="language" value={{ $journal->language}}/>
+              <input  type="radio"  name="language"  value="{{'繁體中文'}}" >繁體中文
+              <input  type="radio"  name="language"  value="{{'English'}}" >English
+              <input  type="radio"  name="language"  value="{{'其他'}}" >其他
           </div> 
           <div class="form-group">    
               <label for="remark">備註:</label>
-              <input type="text" class="form-control" name="remark" value={{$journal->remark}}/>
+              <textarea class="form-control" name="remark" >{{$journal->remark}}</textarea>
           </div> 
                      
           <button type="submit" class="btn btn-primary">新增</button>

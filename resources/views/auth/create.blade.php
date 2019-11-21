@@ -21,57 +21,57 @@
             @csrf
           <div class="form-group">
               <label for="first_name">姓:</label>
-              <input type="text" class="form-control" name="first_name" value={{ Auth::user()->first_name }} />
+              <input type="text" class="form-control" name="first_name" value={{ Auth::user()->first_name }} >
           </div>
 
           <div class="form-group">
               <label for="last_name">名:</label>
-              <input type="text" class="form-control" name="last_name" value={{ Auth::user()->last_name }} />
+              <input type="text" class="form-control" name="last_name" value={{ Auth::user()->last_name }} >
           </div>
 
           <div class="form-group">
               <label for="email">信箱:</label>
-              <input type="text" class="form-control" name="email" value={{ Auth::user()->email }} />
+              <input type="text" class="form-control" name="email" value={{ Auth::user()->email }} >
           </div>
 
           <div class="form-group">
               <label for="staff_number">員編標號:</label>
-              <input type="text" class="form-control" name="staff_number" value={{ Auth::user()->staff_number }} />
+              <input type="text" class="form-control" name="staff_number" value={{ Auth::user()->staff_number }} >
           </div>
 
           <div class="form-group">
               <label for="contact_phone">連絡電話:</label>
-              <input type="text" class="form-control" name="contact_phone" value={{ Auth::user()->contact_phone }} />
+              <input type="text" class="form-control" name="contact_phone" value={{ Auth::user()->contact_phone }} >
           </div>
 
           <div class="form-group">
               <label for="contact_phone">連絡電話:</label>
-              <input type="text" class="form-control" name="contact_phone" value={{ Auth::user()->contact_phone }} />
+              <input type="text" class="form-control" name="contact_phone" value={{ Auth::user()->contact_phone }} >
           </div>
 
           <div class="form-group">
               <label for="fax">傳真:</label>
-              <input type="text" class="form-control" name="fax" value={{ Auth::user()->fax }} />
+              <input type="text" class="form-control" name="fax" value={{ Auth::user()->fax }} >
           </div>
 
           <div class="form-group">
               <label for="cell_phone">手機:</label>
-              <input type="text" class="form-control" name="cell_phone" value={{ Auth::user()->cell_phone }} />
+              <input type="text" class="form-control" name="cell_phone" value={{ Auth::user()->cell_phone }} >
           </div>
 
           <div class="form-group">
               <label for="gender">性別:</label>
-              <input type="text" class="form-control" name="gender" value={{ Auth::user()->gender }} />
+              <input type="text" class="form-control" name="gender" value={{ Auth::user()->gender }} >
           </div>
 
           <div class="form-group">
               <label for="birthday">生日:</label>
-              <input type="date" class="form-control" name="birthday" value={{ Auth::user()->birthday}} />
+              <input type="date" class="form-control" name="birthday" value={{ Auth::user()->birthday}} >
           </div>  
  
           <div class="form-group">
               <label for="contact_address">住址:</label>
-              <input type="text" class="form-control" name="contact_address" value={{ Auth::user()->contact_address }} />
+              <input type="text" class="form-control" name="contact_address" value={{ Auth::user()->contact_address }} >
           </div>
 
           <div class="form-group">

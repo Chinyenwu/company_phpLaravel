@@ -18,63 +18,67 @@
           @csrf
           <div class="form-group">    
               <label for="name">專利名:</label>
-              <input type="text" class="form-control" name="name"/>
+              <input type="text" class="form-control" name="name">
           </div>
           <div class="form-group">    
               <label for="country">國家:</label>
-              <input type="text" class="form-control" name="country"/>
+              <input type="text" class="form-control" name="country">
           </div>
           <div class="form-group">    
               <label for="owner">持有者:</label>
-              <input type="text" class="form-control" name="owner"/>
+              <input type="text" class="form-control" name="owner">
           </div>
-            <div class="form-group">    
+          <div class="form-group">
               <label for="year">年度:</label>
-              <input type="text" class="form-control" name="year"/>
+              <input type="text" class="form-control" name="year">
           </div>
           <div class="form-group">    
               <label for="type">類別:</label>
-              <input type="text" class="form-control" name="type"/>
+              <input  type="radio"  name="type"  value="{{'專利'}}" >專利
+              <input  type="radio"  name="type"  value="{{'技術轉移'}}" >技術轉移
+              <input  type="radio"  name="type"  value="{{'學生專題製作競賽'}}" >學生專題製作競賽
           </div>   
           <div class="form-group">    
               <label for="number">數量:</label>
-              <input type="text" class="form-control" name="number"/>
+              <input type="text" class="form-control" name="number">
           </div>
           <div class="form-group">    
               <label for="publish_schedule">發表歷程:</label>
-              <input type="text" class="form-control" name="publish_schedule"/>
+              <input type="text" class="form-control" name="publish_schedule">
           </div>
             <div class="form-group">    
               <label for="publish_date">發行日期:</label>
-              <input type="text" class="form-control" name="publish_date"/>
+              <input type="date" class="form-control" name="publish_date" value = "{{date('Y-m-d')}}">
           </div>
           <div class="form-group">    
               <label for="start_date">起始日期:</label>
-              <input type="text" class="form-control" name="start_date"/>
+              <input type="date" class="form-control" name="start_date" value = "{{date('Y-m-d')}}">
           </div>  
           <div class="form-group">    
               <label for="end_date">結束日期:</label>
-              <input type="text" class="form-control" name="end_date"/>
+              <input type="date" class="form-control" name="end_date" value = "{{date('Y-m-d', strtotime('+1 year'))}}">
           </div> 
           <div class="form-group">    
               <label for="file">檔案名稱:</label>
-              <input type="text" class="form-control" name="file"/>
+              <input type="text" class="form-control" name="file">
           </div>
           <div class="form-group">    
               <label for="file_path">檔案路徑:</label>
-              <input type="text" class="form-control" name="file_path"/>
+              <input type="text" class="form-control" name="file_path">
           </div>
           <div class="form-group">    
               <label for="website">網站:</label>
-              <input type="text" class="form-control" name="website"/>
+              <input type="text" class="form-control" name="website">
           </div>
           <div class="form-group">    
               <label for="language">語言:</label>
-              <input type="text" class="form-control" name="language"/>
+              <input  type="radio"  name="language"  value="{{'繁體中文'}}" >繁體中文
+              <input  type="radio"  name="language"  value="{{'English'}}" >English
+              <input  type="radio"  name="language"  value="{{'其他'}}" >其他
           </div> 
           <div class="form-group">    
               <label for="remark">備註:</label>
-              <input type="text" class="form-control" name="remark"/>
+              <textarea  class="form-control" name="remark"></textarea>
           </div> 
                      
           <button type="submit" class="btn btn-primary">新增</button>

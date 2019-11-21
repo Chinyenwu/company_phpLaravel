@@ -40,5 +40,3 @@ Route::resource('person_lists/projects', 'ProjectController');
 Route::resource('person_lists/reserches', 'ReserchController');
 Route::resource('person_lists/seminars', 'SeminarController');
 Route::resource('person_lists/special_books', 'Special_BookController');
-//Route::get('auth/show/{Auth:user()->name}', 'Auth/UserController@changepassword')->name('register');
-//Route::resource('auth', 'UserController');

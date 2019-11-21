@@ -36,6 +36,6 @@
   </table>
 </div>
 <div>
-
+<?php echo $reserches->links(); ?>
 </div>
 @endsection

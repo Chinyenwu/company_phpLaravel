@@ -15,7 +15,7 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        $experiences = Experience::all();
+        $experiences = Experience::paginate(10);
         return view('person_lists/experiences.index', compact('experiences'));
     }
 

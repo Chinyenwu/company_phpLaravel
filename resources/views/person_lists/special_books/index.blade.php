@@ -36,6 +36,6 @@
   </table>
 </div>
 <div>
-
+<?php echo $special_books->links(); ?>
 </div>
 @endsection

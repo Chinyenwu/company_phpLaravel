@@ -15,7 +15,7 @@ class ReserchController extends Controller
      */
     public function index()
     {
-        $reserches = Reserch::all();
+        $reserches = Reserch::paginate(10);
         return view('person_lists/reserches.index', compact('reserches'));
     }
 

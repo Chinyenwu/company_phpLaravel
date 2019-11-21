@@ -36,6 +36,6 @@
   </table>
 </div>
 <div>
-
+<?php echo $patents->links(); ?>
 </div>
 @endsection

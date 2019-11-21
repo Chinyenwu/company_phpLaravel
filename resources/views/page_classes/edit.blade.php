@@ -20,7 +20,7 @@
             <div class="form-group">
 
                 <label for="class">類別:</label>
-                <input type="text" class="form-control" name="class" value={{ $page_class->class }} />
+                <input type="text" class="form-control" name="class" value={{ $page_class->class }} >
             </div>
             <button type="submit" class="btn btn-primary">更新</button>
         </form>

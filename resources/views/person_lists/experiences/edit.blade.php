@@ -20,31 +20,31 @@
           @csrf
           <div class="form-group">    
               <label for="angency_name">機構名字:</label>
-              <input type="text" class="form-control" name="angency_name" value={{ $experience->angency_name}} />
+              <input type="text" class="form-control" name="angency_name" value={{ $experience->angency_name}} >
           </div>
           <div class="form-group">    
               <label for="agency">機構:</label>
-              <input type="text" class="form-control" name="agency" value={{ $experience->agency}}/>
+              <input type="text" class="form-control" name="agency" value={{ $experience->agency}}>
           </div>
           <div class="form-group">    
               <label for="job_name">工作:</label>
-              <input type="text" class="form-control" name="job_name" value={{ $experience->job_name}}/>
+              <input type="text" class="form-control" name="job_name" value={{ $experience->job_name}}>
           </div>
           <div class="form-group">    
               <label for="start_date">起始日期:</label>
-              <input type="text" class="form-control" name="start_date" value={{ $experience->start_date}}/>
+              <input type="date" class="form-control" name="start_date" value={{ $experience->start_date}}>
           </div>
           <div class="form-group">    
               <label for="end_date">結束日期:</label>
-              <input type="text" class="form-control" name="end_date" value={{ $experience->end_date}}/>
+              <input type="date" class="form-control" name="end_date" value={{ $experience->end_date}}>
           </div>           
           <div class="form-group">    
               <label for="website">網站:</label>
-              <input type="text" class="form-control" name="website" value={{ $experience->website}}/>
+              <input type="text" class="form-control" name="website" value={{ $experience->website}}>
           </div>
           <div class="form-group">    
               <label for="remark">備註:</label>
-              <input type="text" class="form-control" name="remark" value={{ $experience->remark}}/>
+              <textarea class="form-control" name="remark" >{{$experience->remark}}</textarea>
           </div> 
                      
           <button type="submit" class="btn btn-primary">新增</button>

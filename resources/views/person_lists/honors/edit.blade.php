@@ -19,39 +19,39 @@
           @csrf
           <div class="form-group">    
               <label for="name">名字:</label>
-              <input type="text" class="form-control" name="name" value={{ $honor->name}} />
+              <input type="text" class="form-control" name="name" value={{ $honor->name}} >
           </div>
           <div class="form-group">    
               <label for="agency">機構:</label>
-              <input type="text" class="form-control" name="agency" value={{ $honor->agency}}/>
+              <input type="text" class="form-control" name="agency" value={{ $honor->agency}}>
           </div>
           <div class="form-group">    
               <label for="country">國家:</label>
-              <input type="text" class="form-control" name="country" value={{ $honor->country}}/>
+              <input type="text" class="form-control" name="country" value={{ $honor->country}}>
           </div>
           <div class="form-group">    
               <label for="year">年度:</label>
-              <input type="text" class="form-control" name="year" value={{ $honor->year}}/>
+              <input type="text" class="form-control" name="year" value={{ $honor->year}}>
           </div>
           <div class="form-group">    
               <label for="type">種類:</label>
-              <input type="text" class="form-control" name="type" value={{ $honor->type}}/>
+              <input type="text" class="form-control" name="type" value={{ $honor->type}}>
           </div>          
           <div class="form-group">    
               <label for="file">檔案名:</label>
-              <input type="text" class="form-control" name="file" value={{ $honor->file}}/>
+              <input type="text" class="form-control" name="file" value={{ $honor->file}}>
           </div>
           <div class="form-group">    
               <label for="file_path">檔案路徑:</label>
-              <input type="text" class="form-control" name="file_path" value={{ $honor->file_path}}/>
+              <input type="text" class="form-control" name="file_path" value={{ $honor->file_path}}>
           </div>  
           <div class="form-group">    
               <label for="website">網站:</label>
-              <input type="text" class="form-control" name="website" value={{ $honor->website}}/>
+              <input type="text" class="form-control" name="website" value={{ $honor->website}}>
           </div>
           <div class="form-group">    
               <label for="remark">備註:</label>
-              <input type="text" class="form-control" name="remark" value={{ $honor->remark}}/>
+              <textarea class="form-control" name="remark" >{{ $honor->remark}}</textarea>
           </div> 
                      
           <button type="submit" class="btn btn-primary">新增</button>

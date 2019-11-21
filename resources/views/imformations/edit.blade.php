@@ -32,32 +32,32 @@
 
           <div class="form-group">    
               <label for="start_date">開始日期:</label>
-              <input type="date" class="form-control" name="start_date" value={{ $imformation->start_date }} />
+              <input type="date" class="form-control" name="start_date" value={{ $imformation->start_date }} >
           </div>
 
           <div class="form-group">
               <label for="end_date">結束日期:</label>
-              <input type="date" class="form-control" name="end_date" value={{ $imformation->end_date}} />
+              <input type="date" class="form-control" name="end_date" value={{ $imformation->end_date}} >
           </div>
 
           <div class="form-group">
               <label for="title">標題:</label>
-              <input type="text" class="form-control" name="title" value={{ $imformation->title }} />
+              <input type="text" class="form-control" name="title" value={{ $imformation->title }} >
           </div>
 
           <div class="form-group">
               <label for="second_title">副標題:</label>
-              <input type="text" class="form-control" name="second_title" value={{ $imformation->second_title }} />
+              <input type="text" class="form-control" name="second_title" value={{ $imformation->second_title }} >
           </div>
 
           <div class="form-group">
               <label for="website">網站:</label>
-              <input type="text" class="form-control" name="website" value={{ $imformation->website }} />
+              <input type="text" class="form-control" name="website" value={{ $imformation->website }} >
           </div>
 
           <div class="form-group" style="display:none">
               <label for="person" >編輯人:</label>
-              <input type="text" class="form-control" name="person" value={{ Auth::user()->name }} />
+              <input type="text" class="form-control" name="person" value={{ Auth::user()->name }} >
           </div>
 
           <div class="form-group">

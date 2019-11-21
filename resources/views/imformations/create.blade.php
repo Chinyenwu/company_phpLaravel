@@ -29,29 +29,29 @@
 
           <div class="form-group">    
               <label for="start_date">開始日期:</label>
-              <input type="date" class="form-control" name="start_date" value = "{{date('Y-m-d')}}"/>
+              <input type="date" class="form-control" name="start_date" value = "{{date('Y-m-d')}}">
           </div>
 
           <div class="form-group">
               <label for="end_date">結束日期:</label>
-              <input type="date" class="form-control" name="end_date" value = "{{date('Y-m-d', strtotime('+1 year'))}}"/>
+              <input type="date" class="form-control" name="end_date" value = "{{date('Y-m-d', strtotime('+1 year'))}}">
           </div>
 
           <div class="form-group">
               <label for="title">標題:</label>
-              <input type="text" class="form-control" name="title"/>
+              <input type="text" class="form-control" name="title">
           </div>
           <div class="form-group">
               <label for="second_title">副標題:</label>
-              <input type="text" class="form-control" name="second_title"/>
+              <input type="text" class="form-control" name="second_title">
           </div>
           <div class="form-group">
               <label for="website">網站:</label>
-              <input type="text" class="form-control" name="website"/>
+              <input type="text" class="form-control" name="website">
           </div>
           <div class="form-group" style="display:none">
               <label for="person">編輯人:</label>
-              <input type="text" class="form-control" name="person" value="{{ Auth::user()->name }}"/>
+              <input type="text" class="form-control" name="person" value="{{ Auth::user()->name }}">
           </div>
           <div class="form-group">
               <label for="context">內文:</label>

@@ -36,6 +36,6 @@
   </table>
 </div>
 <div>
-
+<?php echo $honors->links(); ?>
 </div>
 @endsection

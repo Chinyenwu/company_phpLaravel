@@ -15,7 +15,7 @@ class Special_BookController extends Controller
      */
     public function index()
     {
-        $special_books = Special_book::all();
+        $special_books = Special_book::paginate(10);
         return view('person_lists/special_books.index', compact('special_books'));
     }
 
