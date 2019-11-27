@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
-use App\Networklink;
+use App\Networklink_Class;
 
-class NetworklinkController extends Controller
+class Networklink_ClassController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class NetworklinkController extends Controller
      */
     public function index()
     {
-        $networklinks = Networklink::paginate(10);
-        return view('networklinks.index', compact('networklinks'));
+        $networklink_classes = Networklink_Class::paginate(10);
+
+        return view('networklink_classes.index', compact('networklink_classes'));
     }
 
     /**
@@ -26,7 +27,7 @@ class NetworklinkController extends Controller
      */
     public function create()
     {
-        return view('networklinks.create');
+        return view('networklink_classes.create');
     }
 
     /**
@@ -37,21 +38,15 @@ class NetworklinkController extends Controller
      */
     public function store(Request $request)
     {
-       $request->validate([
+        $request->validate([
             'class'=>'required',
-            'title'=>'required'
         ]);
 
-        $networklink = new Networklink([
-            'class' => $request->get('class'),
-            'title' => $request->get('title'),
-            'content' => $request->get('content'),
-            'link' => $request->get('link'),
-            'way' => $request->get('way'),
-            'editer'=>$request->get('editer')
+        $networklink_classes = new Networklink_Class([
+            'class' => $request->get('class')
         ]);
-        $networklink->save();
-        return redirect('/networklinks')->with('success', 'Contact saved!');
+        $networklink_classes->save();
+        return redirect('/networklink_classes')->with('success', 'Class saved!');
     }
 
     /**
@@ -73,8 +68,8 @@ class NetworklinkController extends Controller
      */
     public function edit($id)
     {
-        $networklink = Networklink::find($id);
-        return view('networklinks.edit', compact('networklink'));   
+        $networklink_class = Networklink_Class::find($id);
+        return view('networklink_classes.edit', compact('networklink_class')); 
     }
 
     /**
@@ -88,18 +83,13 @@ class NetworklinkController extends Controller
     {
         $request->validate([
             'class'=>'required',
-            'title'=>'required'
         ]);
 
-        $networklink = Networklink::find($id);
-        $networklink->class =  $request->get('class');
-        $networklink->title = $request->get('title');
-        $networklink->content = $request->get('content');
-        $networklink->link = $request->get('link');
-        $networklink->way = $request->get('way');
-        $networklink->save();
+        $networklink_class = Networklink_Class::find($id);
+        $networklink_class->class =  $request->get('class');
+        $networklink_class->save();
 
-        return redirect('/networklinks')->with('success', 'Networklink updated!');
+        return redirect('/networklink_classes')->with('success', 'networklink_class updated!');
     }
 
     /**
@@ -110,8 +100,9 @@ class NetworklinkController extends Controller
      */
     public function destroy($id)
     {
-        $networklink = Networklink::find($id);
-        $networklink->delete();
-        return redirect('/networklinks')->with('success', 'Networklink deleted!');
+        $networklink_class = networklink_Class::find($id);
+        $networklink_class->delete();
+
+        return redirect('/networklink_classes')->with('success', 'networklink_class deleted!');
     }
 }

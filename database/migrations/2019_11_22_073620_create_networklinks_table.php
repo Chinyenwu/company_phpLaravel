@@ -15,7 +15,7 @@ class CreateNetworklinksTable extends Migration
     {
         Schema::create('networklinks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('networklink_class');
+            $table->string('class');
             $table->string('title');
             $table->string('content');
             $table->string('link');

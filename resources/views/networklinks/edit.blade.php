@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">編輯公告</h1>
+        <h1 class="display-3">編輯網路資源</h1>
 
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -32,12 +32,12 @@
 
           <div class="form-group">    
               <label for="title">標題:</label>
-              <input type="date" class="form-control" name="title" value={{ $networklink->title}}>
+              <input type="text" class="form-control" name="title" value={{ $networklink->title}}>
           </div>
 
           <div class="form-group">
               <label for="content">內容:</label>
-              <input type="date" class="form-control" name="content" value={{ $networklink->content}}>
+              <input type="text" class="form-control" name="content" value={{ $networklink->content}}>
           </div>
 
           <div class="form-group">
