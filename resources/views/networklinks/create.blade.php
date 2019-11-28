@@ -3,7 +3,7 @@
 
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-    <h1 class="display-3">新增網路資源</h1>
+    <h1 class="display-3">新增公告</h1>
   <div>
     @if ($errors->any())
       <div class="alert alert-danger">
@@ -18,22 +18,22 @@
           @csrf
           <div class="form-group">
               <label for="class">類別:</label>
-              <?php $networklink_classes = DB::table('networklink_classes')->get();?>
+              <?php $imformation_classes = DB::table('networklink_classes')->get();?>
               <select class="form-control" name="class" >
                   @foreach($networklink_classes as $networklink_class)
-                  <option value="{{$networklink_class->class}}" >{{$networklink_class->class}}</option>
+                  <option value="{{$networklink_class->class}}">{{$networklink_class->class}}</option>
                   @endforeach
-              </select> 
+              </select>    
           </div>
 
           <div class="form-group">    
               <label for="title">標題:</label>
-              <input type="text" class="form-control" name="title">
+              <input type="date" class="form-control" name="title">
           </div>
 
           <div class="form-group">
               <label for="content">內容:</label>
-              <input type="text" class="form-control" name="content">
+              <input type="date" class="form-control" name="content">
           </div>
 
           <div class="form-group">

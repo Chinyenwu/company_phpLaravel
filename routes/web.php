@@ -30,8 +30,6 @@ Route::resource('fileroom_classes', 'Fileroom_ClassController');
 Route::resource('filerooms', 'FileroomController');
 Route::resource('positions', 'PositionController');
 Route::resource('auth', 'UserController');
-Route::resource('networklink_classes', 'Networklink_ClassController');
-Route::resource('networklinks', 'NetworklinkController');
 Route::resource('person_lists/activities', 'ActivityController');
 Route::resource('person_lists/educations', 'EducationController');
 Route::resource('person_lists/experiences', 'ExperienceController');

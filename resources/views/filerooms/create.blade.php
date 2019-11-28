@@ -39,7 +39,7 @@
 
           <div class="form-group">
               <label for="file_path">檔案路徑:</label>
-              <input type="file" class="form-control" name="file_path">
+              <input type="text" class="form-control" name="file_path">
           </div>     
 
           <div class="form-group" style="display:none">

@@ -100,16 +100,7 @@
                     <li><a class="btn btn-light" href="{{ url('/fileroom_classes') }}" >類別</a></li>
                 </ul>
                 </li>
-            </ul>  
-            <ul class="nav nav-tabs">
-                <li class="dropdown"><a class="btn btn-light"class="dropdown-toggle"  data-toggle="dropdown" href="#">網路資源</a>
-                <ul class="dropdown-menu">
-                    <li><a class="btn btn-light" href="{{ url('/networklinks') }}" >列表</a></li>
-                    <li><a class="btn btn-light" href="{{ url('/networklinks/create') }}" >新增</a></li>
-                    <li><a class="btn btn-light" href="{{ url('/networklink_classes') }}" >類別</a></li>
-                </ul>
-                </li>
-            </ul>       
+            </ul>         
         </div>
         <main class="py-4">
             @yield('content')

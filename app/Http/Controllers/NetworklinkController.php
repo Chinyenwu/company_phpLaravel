@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator,Redirect,Response;
-use App\Networklink;
 
 class NetworklinkController extends Controller
 {
@@ -15,7 +13,7 @@ class NetworklinkController extends Controller
      */
     public function index()
     {
-        $networklinks = Networklink::paginate(10);
+        $networklinks = Networklink::all();
         return view('networklinks.index', compact('networklinks'));
     }
 
@@ -38,19 +36,18 @@ class NetworklinkController extends Controller
     public function store(Request $request)
     {
        $request->validate([
-            'class'=>'required',
+            'networklink_class'=>'required',
             'title'=>'required'
         ]);
 
-        $networklink = new Networklink([
-            'class' => $request->get('class'),
+        $contact = new Contact([
+            'networklink_class' => $request->get('networklink_class'),
             'title' => $request->get('title'),
             'content' => $request->get('content'),
             'link' => $request->get('link'),
-            'way' => $request->get('way'),
-            'editer'=>$request->get('editer')
+            'way' => $request->get('way')
         ]);
-        $networklink->save();
+        $contact->save();
         return redirect('/networklinks')->with('success', 'Contact saved!');
     }
 
@@ -87,12 +84,12 @@ class NetworklinkController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'class'=>'required',
+            'networklink_class'=>'required',
             'title'=>'required'
         ]);
 
         $networklink = Networklink::find($id);
-        $networklink->class =  $request->get('class');
+        $networklink->networklink_class =  $request->get('networklink_class');
         $networklink->title = $request->get('title');
         $networklink->content = $request->get('content');
         $networklink->link = $request->get('link');

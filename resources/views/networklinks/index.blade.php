@@ -3,37 +3,33 @@
 @section('content')
 <div class="row">
 <div class="col-sm-12">
-  <h1 class="display-3">網路資源</h1>    
-<!--<div class="col-sm-12">
-
-  @if(session()->get('success'))
-    <div class="alert alert-success">
-      {{ session()->get('success') }}  
-    </div>
-  @endif
-</div>-->
-  <!--<a style="margin: 19px;" href="{{ route('networklinks.create')}}" class="btn btn-primary">新增公告</a>-->
+  <h1 class="display-3">公告</h1>    
+    <div>
   <table class="table table-striped">
     <thead>
         <tr>
           <td>id</td>
           <td>類別</td>
+          <td>開始日期</td>
+          <td>結束日期</td>
           <td>標題</td>
           <td>最後修改人</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($networklinks as $networklink)
+        @foreach($imformations as $imformation)
         <tr>
-            <td>{{$networklink->id}}</td>
-            <td>{{$networklink->class}}</td>
-            <td>{{$networklink->title}}</td>
-            <td>{{$networklink->editer}}</td>
+            <td>{{$imformation->id}}</td>
+            <td>{{$imformation->class}}</td>
+            <td>{{$imformation->start_date}}</td>
+            <td>{{$imformation->end_date}}</td>
+            <td>{{$imformation->title}}</td>
+            <td>{{$imformation->person}}</td>
             <td>
-                <a href="{{ route('networklinks.edit',$networklink->id)}}" class="btn btn-primary">編輯</a>
+                <a href="{{ route('imformations.edit',$imformation->id)}}" class="btn btn-primary">編輯</a>
             </td>
             <td>
-                <form action="{{ route('networklinks.destroy', $networklink->id)}}" method="post">
+                <form action="{{ route('imformations.destroy', $imformation->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">刪除</button>
@@ -44,6 +40,6 @@
     </tbody>
   </table>
   <div>
-    <?php echo $networklinks->links(); ?>
+    <?php echo $imformations->links(); ?>
   </div>
 @endsection
