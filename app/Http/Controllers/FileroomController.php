@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\Fileroom;
@@ -51,6 +52,9 @@ class FileroomController extends Controller
             'edit_time' => $request->get('edit_time')
 
         ]);
+
+        Storage::put($request->get('class').'/'.$request->get('filename'), $request->get('file_path'));
+
         $fileroom->save();
         return redirect('/filerooms')->with('success', 'fileroom saved!');
     }

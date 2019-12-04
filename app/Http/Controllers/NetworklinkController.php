@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator,Redirect,Response;
+use App\Networklink;
 
 class NetworklinkController extends Controller
 {
@@ -13,7 +15,7 @@ class NetworklinkController extends Controller
      */
     public function index()
     {
-        $networklinks = Networklink::all();
+        $networklinks = Networklink::paginate(10);
         return view('networklinks.index', compact('networklinks'));
     }
 
@@ -36,18 +38,19 @@ class NetworklinkController extends Controller
     public function store(Request $request)
     {
        $request->validate([
-            'networklink_class'=>'required',
+            'class'=>'required',
             'title'=>'required'
         ]);
 
-        $contact = new Contact([
-            'networklink_class' => $request->get('networklink_class'),
+        $networklink = new Networklink([
+            'class' => $request->get('class'),
             'title' => $request->get('title'),
             'content' => $request->get('content'),
             'link' => $request->get('link'),
-            'way' => $request->get('way')
+            'way' => $request->get('way'),
+            'editer' => $request->get('editer')
         ]);
-        $contact->save();
+        $networklink->save();
         return redirect('/networklinks')->with('success', 'Contact saved!');
     }
 
@@ -84,16 +87,17 @@ class NetworklinkController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'networklink_class'=>'required',
+            'class'=>'required',
             'title'=>'required'
         ]);
 
         $networklink = Networklink::find($id);
-        $networklink->networklink_class =  $request->get('networklink_class');
+        $networklink->class =  $request->get('class');
         $networklink->title = $request->get('title');
         $networklink->content = $request->get('content');
         $networklink->link = $request->get('link');
         $networklink->way = $request->get('way');
+        $networklink->editer = $request->get('editer');
         $networklink->save();
 
         return redirect('/networklinks')->with('success', 'Networklink updated!');

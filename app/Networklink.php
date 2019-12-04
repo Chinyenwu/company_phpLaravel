@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Networklink extends Model
 {
     protected $fillable = [
-        'networklink_class',
+        'class',
         'title',
         'content',
         'link',
