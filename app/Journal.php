@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Journal extends Model
@@ -28,3 +28,4 @@ class Journal extends Model
         'remark'       
     ];
 }
+

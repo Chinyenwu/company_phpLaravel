@@ -32,10 +32,10 @@
               <input type="text" class="form-control" name="title">
           </div>
 
-          <div class="form-group">
+          <!--<div class="form-group">
               <label for="filename">檔案名稱:</label>
               <input type="text" class="form-control" name="filename">
-          </div>
+          </div>-->
 
           <div class="form-group">
               <label for="file_path">檔案路徑:</label>

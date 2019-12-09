@@ -12,6 +12,7 @@
     </div>
   @endif
 </div>-->
+
     <div>
     <!--<a style="margin: 19px;" href="{{ route('imformations.create')}}" class="btn btn-primary">新增公告</a>-->
   <table class="table table-striped">
@@ -24,17 +25,17 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($networklinks as $networklink)
+        @foreach($imformations as $imformation)
         <tr>
-            <td>{{$networklink->id}}</td>
-            <td>{{$networklink->class}}</td>
-            <td>{{$networklink->title}}</td>
-            <td>{{$networklink->editer}}</td>
+            <td>{{$imformation->id}}</td>
+            <td>{{$imformation->class}}</td>
+            <td>{{$imformation->title}}</td>
+            <td>{{$imformation->editer}}</td>
             <td>
-                <a href="{{ route('networklinks.edit',$networklink->id)}}" class="btn btn-primary">編輯</a>
+                <a href="{{ route('imformations.edit',$imformation->id)}}" class="btn btn-primary">編輯</a>
             </td>
             <td>
-                <form action="{{ route('networklinks.destroy', $networklink->id)}}" method="post">
+                <form action="{{ route('imformations.destroy', $imformation->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">刪除</button>
@@ -45,6 +46,6 @@
     </tbody>
   </table>
   <div>
-    <?php echo $networklinks->links(); ?>
+    <?php echo $imformations->links(); ?>
   </div>
 @endsection

@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Seminar extends Model
@@ -30,3 +30,4 @@ class Seminar extends Model
         'remark'       
     ];
 }
+

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use League\Flysystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
@@ -46,14 +47,18 @@ class FileroomController extends Controller
         $fileroom = new fileroom([
             'class' => $request->get('class'),
             'title' => $request->get('title'),
-            'filename' => $request->get('filename'),
-            'file_path' => $request->get('file_path'),
+            'filename' => $request->file('file_path')->getClientOriginalName(),
+            'file_path' => $request->file('file_path'),
             'editer' => $request->get('editer'),
             'edit_time' => $request->get('edit_time')
 
         ]);
 
-        Storage::put($request->get('class').'/'.$request->get('filename'), $request->get('file_path'));
+        Storage::put($request->get('class'), $request->file('file_path'));
+
+        //$contents = Storage::get($request->file('file_path'));
+        //Storage::put($request->get('class').'/'.$request->get('filename'), $request->get('file_path'));
+        //$request->file('file_path')->store($request->get('class'));
 
         $fileroom->save();
         return redirect('/filerooms')->with('success', 'fileroom saved!');
@@ -98,11 +103,13 @@ class FileroomController extends Controller
             $fileroom = Fileroom::find($id);
             $fileroom->class = $request->get('class');
             $fileroom->title = $request->get('title');
-            $fileroom->filename = $request->get('filename');
-            $fileroom->file_path = $request->get('file_path');
+            $fileroom->filename = $request->file('file_path')->getClientOriginalName();
+            $fileroom->file_path = $request->file('file_path');
             $fileroom->editer = $request->get('editer');
             $fileroom->edit_time = $request->get('edit_time');
             $fileroom->save();
+
+        Storage::put($request->get('class'), $request->file('file_path'));
 
         return redirect('/filerooms')->with('success', 'fileroom update!');
     }
@@ -116,8 +123,8 @@ class FileroomController extends Controller
     public function destroy($id)
     {
         $fileroom = Fileroom::find($id);
+        Storage::delete($fileroom->file_path);
         $fileroom->delete();
-
         return redirect('/filerooms')->with('success', 'fileroom deleted!');
     }
 }

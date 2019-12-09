@@ -63,9 +63,10 @@ class ImformationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($name)
     {
-        //
+        $imformations = Imformation::paginate(10);
+        return view('imformations.index', compact('imformations'));
     }
 
     /**

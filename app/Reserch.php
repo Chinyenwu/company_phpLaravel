@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Reserch extends Model
@@ -20,3 +20,4 @@ class Reserch extends Model
         'remark'       
     ];
 }
+

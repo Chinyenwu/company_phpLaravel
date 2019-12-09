@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Fileroom extends Model
@@ -15,3 +15,4 @@ class Fileroom extends Model
         'edit_time'  
         ];
 }
+
