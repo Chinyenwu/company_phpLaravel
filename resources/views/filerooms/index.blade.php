@@ -33,6 +33,9 @@
                   <button class="btn btn-danger" type="submit">刪除</button>
                 </form>
             </td>
+            <td>
+                <a href="{{ route('filerooms.show',$fileroom->id)}}" class="btn btn-primary">下載</a>
+            </td>
         </tr>
         @endforeach
     </tbody>

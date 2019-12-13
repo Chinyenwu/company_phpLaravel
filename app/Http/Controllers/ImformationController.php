@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
+use League\Flysystem\Filesystem;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\Imformation;
@@ -16,6 +21,7 @@ class ImformationController extends Controller
     public function index()
     {
         $imformations = Imformation::paginate(10);
+        //$imformations = Imformation::where('title', 'like', '%'.$Search.'%')::paginate(10);
         return view('imformations.index', compact('imformations'));
     }
 
@@ -50,8 +56,8 @@ class ImformationController extends Controller
             'second_title' => $request->get('second_title'),
             'website' => $request->get('website'),
             'person' => $request->get('person'),
-            'context' => $request->get('context')
-
+            'context' => $request->get('context'),
+            'file' => Storage::putFileAs('information'.'/'.$request->get('class'), $request->file('file') ,$request->file('file')->getClientOriginalName())
         ]);
         $imformation->save();
         return redirect('/imformations')->with('success', 'Imformation saved!');
@@ -63,10 +69,16 @@ class ImformationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($name)
+    public function show( )
     {
-        $imformations = Imformation::paginate(10);
-        return view('imformations.index', compact('imformations'));
+        /*$imformations = Imformation::where('title', 'like', '%'.$search.'%')
+                        ->orderBy('id')
+                        ->paginate(10); 
+        return view('imformations.index', compact('imformations'));*///搜尋
+        $imformation = Imformation::find($id);
+        return Storage::download($imformation->file_path);
+        /*$imformations = Imformation::paginate(10);
+        return view('imformations.index', compact('imformations'));*/
     }
 
     /**
@@ -103,6 +115,7 @@ class ImformationController extends Controller
             $imformation->website = $request->get('website');
             $imformation->person = $request->get('person');
             $imformation->context = $request->get('context');
+            $imformation->file = Storage::putFile('information'.'/'.$request->get('class'), $request->file('file'),$request->file('file')->getClientOriginalName());
             $imformation->save();
 
         return redirect('/imformations')->with('success', 'Imformation update!');
@@ -118,8 +131,8 @@ class ImformationController extends Controller
     public function destroy($id)
     {
         $imformation = Imformation::find($id);
+        Storage::delete($imformation->file);
         $imformation->delete();
-
         return redirect('/imformations')->with('success', 'Imformation deleted!');
     }
 

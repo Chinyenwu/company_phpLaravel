@@ -12,7 +12,7 @@
           <td>類別</td>
           <td>標題</td>
           <td>最後修改人</td>
-          <td>修改日期</td>
+          <td>最後修改時間</td>
         </tr>
     </thead>
     <tbody>
@@ -22,7 +22,7 @@
             <td>{{$page->class}}</td>
             <td>{{$page->title}}</td>
             <td>{{$page->editer}}</td>
-            <td>{{$page->edit_time}}</td>
+            <td>{{$page->updated_at}}</td>
             <td>
                 <a href="{{ route('pages.edit',$page->id)}}" class="btn btn-primary">編輯</a>
             </td>

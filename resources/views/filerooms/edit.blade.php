@@ -15,7 +15,7 @@
         </div>
         <br /> 
         @endif
-        <form method="post" action="{{ route('filerooms.update', $fileroom->id) }}">
+        <form method="post" action="{{ route('filerooms.update', $fileroom->id) }}" enctype="multipart/form-data">
             @method('PATCH') 
             @csrf
 

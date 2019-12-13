@@ -14,7 +14,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('imformations.store') }}">
+      <form method="post" action="{{ route('imformations.store') }}" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
               <label for="class">類別:</label>
@@ -41,18 +41,22 @@
               <label for="title">標題:</label>
               <input type="text" class="form-control" name="title">
           </div>
+
           <div class="form-group">
               <label for="second_title">副標題:</label>
               <input type="text" class="form-control" name="second_title">
           </div>
+
           <div class="form-group">
               <label for="website">網站:</label>
               <input type="text" class="form-control" name="website">
           </div>
+
           <div class="form-group" style="display:none">
               <label for="person">編輯人:</label>
               <input type="text" class="form-control" name="person" value="{{ Auth::user()->name }}">
           </div>
+
           <div class="form-group">
               <label for="context">內文:</label>
               <textarea id="context"  name="context"></textarea>
@@ -60,7 +64,12 @@
               CKEDITOR.replace( "context" );
               </script> 
           </div>   
-   
+
+          <div class="form-group">
+              <label for="file">檔案:</label>
+              <input type="file" class="form-control" name="file">
+          </div>  
+
           <button type="submit" class="btn btn-primary">新增公告</button>
       </form>
   </div>

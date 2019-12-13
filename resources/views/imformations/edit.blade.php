@@ -15,7 +15,7 @@
         </div>
         <br /> 
         @endif
-        <form method="post" action="{{ route('imformations.update', $imformation->id) }}">
+        <form method="post" action="{{ route('imformations.update', $imformation->id) }}" enctype="multipart/form-data">
             @method('PATCH') 
             @csrf
 
@@ -67,9 +67,13 @@
                 CKEDITOR.replace('context');
               </script>
           </div>    
- 
 
-            <button type="submit" class="btn btn-primary">更新</button>
+          <div class="form-group">
+              <label for="file">檔案:</label>
+              <input type="file" class="form-control" name="file">
+          </div> 
+
+          <button type="submit" class="btn btn-primary">更新</button>
 
         </form>
     </div>

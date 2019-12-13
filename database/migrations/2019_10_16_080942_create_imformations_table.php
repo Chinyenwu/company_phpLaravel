@@ -13,7 +13,8 @@ class CreateImformationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('imformations', function (Blueprint $table) {
+        Schema::create('imformations', function (Blueprint $table)
+        {
             $table->bigIncrements('id');
             $table->string('class');
             $table->datetime('start_date')->nullable();
@@ -23,8 +24,8 @@ class CreateImformationsTable extends Migration
             $table->string('website');
             $table->string('person');
             $table->string('context');
+            $table->string('file');
             $table->timestamps();
-
         });
     }
 

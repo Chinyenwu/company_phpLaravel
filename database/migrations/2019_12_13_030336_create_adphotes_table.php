@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFileroomsTable extends Migration
+class CreateAdphotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateFileroomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('filerooms', function (Blueprint $table) {
+        Schema::create('adphotes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('class');
-            $table->string('title');
-            $table->string('filename');
-            $table->string('file_path');
-            $table->string('editer');
-            $table->datetime('edit_time')->nullable();
+            $table->string('belong');
+            $table->string('name');
+            $table->string('file');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateFileroomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('filerooms');
+        Schema::dropIfExists('adphotes');
     }
 }

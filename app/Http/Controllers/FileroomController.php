@@ -20,7 +20,6 @@ class FileroomController extends Controller
         $filerooms = Fileroom::paginate(10);
         return view('filerooms.index', compact('filerooms'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -30,7 +29,6 @@ class FileroomController extends Controller
     {
         return view('filerooms.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -48,22 +46,19 @@ class FileroomController extends Controller
             'class' => $request->get('class'),
             'title' => $request->get('title'),
             'filename' => $request->file('file_path')->getClientOriginalName(),
-            'file_path' => $request->file('file_path'),
+            'file_path' => Storage::putFileAs('fileroom'.'/'.$request->get('class'), $request->file('file_path'),$request->file('file_path')->getClientOriginalName()),
             'editer' => $request->get('editer'),
             'edit_time' => $request->get('edit_time')
 
         ]);
 
-        Storage::put($request->get('class'), $request->file('file_path'));
-
+        //Storage::putFile($request->get('class'), $request->file('file_path'));
         //$contents = Storage::get($request->file('file_path'));
         //Storage::put($request->get('class').'/'.$request->get('filename'), $request->get('file_path'));
         //$request->file('file_path')->store($request->get('class'));
-
         $fileroom->save();
         return redirect('/filerooms')->with('success', 'fileroom saved!');
     }
-
     /**
      * Display the specified resource.
      *
@@ -72,9 +67,9 @@ class FileroomController extends Controller
      */
     public function show($id)
     {
-        //
+        $fileroom = Fileroom::find($id);
+        return Storage::download($fileroom->file_path);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -86,7 +81,6 @@ class FileroomController extends Controller
         $fileroom = Fileroom::find($id);
         return view('filerooms.edit', compact('fileroom'));  
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -100,20 +94,20 @@ class FileroomController extends Controller
             'title'=>'required',
             'class'=>'required',
         ]);
+
             $fileroom = Fileroom::find($id);
             $fileroom->class = $request->get('class');
             $fileroom->title = $request->get('title');
             $fileroom->filename = $request->file('file_path')->getClientOriginalName();
-            $fileroom->file_path = $request->file('file_path');
+            $fileroom->file_path = Storage::putFileAs('fileroom'.'/'.$request->get('class'), $request->file('file_path'),$request->file('file_path')->getClientOriginalName());
             $fileroom->editer = $request->get('editer');
             $fileroom->edit_time = $request->get('edit_time');
             $fileroom->save();
 
-        Storage::put($request->get('class'), $request->file('file_path'));
+        //Storage::put($request->get('class'), $request->file('file_path'));
 
         return redirect('/filerooms')->with('success', 'fileroom update!');
     }
-
     /**
      * Remove the specified resource from storage.
      *

@@ -14,7 +14,8 @@ class Imformation extends Model
         'second_title',
         'website',
         'person',
-        'context'  
+        'context',
+        'file'  
         ];
 }
 

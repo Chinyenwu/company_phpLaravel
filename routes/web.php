@@ -24,6 +24,7 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::resource('users', 'UserController');
 Route::resource('imformation_classes', 'Imformation_ClassController');
 Route::resource('imformations', 'ImformationController');
+//Route::get('/imformations/indexs', 'ImformationController@indexs')->name('imformations.indexs');
 Route::resource('page_classes', 'Page_ClassController');
 Route::resource('pages', 'PageController');
 Route::resource('fileroom_classes', 'Fileroom_ClassController');
@@ -42,3 +43,8 @@ Route::resource('person_lists/projects', 'ProjectController');
 Route::resource('person_lists/reserches', 'ReserchController');
 Route::resource('person_lists/seminars', 'SeminarController');
 Route::resource('person_lists/special_books', 'Special_BookController');
+Route::resource('photealbums', 'PhotealbumController');
+Route::resource('photealbum_classes', 'Photealbum_ClassController');
+Route::resource('photealbums/phote', 'PhoteController');
+Route::resource('advertisings', 'AdvertisingController');
+Route::resource('adphones', 'AdphoneController');
