@@ -62,9 +62,9 @@ class AdvertisingController extends Controller
      */
     public function show($id)
     {
-        $advertising = Advertising::find($id);
+        $adphotes = Adphote::paginate(10);
         //$adphotes = Adphote::paginate(10);
-        return view('adphotes.index', compact('advertising'));
+        return view('adphotes.index', compact('adphotes'));
     }
 
     /**

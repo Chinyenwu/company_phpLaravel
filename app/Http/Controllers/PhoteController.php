@@ -58,7 +58,8 @@ class PhoteController extends Controller
      */
     public function show($id)
     {
-        //
+        $phote = Phote::find($id);
+        return Storage::download($phote->file);
     }
 
     /**
@@ -102,4 +103,5 @@ class PhoteController extends Controller
         $phote->delete();
         return redirect('/photes')->with('success', 'phote deleted!');
     }
+
 }

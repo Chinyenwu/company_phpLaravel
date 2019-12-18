@@ -20,13 +20,16 @@
         <tr>
             <td>{{$phote->id}}</td>
             <td>{{$phote->belong}}</td>
-            <td>{{$phote->name}}</td>
+            <td><!--<img src="{{ asset($phote->file) }}" alt={{$phote->name}} title="" width="15%">--></td>
             <td>
                 <form action="{{ route('photes.destroy', $phote->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">刪除</button>
                 </form>
+            </td>
+            <td>
+                <a href="{{ route('photes.show',$phote->id)}}" class="btn btn-primary">下載</a>
             </td>
         </tr>
         @endforeach

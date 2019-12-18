@@ -62,6 +62,7 @@ class PhotealbumController extends Controller
     {
         $photes = Phote::paginate(10);
         return view('photes.index', compact('photes'));
+        //$photes = Phote::where('belong', '=', $photealbum->title)->get();
     }
 
 

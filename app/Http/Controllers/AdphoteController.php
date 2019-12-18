@@ -9,7 +9,7 @@ use Validator,Redirect,Response;
 use App\Adphote;
 use App\Advertising;
 
-class AdadphoteController extends Controller
+class AdphoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -58,7 +58,8 @@ class AdadphoteController extends Controller
      */
     public function show($id)
     {
-        //
+        $adphote = Adphote::find($id);
+        return Storage::download($adphote->file);
     }
 
     /**
@@ -69,8 +70,8 @@ class AdadphoteController extends Controller
      */
     public function edit($id)
     {
-        $phote = Adphote::find($id);
-        return view('phones.edit', compact('phote')); 
+        $adphote = Adphote::find($id);
+        return view('phones.edit', compact('adphote')); 
     }
 
     /**
