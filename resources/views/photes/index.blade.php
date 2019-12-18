@@ -4,7 +4,7 @@
 <div class="row">
 <div class="col-sm-12">
   <h1 class="display-3">相簿</h1>    
-  <a href="{{ route('adphotes.create')}}" class="btn btn-primary">新增</a>
+  <a href="{{ route('photes.create')}}" class="btn btn-primary">新增</a>
   <div>
   <table class="table table-striped">
     <thead>
@@ -16,13 +16,13 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($adphotes as $adphote)
+        @foreach($photes as $phote)
         <tr>
-            <td>{{$adphote->id}}</td>
-            <td>{{$adphote->belong}}</td>
-            <td>{{$adphote->name}}</td>
+            <td>{{$phote->id}}</td>
+            <td>{{$phote->belong}}</td>
+            <td>{{$phote->name}}</td>
             <td>
-                <form action="{{ route('adphotes.destroy', $adphote->id)}}" method="post">
+                <form action="{{ route('photes.destroy', $phote->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">刪除</button>
@@ -34,6 +34,6 @@
   </table>
 </div>
 <div>
-  <?php echo $adphotes->links(); ?>
+  <?php echo $photes->links(); ?>
 </div>
 @endsection

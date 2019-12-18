@@ -46,7 +46,12 @@
 
           <div class="form-group">
               <label for="effect">橫幅效果:</label>
-              <input type="text" class="form-control" name="effect" value={{ $advertising->effect }} >
+              <select class="form-control" name="effect" >
+                  <option value={{ $advertising->effect }} selected='selected'>{{ $advertising->effect }}</option>
+                  <option value="效果一">效果一</option>
+                  <option value="效果二">效果二</option>
+                  <option value="效果三">效果三</option>
+              </select>  
           </div>   
 
           <button type="submit" class="btn btn-primary">更新</button>

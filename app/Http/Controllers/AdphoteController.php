@@ -6,10 +6,10 @@ use League\Flysystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
-use App\Photealbum;
-use App\Phote;
+use App\Adphote;
+use App\Advertising;
 
-class PhoteController extends Controller
+class AdadphoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +18,8 @@ class PhoteController extends Controller
      */
     public function index()
     {
-        $photes = Phote::paginate(10);
-        return view('photes.index', compact('photes'));
+        $adphotes = Adphote::paginate(10);
+        return view('adphotes.index', compact('adphotes'));
     }
 
     /**
@@ -29,7 +29,7 @@ class PhoteController extends Controller
      */
     public function create()
     {
-        return view('photes.create');
+        return view('adphotes.create');
     }
 
     /**
@@ -40,14 +40,14 @@ class PhoteController extends Controller
      */
     public function store(Request $request)
     {
-        $phote = new Phote([
+        $adphote = new Adphote([
             'belong' => $request->get('belong'),
             'name' => $request->file('file')->getClientOriginalName(),
-            'file' => Storage::putFileAs('phote'.'/'.$request->get('belong'), $request->file('file'),$request->file('file')->getClientOriginalName())
+            'file' => Storage::putFileAs('adphote'.'/'.$request->get('belong'), $request->file('file'),$request->file('file')->getClientOriginalName())
         ]);
 
-        $phote->save();
-        return redirect('/photes')->with('success', 'Phote saved!');
+        $adphote->save();
+        return redirect('/adphotes')->with('success', 'adphote saved!'); 
     }
 
     /**
@@ -69,7 +69,7 @@ class PhoteController extends Controller
      */
     public function edit($id)
     {
-        $phote = Phote::find($id);
+        $phote = Adphote::find($id);
         return view('phones.edit', compact('phote')); 
     }
 
@@ -80,13 +80,13 @@ class PhoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-            $phote = Phote::find($id);
-            $phote->belong = $request->get('belong');
-            $phote->name = $request->file('file')->getClientOriginalName();
-            $phote->file = Storage::putFileAs('phote'.'/'.$request->get('belong'), $request->file('file'),$request->file('file')->getClientOriginalName());
-            $phote->save();
+            $adphote = Adphote::find($id);
+            $adphote->belong = $request->get('belong');
+            $adphote->name = $request->file('file')->getClientOriginalName();
+            $adphote->file = Storage::putFileAs('adphote'.'/'.$request->get('belong'), $request->file('file'),$request->file('file')->getClientOriginalName());
+            $adphote->save();
     }
 
     /**
@@ -97,9 +97,9 @@ class PhoteController extends Controller
      */
     public function destroy($id)
     {
-        $phote = Phote::find($id);
-        Storage::delete($phote->file);
-        $phote->delete();
-        return redirect('/photes')->with('success', 'phote deleted!');
+        $adphote = Adphote::find($id);
+        Storage::delete($adphote->file);
+        $adphote->delete();
+        return redirect('/adphotes')->with('success', 'adphote deleted!');
     }
 }

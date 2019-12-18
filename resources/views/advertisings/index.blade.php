@@ -11,6 +11,9 @@
           <td>id</td>
           <td>照片</td>
           <td>標題</td>
+          <td>功能</td>
+          <td></td>
+          <td></td>
         </tr>
     </thead>
     <tbody>

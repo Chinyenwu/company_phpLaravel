@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\Advertising;
+use App\Adphote;
 
 class AdvertisingController extends Controller
 {
@@ -61,7 +62,9 @@ class AdvertisingController extends Controller
      */
     public function show($id)
     {
-        //
+        $advertising = Advertising::find($id);
+        //$adphotes = Adphote::paginate(10);
+        return view('adphotes.index', compact('advertising'));
     }
 
     /**

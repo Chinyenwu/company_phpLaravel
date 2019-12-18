@@ -61,7 +61,7 @@ class PhotealbumController extends Controller
     public function show($id)
     {
         $photes = Phote::paginate(10);
-        return view('photealbums\photes.index', compact('photes'));
+        return view('photes.index', compact('photes'));
     }
 
 
