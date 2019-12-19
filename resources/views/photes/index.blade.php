@@ -4,7 +4,8 @@
 <div class="row">
 <div class="col-sm-12">
   <h1 class="display-3">相簿</h1>    
-  <a href="{{ route('photes.create')}}" class="btn btn-primary">新增</a>
+  <a href="{{ route('photes.edit', $photealbum->id)}}" class="btn btn-primary">新增</a>
+  <p><?php echo $photealbum->id; ?></p>
   <div>
   <table class="table table-striped">
     <thead>
@@ -20,9 +21,9 @@
         <tr>
             <td>{{$phote->id}}</td>
             <td>{{$phote->belong}}</td>
-            <td><!--<img src="{{ asset($phote->file) }}" alt={{$phote->name}} title="" width="15%">--></td>
+            <td><!--<img src="{{ asset($phote->file) }}" alt={{$phote->name}} title="" width="15%">-->{{$phote->name}}</td>
             <td>
-                <form action="{{ route('photes.destroy', $phote->id)}}" method="post">
+                <form action="{{ route('photes.destroy', $phote->id ,$photealbum->id )}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">刪除</button>
@@ -37,6 +38,6 @@
   </table>
 </div>
 <div>
-  <?php echo $photes->links(); ?>
+  <?php echo $photes ?? ''->links(); ?>
 </div>
 @endsection

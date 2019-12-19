@@ -70,8 +70,8 @@ class PhoteController extends Controller
      */
     public function edit($id)
     {
-        $phote = Phote::find($id);
-        return view('phones.edit', compact('phote')); 
+        $photealbum = Photealbum::find($id);
+        return view('photes.edit', compact('photealbum')); 
     }
 
     /**
@@ -83,11 +83,16 @@ class PhoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $phote = Phote::find($id);
-            $phote->belong = $request->get('belong');
-            $phote->name = $request->file('file')->getClientOriginalName();
-            $phote->file = Storage::putFileAs('phote'.'/'.$request->get('belong'), $request->file('file'),$request->file('file')->getClientOriginalName());
-            $phote->save();
+        $photealbum = Photealbum::find($id);
+        $phote = new Phote([
+            'belong' => $request->get('belong'),
+            'name' => $request->file('file')->getClientOriginalName(),
+            'file' => Storage::putFileAs('phote'.'/'.$request->get('belong'), $request->file('file'),$request->file('file')->getClientOriginalName())
+        ]);
+
+        $phote->save();
+        $photes = Phote::where('belong', '=', $photealbum->title)->paginate(10);
+        return view('photes.index', compact('photes','photealbum'));
     }
 
     /**
@@ -96,12 +101,14 @@ class PhoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,$id2)
     {
+        $photealbum = Photealbum::find($id2);
         $phote = Phote::find($id);
         Storage::delete($phote->file);
         $phote->delete();
-        return redirect('/photes')->with('success', 'phote deleted!');
+        $photes = Phote::where('belong', '=', $photealbum->title)->paginate(10);
+        return view('photes.index', compact('photes','photealbum'));
     }
 
 }

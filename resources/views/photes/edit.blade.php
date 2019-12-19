@@ -15,17 +15,13 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('photes.store') }}" enctype="multipart/form-data">
+    <p><?php echo $photealbum->id; ?></p>
+      <form method="post" action="{{ route('photes.update',$photealbum->id) }}" enctype="multipart/form-data">
+          @method('PATCH') 
           @csrf
           <div class="form-group">
               <label for="belong">屬於:</label>
-              <!--<input type="text" class="form-control" name="class"/>-->
-              <?php $photealbums = DB::table('photealbums')->get();?>
-              <select class="form-control" name="belong" >
-                  @foreach($photealbums as $photealbum)
-                  <option value="{{$photealbum->title}}">{{$photealbum->title}}</option>
-                  @endforeach
-              </select>    
+              <input type="text" class="form-control" name="belong" value={{$photealbum->title}} />
           </div>
 
           <div class="form-group">

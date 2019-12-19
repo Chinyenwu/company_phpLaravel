@@ -60,9 +60,11 @@ class PhotealbumController extends Controller
      */
     public function show($id)
     {
-        $photes = Phote::paginate(10);
-        return view('photes.index', compact('photes'));
-        //$photes = Phote::where('belong', '=', $photealbum->title)->get();
+        //$photes = Phote::paginate(10);
+        //搜尋
+        $photealbum = Photealbum::find($id);
+        $photes = Phote::where('belong', '=', $photealbum->title)->paginate(10);
+        return view('photes.index', compact('photes','photealbum'));
     }
 
 
