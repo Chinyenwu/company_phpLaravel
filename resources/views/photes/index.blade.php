@@ -23,7 +23,7 @@
             <td>{{$phote->belong}}</td>
             <td><!--<img src="{{ asset($phote->file) }}" alt={{$phote->name}} title="" width="15%">-->{{$phote->name}}</td>
             <td>
-                <form action="{{ route('photes.destroy', $phote->id ,$photealbum->id )}}" method="post">
+                <form action="{{ route('photes.destroy', $phote->id  )}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">刪除</button>
@@ -38,6 +38,6 @@
   </table>
 </div>
 <div>
-  <?php echo $photes ?? ''->links(); ?>
+  <?php echo $photes ->links(); ?>
 </div>
 @endsection

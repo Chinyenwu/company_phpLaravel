@@ -67,21 +67,6 @@ class PhotealbumController extends Controller
         return view('photes.index', compact('photes','photealbum'));
     }
 
-
-    /*public function storephote(Request $request, $id)
-    {
-        $photealbum = Photealbum::find($id);
-
-        $phote = new Phote([
-            'belong' => $photealbum->$id,
-            'name' => $request->file('file')->getClientOriginalName(),
-            'file' => Storage::putFileAs('phote'.'/'.$photealbum->$class.'/'.$photealbum->$title, $request->file('file'),$request->file('file')->getClientOriginalName())
-        ]);
-
-        $phote->save();
-        return redirect('/photealbums/show')->with('success', 'Phote saved!');
-    }*/
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -131,11 +116,5 @@ class PhotealbumController extends Controller
         return redirect('/photealbums')->with('success', 'Photealbum deleted!');  
     }
 
-    /*public function destroyphote($id)
-    {
-        $phote = Phote::find($id);
-        Storage::delete($phote->file);
-        $photealbum->delete();
-        return redirect('/photealbums')->with('success', 'Phote deleted!');  
-    }*/
+
 }

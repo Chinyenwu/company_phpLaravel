@@ -101,10 +101,11 @@ class PhoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id,$id2)
+    public function destroy($id)
     {
-        $photealbum = Photealbum::find($id2);
         $phote = Phote::find($id);
+        $photeid = Photealbum::where('title', '=', $phote->belong)->firstOrFail();
+        $photealbum = Photealbum::find($photeid->id);
         Storage::delete($phote->file);
         $phote->delete();
         $photes = Phote::where('belong', '=', $photealbum->title)->paginate(10);
