@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 <div class="col-sm-12">
-  <h1 class="display-3">廣告輪播</h1>    
+  <h1 class="display-3">相簿</h1>    
   <div>
   <table class="table table-striped">
     <thead>

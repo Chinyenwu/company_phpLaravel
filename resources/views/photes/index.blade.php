@@ -5,7 +5,6 @@
 <div class="col-sm-12">
   <h1 class="display-3">相簿</h1>    
   <a href="{{ route('photes.edit', $photealbum->id)}}" class="btn btn-primary">新增</a>
-  <p><?php echo $photealbum->id; ?></p>
   <div>
   <table class="table table-striped">
     <thead>

@@ -70,8 +70,8 @@ class AdphoteController extends Controller
      */
     public function edit($id)
     {
-        $adphote = Adphote::find($id);
-        return view('phones.edit', compact('adphote')); 
+        $advertising = Advertising::find($id);
+        return view('adphotes.edit', compact('advertising')); 
     }
 
     /**
@@ -83,11 +83,16 @@ class AdphoteController extends Controller
      */
     public function update(Request $request,$id)
     {
-            $adphote = Adphote::find($id);
-            $adphote->belong = $request->get('belong');
-            $adphote->name = $request->file('file')->getClientOriginalName();
-            $adphote->file = Storage::putFileAs('adphote'.'/'.$request->get('belong'), $request->file('file'),$request->file('file')->getClientOriginalName());
-            $adphote->save();
+        $advertising = Advertising::find($id);
+        $adphote = new Adphote([
+            'belong' => $request->get('belong'),
+            'name' => $request->file('file')->getClientOriginalName(),
+            'file' => Storage::putFileAs('adphote'.'/'.$request->get('belong'), $request->file('file'),$request->file('file')->getClientOriginalName())
+        ]);
+
+        $adphote->save();
+        $adphotes = Adphote::where('belong', '=', $advertising->title)->paginate(10);
+        return view('adphotes.index', compact('adphotes','advertising'));
     }
 
     /**
@@ -99,8 +104,11 @@ class AdphoteController extends Controller
     public function destroy($id)
     {
         $adphote = Adphote::find($id);
+        $adphoteid = Advertising::where('title', '=', $phote->belong)->firstOrFail();
+        $advertising = Advertising::find($photeid->id);
         Storage::delete($adphote->file);
         $adphote->delete();
-        return redirect('/adphotes')->with('success', 'adphote deleted!');
+        $adphotes = Adphote::where('belong', '=', $advertising->title)->paginate(10);
+        return view('adphotes.index', compact('adphotes','advertising'));
     }
 }

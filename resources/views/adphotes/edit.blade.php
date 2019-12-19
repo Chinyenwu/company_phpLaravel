@@ -15,17 +15,12 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('adphotes.store') }}" enctype="multipart/form-data">
+      <form method="post" action="{{ route('adphotes.update',$advertising->id) }}" enctype="multipart/form-data">
+          @method('PATCH') 
           @csrf
           <div class="form-group">
               <label for="belong">屬於:</label>
-              <!--<input type="text" class="form-control" name="class"/>-->
-              <?php $advertisings = DB::table('advertisings')->get();?>
-              <select class="form-control" name="belong" >
-                  @foreach($advertisings as $advertising)
-                  <option value="{{$advertising->title}}">{{$advertising->title}}</option>
-                  @endforeach
-              </select>    
+              <input type="text" class="form-control" name="belong" value={{$advertising->title}} />
           </div>
 
           <div class="form-group">

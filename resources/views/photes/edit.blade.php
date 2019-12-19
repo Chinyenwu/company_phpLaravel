@@ -15,7 +15,6 @@
         </ul>
       </div><br />
     @endif
-    <p><?php echo $photealbum->id; ?></p>
       <form method="post" action="{{ route('photes.update',$photealbum->id) }}" enctype="multipart/form-data">
           @method('PATCH') 
           @csrf
