@@ -12,7 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
-
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -53,6 +53,7 @@
                         @else
                             <a class="nav-link" href="{{ url('/home') }}" >{{ __('網站功能') }}</a>
                             <a class="nav-link" href="{{ url('/member') }}" >{{ __('會員系統') }}</a>
+                            <a class="nav-link" href="{{ url('/setup') }}" >{{ __('網站設定') }}</a>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

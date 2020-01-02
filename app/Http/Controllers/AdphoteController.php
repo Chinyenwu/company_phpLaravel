@@ -104,8 +104,8 @@ class AdphoteController extends Controller
     public function destroy($id)
     {
         $adphote = Adphote::find($id);
-        $adphoteid = Advertising::where('title', '=', $phote->belong)->firstOrFail();
-        $advertising = Advertising::find($photeid->id);
+        $adphoteid = Advertising::where('title', '=', $adphote->belong)->firstOrFail();
+        $advertising = Advertising::find($adphoteid->id);
         Storage::delete($adphote->file);
         $adphote->delete();
         $adphotes = Adphote::where('belong', '=', $advertising->title)->paginate(10);

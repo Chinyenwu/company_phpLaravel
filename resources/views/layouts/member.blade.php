@@ -42,6 +42,7 @@
                         <!-- Authentication Links -->
                         <a class="nav-link" href="{{ url('/home') }}" >{{ __('網站功能') }}</a>
                         <a class="nav-link" href="{{ url('/member') }}" >{{ __('會員系統') }}</a>
+                        <a class="nav-link" href="{{ url('/setup') }}" >{{ __('網站設定') }}</a>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('登入') }}</a>

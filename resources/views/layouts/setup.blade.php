@@ -40,6 +40,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <a class="nav-link" href="{{ url('/home') }}" >{{ __('網站功能') }}</a>
+                        <a class="nav-link" href="{{ url('/member') }}" >{{ __('會員系統') }}</a>
+                        <a class="nav-link" href="{{ url('/setup') }}" >{{ __('網站設定') }}</a>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('登入') }}</a>
@@ -72,7 +75,26 @@
                 </div>
             </div>
         </nav>
-  
+         <div style="float:left;">
+            <ul class="nav nav-tabs">
+                <li><a class="btn btn-light" href="{{ url('/setup') }}" >系統資訊</a></li>
+            </ul>   
+            <ul class="nav nav-tabs">   
+                <li><a class="btn btn-light" href="{{ url('/setup/tasks') }}" >網站架構</a></li>
+            </ul>
+            <ul class="nav nav-tabs">   
+                <li><a class="btn btn-light" href="{{ url('/setup/website_information') }}" >網站資訊</a></li>
+            </ul> 
+            <ul class="nav nav-tabs">   
+                <li><a class="btn btn-light" href="{{ url('/setup/keyword') }}" >關鍵字設定</a></li>
+            </ul> 
+            <ul class="nav nav-tabs">   
+                <li><a class="btn btn-light" href="{{ url('/setup/prefer') }}" >系統偏好</a></li>
+            </ul> 
+            <ul class="nav nav-tabs">   
+                <li><a class="btn btn-light" href="{{ url('/setup/setupchange') }}" >配置修改</a></li>
+            </ul>                          
+        </div>   
         <main class="py-4">
             @yield('content')
         </main>

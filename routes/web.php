@@ -20,6 +20,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 Route::get('/member', 'MemberController@index')->name('member');
 Auth::routes();
+Route::get('/setup', 'SetupController@index')->name('setup');
+Route::get('setup/tasks','DemoController@showTasks');
+Route::get('setup/website_information','SetupController@websiteinformation');
+Route::get('setup/keyword','SetupController@keyword');
+Route::get('setup/prefer','SetupController@prefer');
+Route::get('setup/setupchange','SetupController@setupchange');
+Auth::routes();
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::resource('users', 'UserController');
 Route::resource('imformation_classes', 'Imformation_ClassController');
@@ -48,4 +55,10 @@ Route::resource('photealbum_classes', 'Photealbum_ClassController');
 Route::resource('photes', 'PhoteController');
 Route::resource('advertisings', 'AdvertisingController');
 Route::resource('adphotes', 'AdphoteController');
+
 //Route::get('adphones/', 'AdphoneController@store')->name('adphones.store');
+//Route::patch('setup/tasks/{id}', 'DemoController@updateTasksStatus');
+//Route::put('setup/tasks/updateAll', 'DemoController@updateTasksOrder');
+/*Route::get('/post/{any}', function () {
+  return view('demos/post');
+})->where('any', '.*');*/
