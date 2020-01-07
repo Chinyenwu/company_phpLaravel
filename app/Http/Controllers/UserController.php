@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -21,6 +22,13 @@ class UserController extends Controller
         return view('auth.index', compact('users'));
     }
 
+    public function search(Request $request)
+    {
+        //$imformations = Imformation::paginate(10);
+        $search = $request->get('search');
+        $users = User::where('name', 'like', "%".$search."%")->paginate(10);
+        return view('auth.index', compact('users'));
+    }
     /**
      * Show the form for creating a new resource.
      * @param
@@ -37,20 +45,19 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$name)
+    public function store(Request $request)
     {
-        
+        $name = $request->get('name');
+        $user = User::find($name);
         $request->validate([
             'password' => [ 'max:255'],
             'comfirm_password' => [ 'max:255'],
         ]);
 
-
-        $comfirm_password =  $request->get('comfirm_password');
         $password =  $request->get('password');
+        $comfirm_password =  $request->get('comfirm_password');
         
         if($comfirm_password == $password){
-            $user = User::find($name);
             $user->password = Hash::make($request->get('password'));
             $user->save();
 
@@ -128,6 +135,8 @@ class UserController extends Controller
         $user->email = $request->get('email');
         $user->staff_number = $request->get('staff_number');
         $user->contact_phone = $request->get('contact_phone');
+        $user->fax = $request->get('fax');
+        $user->cell_phone = $request->get('cell_phone');
         $user->gender = $request->get('gender');
         $user->birthday = $request->get('birthday');
         $user->contact_address = $request->get('contact_address');
@@ -135,7 +144,7 @@ class UserController extends Controller
         $user->position = $request->get('position');
         $user->save();
 
-        return redirect('/auth')->with('success', 'member update!');
+        return redirect('/auth/create')->with('success', 'member update!');
     }
     /**
      * Remove the specified resource from storage.

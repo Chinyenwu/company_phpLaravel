@@ -35,9 +35,9 @@
           </div>
           <div class="form-group">    
               <label for="type">類別:</label>
-              <input  type="radio"  name="type"  value="{{'專利'}}" >專利
-              <input  type="radio"  name="type"  value="{{'技術轉移'}}" >技術轉移
-              <input  type="radio"  name="type"  value="{{'學生專題製作競賽'}}" >學生專題製作競賽
+              <input  type="radio"  name="type"  value="{{'專利'}}" <?php echo ($patent->type == "專利" ? 'checked="checked"': ''); ?> >專利
+              <input  type="radio"  name="type"  value="{{'技術轉移'}}" <?php echo ($patent->type == "技術轉移" ? 'checked="checked"': ''); ?> >技術轉移
+              <input  type="radio"  name="type"  value="{{'學生專題製作競賽'}}" <?php echo ($patent->type == "學生專題製作競賽" ? 'checked="checked"': ''); ?> >學生專題製作競賽
           </div>   
           <div class="form-group">    
               <label for="number">數量:</label>
@@ -73,9 +73,9 @@
           </div>
           <div class="form-group">    
               <label for="language">語言:</label>
-              <input  type="radio"  name="language"  value="{{'繁體中文'}}" >繁體中文
-              <input  type="radio"  name="language"  value="{{'English'}}" >English
-              <input  type="radio"  name="language"  value="{{'其他'}}" >其他}
+              <input  type="radio"  name="language"  value="{{'繁體中文'}}" <?php echo ($patent->type == "繁體中文" ? 'checked="checked"': ''); ?> >繁體中文
+              <input  type="radio"  name="language"  value="{{'English'}}" <?php echo ($patent->type == "English" ? 'checked="checked"': ''); ?> >English
+              <input  type="radio"  name="language"  value="{{'其他'}}" <?php echo ($patent->type == "其他" ? 'checked="checked"': ''); ?> >其他}
           </div> 
           <div class="form-group">    
               <label for="remark">備註:</label>

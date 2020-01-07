@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator,Redirect,Response;
+use App\Keyword;
 
 class SetupController extends Controller
 {
@@ -10,21 +12,8 @@ class SetupController extends Controller
     {
         return view('setup');
     }
-
-    public function websiteinformation(){
-    	return view('setup/website_information');
+    
+    public function show(){
+        
     }
-
-    public function keyword(){
-    	return view('setup/keyword');
-    }
-
-    public function prefer(){
-    	return view('setup/prefer');
-    }
-
-    public function setupchange(){
-    	return view('setup/setupchange');
-    }
-
 }

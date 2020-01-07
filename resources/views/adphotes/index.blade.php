@@ -28,6 +28,8 @@
                   <button class="btn btn-danger" type="submit">刪除</button>
                 </form>
             </td>
+            <td><img src="{{ url('storage/adphote/'.$adphote->belong.'/'.$adphote->name) }}" alt="{{$adphote->name}}" title="{{$adphote->name}}" width="15%"></td>
+            <td> 
         </tr>
         @endforeach
     </tbody>

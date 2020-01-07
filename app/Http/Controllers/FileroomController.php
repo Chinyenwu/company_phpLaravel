@@ -20,6 +20,14 @@ class FileroomController extends Controller
         $filerooms = Fileroom::paginate(10);
         return view('filerooms.index', compact('filerooms'));
     }
+
+    public function search(Request $request)
+    {
+        //$imformations = Imformation::paginate(10);
+        $search = $request->get('search');
+        $filerooms = Fileroom::where('title', 'like', "%".$search."%")->paginate(10);
+        return view('filerooms.index', compact('filerooms'));
+    }
     /**
      * Show the form for creating a new resource.
      *

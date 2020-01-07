@@ -36,8 +36,8 @@
           </div>
           <div class="form-group">    
               <label for="type">種類:</label>
-              <input  type="radio"  name="type"  value="{{'內校研究'}}" >內校研究
-              <input  type="radio"  name="type"  value="{{'外校研究'}}" >外校研究
+              <input  type="radio"  name="type"  value="{{'內校研究'}}" <?php echo ($reserch->type == "內校研究" ? 'checked="checked"': ''); ?>>內校研究
+              <input  type="radio"  name="type"  value="{{'外校研究'}}" <?php echo ($reserch->type == "外校研究" ? 'checked="checked"': ''); ?>>外校研究
           </div> 
           <div class="form-group">    
               <label for="start_date">開始日期:</label>
@@ -57,9 +57,9 @@
           </div>
           <div class="form-group">    
               <label for="language">語言:</label>
-              <input  type="radio"  name="type"  value="{{'繁體中文'}}" >繁體中文
-              <input  type="radio"  name="type"  value="{{'English'}}" >English    
-              <input  type="radio"  name="type"  value="{{'其他'}}" >其他   
+              <input  type="radio"  name="type"  value="{{'繁體中文'}}" <?php echo ($reserch->type == "繁體中文" ? 'checked="checked"': ''); ?>>繁體中文
+              <input  type="radio"  name="type"  value="{{'English'}}" <?php echo ($reserch->type == "English" ? 'checked="checked"': ''); ?>>English    
+              <input  type="radio"  name="type"  value="{{'其他'}}" <?php echo ($reserch->type == "其他" ? 'checked="checked"': ''); ?>>其他   
           </div>
           <div class="form-group">    
               <label for="remark">備註:</label>

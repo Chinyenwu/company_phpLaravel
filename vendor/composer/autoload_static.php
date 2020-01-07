@@ -129,6 +129,10 @@ class ComposerStaticInit484a91883394b835079cdf4ca4130f11
             'Intervention\\Image\\' => 19,
             'Illuminate\\' => 11,
         ),
+        'H' => 
+        array (
+            'Harimayco\\Menu\\' => 15,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -379,6 +383,10 @@ class ComposerStaticInit484a91883394b835079cdf4ca4130f11
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'Harimayco\\Menu\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/harimayco/laravel-menu/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -584,6 +592,7 @@ class ComposerStaticInit484a91883394b835079cdf4ca4130f11
         'App\\Http\\Controllers\\ImformationController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImformationController.php',
         'App\\Http\\Controllers\\Imformation_ClassController' => __DIR__ . '/../..' . '/app/Http/Controllers/Imformation_ClassController.php',
         'App\\Http\\Controllers\\JournalController' => __DIR__ . '/../..' . '/app/Http/Controllers/JournalController.php',
+        'App\\Http\\Controllers\\KeywordController' => __DIR__ . '/../..' . '/app/Http/Controllers/KeywordController.php',
         'App\\Http\\Controllers\\MemberController' => __DIR__ . '/../..' . '/app/Http/Controllers/MemberController.php',
         'App\\Http\\Controllers\\NetworklinkController' => __DIR__ . '/../..' . '/app/Http/Controllers/NetworklinkController.php',
         'App\\Http\\Controllers\\Networklink_ClassController' => __DIR__ . '/../..' . '/app/Http/Controllers/Networklink_ClassController.php',
@@ -594,12 +603,15 @@ class ComposerStaticInit484a91883394b835079cdf4ca4130f11
         'App\\Http\\Controllers\\PhotealbumController' => __DIR__ . '/../..' . '/app/Http/Controllers/PhotealbumController.php',
         'App\\Http\\Controllers\\Photealbum_ClassController' => __DIR__ . '/../..' . '/app/Http/Controllers/Photealbum_ClassController.php',
         'App\\Http\\Controllers\\PositionController' => __DIR__ . '/../..' . '/app/Http/Controllers/PositionController.php',
+        'App\\Http\\Controllers\\PreferController' => __DIR__ . '/../..' . '/app/Http/Controllers/PreferController.php',
         'App\\Http\\Controllers\\ProjectController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProjectController.php',
         'App\\Http\\Controllers\\ReserchController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReserchController.php',
         'App\\Http\\Controllers\\SeminarController' => __DIR__ . '/../..' . '/app/Http/Controllers/SeminarController.php',
         'App\\Http\\Controllers\\SetupController' => __DIR__ . '/../..' . '/app/Http/Controllers/SetupController.php',
+        'App\\Http\\Controllers\\SetupchangeController' => __DIR__ . '/../..' . '/app/Http/Controllers/SetupchangeController.php',
         'App\\Http\\Controllers\\Special_BookController' => __DIR__ . '/../..' . '/app/Http/Controllers/Special_BookController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
+        'App\\Http\\Controllers\\Website_informationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website_informationController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -612,6 +624,7 @@ class ComposerStaticInit484a91883394b835079cdf4ca4130f11
         'App\\Imformation' => __DIR__ . '/../..' . '/app/Imformation.php',
         'App\\Imformation_class' => __DIR__ . '/../..' . '/app/Imformation_class.php',
         'App\\Journal' => __DIR__ . '/../..' . '/app/Journal.php',
+        'App\\Keyword' => __DIR__ . '/../..' . '/app/Keyword.php',
         'App\\Networklink' => __DIR__ . '/../..' . '/app/Networklink.php',
         'App\\Networklink_class' => __DIR__ . '/../..' . '/app/Networklink_class.php',
         'App\\Page' => __DIR__ . '/../..' . '/app/Page.php',
@@ -629,11 +642,10 @@ class ComposerStaticInit484a91883394b835079cdf4ca4130f11
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Reserch' => __DIR__ . '/../..' . '/app/Reserch.php',
         'App\\Seminar' => __DIR__ . '/../..' . '/app/Seminar.php',
+        'App\\Setupchange' => __DIR__ . '/../..' . '/app/Setupchange.php',
         'App\\Special_book' => __DIR__ . '/../..' . '/app/Special_book.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\Website_information' => __DIR__ . '/../..' . '/app/Website_information.php',
-        'App\\keyword' => __DIR__ . '/../..' . '/app/keyword.php',
-        'App\\setupchange' => __DIR__ . '/../..' . '/app/setupchange.php',
         'Aws\\ACMPCA\\ACMPCAClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ACMPCA/ACMPCAClient.php',
         'Aws\\ACMPCA\\Exception\\ACMPCAException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ACMPCA/Exception/ACMPCAException.php',
         'Aws\\AbstractConfigurationProvider' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/AbstractConfigurationProvider.php',
@@ -2164,6 +2176,12 @@ class ComposerStaticInit484a91883394b835079cdf4ca4130f11
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Harimayco\\Menu\\Controllers\\MenuController' => __DIR__ . '/..' . '/harimayco/laravel-menu/src/Controllers/MenuController.php',
+        'Harimayco\\Menu\\Facades\\Menu' => __DIR__ . '/..' . '/harimayco/laravel-menu/src/Facades/Menu.php',
+        'Harimayco\\Menu\\MenuServiceProvider' => __DIR__ . '/..' . '/harimayco/laravel-menu/src/MenuServiceProvider.php',
+        'Harimayco\\Menu\\Models\\MenuItems' => __DIR__ . '/..' . '/harimayco/laravel-menu/src/Models/MenuItems.php',
+        'Harimayco\\Menu\\Models\\Menus' => __DIR__ . '/..' . '/harimayco/laravel-menu/src/Models/Menus.php',
+        'Harimayco\\Menu\\WMenu' => __DIR__ . '/..' . '/harimayco/laravel-menu/src/WMenu.php',
         'Highlight\\Autoloader' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/Autoloader.php',
         'Highlight\\HighlightResult' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/HighlightResult.php',
         'Highlight\\Highlighter' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/Highlighter.php',

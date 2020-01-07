@@ -35,12 +35,12 @@
           </div>
           <div class="form-group">    
               <label for="level">等級:</label>
-              <input  type="radio"  name="level"  value="{{ 'SCI' }}" >SCI
-              <input  type="radio"  name="level"  value="{{ 'SSCI' }}" >SSCI
-              <input  type="radio"  name="level"  value="{{ 'EI' }}" >EI
-              <input  type="radio"  name="level"  value="{{ 'AHCI' }}" >AHCI
-              <input  type="radio"  name="level"  value="{{ 'TSSCI' }}" >TSSCI
-              <input  type="radio"  name="level"  value="{{ '其他' }}" >其他 
+              <input  type="radio"  name="level"  value="{{ 'SCI' }}" <?php echo ($journal->level == "SCI" ? 'checked="checked"': ''); ?> >SCI
+              <input  type="radio"  name="level"  value="{{ 'SSCI' }}" <?php echo ($journal->level == "SSCI" ? 'checked="checked"': ''); ?> >SSCI
+              <input  type="radio"  name="level"  value="{{ 'EI' }}" <?php echo ($journal->level == "EI" ? 'checked="checked"': ''); ?> >EI
+              <input  type="radio"  name="level"  value="{{ 'AHCI' }}" <?php echo ($journal->level == "AHCI" ? 'checked="checked"': ''); ?> >AHCI
+              <input  type="radio"  name="level"  value="{{ 'TSSCI' }}" <?php echo ($journal->level == "TSSCI" ? 'checked="checked"': ''); ?> >TSSCI
+              <input  type="radio"  name="level"  value="{{ '其他' }}" <?php echo ($journal->level == "其他" ? 'checked="checked"': ''); ?> >其他 
           </div>   
           <div class="form-group">    
               <label for="date">日期:</label>
@@ -64,9 +64,9 @@
           </div>   
           <div class="form-group">    
               <label for="editer_type">作者型態:</label>
-              <input  type="radio"  name="editer_type"  value="{{'First Author'}}" >First Author
-              <input  type="radio"  name="editer_type"  value="{{'Corresponding Author'}}" >Corresponding Author
-              <input  type="radio"  name="editer_type"  value="{{'Other'}}" >Other
+              <input  type="radio"  name="editer_type"  value="{{'First Author'}}" <?php echo ($journal->editer_type == "First Author" ? 'checked="checked"': ''); ?> >First Author
+              <input  type="radio"  name="editer_type"  value="{{'Corresponding Author'}}" <?php echo ($journal->editer_type == "Corresponding Author" ? 'checked="checked"': ''); ?> >Corresponding Author
+              <input  type="radio"  name="editer_type"  value="{{'Other'}}" <?php echo ($journal->editer_type == "Other" ? 'checked="checked"': ''); ?> >Other
           </div>
           <div class="form-group">    
               <label for="ISSN">ISSN:</label>
@@ -90,9 +90,9 @@
           </div>
             <div class="form-group">    
               <label for="language">語言:</label>
-              <input  type="radio"  name="language"  value="{{'繁體中文'}}" >繁體中文
-              <input  type="radio"  name="language"  value="{{'English'}}" >English
-              <input  type="radio"  name="language"  value="{{'其他'}}" >其他
+              <input  type="radio"  name="language"  value="{{'繁體中文'}}" <?php echo ($journal->language == "繁體中文" ? 'checked="checked"': ''); ?> >繁體中文
+              <input  type="radio"  name="language"  value="{{'English'}}" <?php echo ($journal->language == "English" ? 'checked="checked"': ''); ?> >English
+              <input  type="radio"  name="language"  value="{{'其他'}}" <?php echo ($journal->language == "其他" ? 'checked="checked"': ''); ?> >其他
           </div> 
           <div class="form-group">    
               <label for="remark">備註:</label>

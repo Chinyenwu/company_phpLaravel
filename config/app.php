@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         //Lavary\Menu\ServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
     ],
 
     /*
@@ -227,6 +228,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         //'Menu'=> Lavary\Menu\Facade::class,
+        'Menu' => Harimayco\Menu\Facades\Menu::class,
     ],
 
 ];

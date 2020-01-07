@@ -49,9 +49,9 @@
           </div>
           <div class="form-group">    
               <label for="type">類別:</label>
-              <input  type="radio"  name="type"  value="{{ '展演' }}" >展演
-              <input  type="radio"  name="type"  value="{{ '演講' }}" >演講
-              <input  type="radio"  name="type"  value="{{ '研討會' }}" >研討會
+              <input  type="radio"  name="type"  value="{{ '展演' }}" <?php echo ($activity->type == "展演" ? 'checked="checked"': ''); ?> >展演
+              <input  type="radio"  name="type"  value="{{ '演講' }}" <?php echo ($activity->type == "演講" ? 'checked="checked"': ''); ?> >演講
+              <input  type="radio"  name="type"  value="{{ '研討會' }}" <?php echo ($activity->type == "研討會" ? 'checked="checked"': ''); ?> >研討會
           </div>
             <div class="form-group">    
               <label for="start_date">起始日期:</label>

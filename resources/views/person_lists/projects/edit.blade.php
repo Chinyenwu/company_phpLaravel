@@ -39,8 +39,8 @@
           </div>
           <div class="form-group">    
               <label for="type">類別:</label>
-              <input  type="radio"  name="type"  value="{{'研究計畫'}}" >研究計畫
-              <input  type="radio"  name="type"  value="{{'產學合作計畫'}}" >產學合作計畫
+              <input  type="radio"  name="type"  value="{{'研究計畫'}}" <?php echo ($project->type == "研究計畫" ? 'checked="checked"': ''); ?> >研究計畫
+              <input  type="radio"  name="type"  value="{{'產學合作計畫'}}" <?php echo ($project->type == "產學合作計畫" ? 'checked="checked"': ''); ?> >產學合作計畫
           </div>   
           <div class="form-group">    
               <label for="start_date">起始日期:</label>

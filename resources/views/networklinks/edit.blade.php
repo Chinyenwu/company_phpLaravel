@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">編輯公告</h1>
+        <h1 class="display-3">編輯網路資源</h1>
 
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -23,21 +23,20 @@
               <label for="class">類別:</label>
               <?php $networklink_classes = DB::table('networklink_classes')->get();?>
               <select class="form-control" name="class" >
-                  <option value={{ $networklink->class }} selected='selected'>{{ $networklink->class }}</option>
                   @foreach($networklink_classes as $networklink_class)
-                  <option value="{{$networklink_class->class}}" >{{$networklink_class->class}}</option>
+                  <option value="{{$networklink_class->class}}" <?php echo ($networklink->class == $networklink_class->class ? 'selected="selected"': ''); ?>>{{$networklink_class->class}}</option>
                   @endforeach
               </select> 
           </div>
 
           <div class="form-group">    
               <label for="title">標題:</label>
-              <input type="date" class="form-control" name="title" value={{ $networklink->title}}>
+              <input type="text" class="form-control" name="title" value={{ $networklink->title}}>
           </div>
 
           <div class="form-group">
               <label for="content">內容:</label>
-              <input type="date" class="form-control" name="content" value={{ $networklink->content}}>
+              <input type="text" class="form-control" name="content" value={{ $networklink->content}}>
           </div>
 
           <div class="form-group">
@@ -60,6 +59,7 @@
 
         </form>
     </div>
+
 </div>
 @endsection
 

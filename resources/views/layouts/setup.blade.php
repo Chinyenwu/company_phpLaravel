@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -83,16 +83,16 @@
                 <li><a class="btn btn-light" href="{{ url('/setup/tasks') }}" >網站架構</a></li>
             </ul>
             <ul class="nav nav-tabs">   
-                <li><a class="btn btn-light" href="{{ url('/setup/website_information') }}" >網站資訊</a></li>
+                <li><a class="btn btn-light" href="{{ route('website_informations.create') }}" >網站資訊</a></li>
             </ul> 
             <ul class="nav nav-tabs">   
-                <li><a class="btn btn-light" href="{{ url('/setup/keyword') }}" >關鍵字設定</a></li>
+                <li><a class="btn btn-light" href="{{ route('keywords.create')}}" >關鍵字設定</a></li>
             </ul> 
+            <!--<ul class="nav nav-tabs">   
+                <li><a class="btn btn-light" href="{{ url('/setup/prefers') }}" >系統偏好</a></li>
+            </ul>--> 
             <ul class="nav nav-tabs">   
-                <li><a class="btn btn-light" href="{{ url('/setup/prefer') }}" >系統偏好</a></li>
-            </ul> 
-            <ul class="nav nav-tabs">   
-                <li><a class="btn btn-light" href="{{ url('/setup/setupchange') }}" >配置修改</a></li>
+                <li><a class="btn btn-light" href="{{ route('setupchanges.create') }}" >配置修改</a></li>
             </ul>                          
         </div>   
         <main class="py-4">

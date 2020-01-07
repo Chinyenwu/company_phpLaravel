@@ -23,9 +23,9 @@
               <label for="class">類別:</label>
               <?php $imformation_classes = DB::table('imformation_classes')->get();?>
               <select class="form-control" name="class" >
-                  <option value={{ $imformation->class }} selected='selected'>{{ $imformation->class }}</option>
+                  <!--<option value={{ $imformation->class }} selected='selected'>{{ $imformation->class }}</option>-->
                   @foreach($imformation_classes as $imformation_class)
-                  <option value="{{$imformation_class->class}}" >{{$imformation_class->class}}</option>
+                  <option value="{{$imformation_class->class}}" <?php echo ($imformation->class == $imformation_class->class ? 'selected="selected"': ''); ?>>{{$imformation_class->class}}</option>
                   @endforeach
               </select> 
           </div>

@@ -5,9 +5,9 @@
 <div class="col-sm-12">
     <h1 class="display-3">職務類別</h1>  
     <div>
-    <a style="margin: 19px;" href="{{ route('positions.create')}}" class="btn btn-primary">新增頁面類別</a>
-    <input id="class" type="radio"  name="class" value="{{ '教師' }}" >教師
-    <input id="class" type="radio"  name="class" value="{{ '行政人員' }}" >行政人員
+    <a style="margin: 19px;" href="{{ route('positions.create')}}" class="btn btn-primary">新增職務</a>
+    <input id="class" type="radio"  name="class" value="{{ '教師' }}" class="teacher">教師
+    <input id="class" type="radio"  name="class" value="{{ '行政人員' }}" class="staff">行政人員
     </div>   
   <table class="table table-striped">
     <thead>
@@ -24,13 +24,13 @@
             <td>{{$position->class}}</td>
             <td>{{$position->position}}</td>
             <td>
-                <a href="{{ route('positions.edit',$position->id)}}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('positions.edit',$position->id)}}" class="btn btn-primary">編輯</a>
             </td>
             <td>
                 <form action="{{ route('positions.destroy', $position->id)}}" method="post">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
+                  <button class="btn btn-danger" type="submit">刪除</button>
                 </form>
             </td>
         </tr>

@@ -5,7 +5,7 @@
 <div class="col-sm-12">
   <h1 class="display-3">計畫</h1> 
     <div>
-    <a style="margin: 19px;" href="{{ route('projects.create')}}" class="btn btn-primary">新增活動</a>
+    <a style="margin: 19px;" href="{{ route('projects.create')}}" class="btn btn-primary">新增計畫</a>
     </div>   
   <div>
   <table class="table table-striped">

@@ -5,7 +5,7 @@
 <div class="col-sm-12">
   <h1 class="display-3">期刊</h1>  
     <div>
-    <a style="margin: 19px;" href="{{ route('journals.create')}}" class="btn btn-primary">新增活動</a>
+    <a style="margin: 19px;" href="{{ route('journals.create')}}" class="btn btn-primary">新增期刊</a>
     </div>  
   <div>
   <table class="table table-striped">

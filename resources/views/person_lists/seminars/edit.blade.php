@@ -44,21 +44,21 @@
           </div>
           <div class="form-group">    
               <label for="type">類別:</label>
-              <input  type="radio"  name="type"  value="{{'口頭報告'}}" >口頭報告
-              <input  type="radio"  name="type"  value="{{'會議論文'}}" >會議論文    
-              <input  type="radio"  name="type"  value="{{'受邀演講'}}" >受邀演講
-              <input  type="radio"  name="type"  value="{{'海報展示'}}" >海報展示
-              <input  type="radio"  name="type"  value="{{'壁報論文'}}" >壁報論文    
-              <input  type="radio"  name="type"  value="{{'其他'}}" >其他 
+              <input  type="radio"  name="type"  value="{{'口頭報告'}}" <?php echo ($seminar->type == "口頭報告" ? 'checked="checked"': ''); ?> >口頭報告
+              <input  type="radio"  name="type"  value="{{'會議論文'}}" <?php echo ($seminar->type == "會議論文" ? 'checked="checked"': ''); ?> >會議論文    
+              <input  type="radio"  name="type"  value="{{'受邀演講'}}" <?php echo ($seminar->type == "受邀演講" ? 'checked="checked"': ''); ?> >受邀演講
+              <input  type="radio"  name="type"  value="{{'海報展示'}}" <?php echo ($seminar->type == "海報展示" ? 'checked="checked"': ''); ?> >海報展示
+              <input  type="radio"  name="type"  value="{{'壁報論文'}}" <?php echo ($seminar->type == "壁報論文" ? 'checked="checked"': ''); ?> >壁報論文    
+              <input  type="radio"  name="type"  value="{{'其他'}}" <?php echo ($seminar->type == "其他" ? 'checked="checked"': ''); ?> >其他 
           </div>
           <div class="form-group">    
               <label for="level">等級:</label>
-              <input  type="radio"  name="level"  value="{{ 'SCI' }}" >SCI
-              <input  type="radio"  name="level"  value="{{ 'SSCI' }}" >SSCI
-              <input  type="radio"  name="level"  value="{{ 'EI' }}" >EI
-              <input  type="radio"  name="level"  value="{{ 'AHCI' }}" >AHCI
-              <input  type="radio"  name="level"  value="{{ 'TSSCI' }}" >TSSCI
-              <input  type="radio"  name="level"  value="{{ '其他' }}" >其他  
+              <input  type="radio"  name="level"  value="{{ 'SCI' }}" <?php echo ($seminar->level == "SCI" ? 'checked="checked"': ''); ?> >SCI
+              <input  type="radio"  name="level"  value="{{ 'SSCI' }}" <?php echo ($seminar->level == "SSCI" ? 'checked="checked"': ''); ?> >SSCI
+              <input  type="radio"  name="level"  value="{{ 'EI' }}" <?php echo ($seminar->level == "EI" ? 'checked="checked"': ''); ?> >EI
+              <input  type="radio"  name="level"  value="{{ 'AHCI' }}" <?php echo ($seminar->level == "AHCI" ? 'checked="checked"': ''); ?> >AHCI
+              <input  type="radio"  name="level"  value="{{ 'TSSCI' }}" <?php echo ($seminar->level == "TSSCI" ? 'checked="checked"': ''); ?> >TSSCI
+              <input  type="radio"  name="level"  value="{{ '其他' }}" <?php echo ($seminar->level == "其他" ? 'checked="checked"': ''); ?> >其他  
           </div>   
           <div class="form-group">    
               <label for="start_date">起始日期:</label>
@@ -110,9 +110,9 @@
           </div>   
           <div class="form-group">    
               <label for="editer_type">作者型態:</label>
-              <input  type="radio"  name="editer_type"  value="{{'First Author'}}" >First Author
-              <input  type="radio"  name="editer_type"  value="{{'Corresponding Author'}}" >Corresponding Author
-              <input  type="radio"  name="editer_type"  value="{{'Other'}}" >Other   
+              <input  type="radio"  name="editer_type"  value="{{'First Author'}}" <?php echo ($seminar->editer_type == "內校研究" ? 'checked="checked"': ''); ?> >First Author
+              <input  type="radio"  name="editer_type"  value="{{'Corresponding Author'}}" <?php echo ($seminar->editer_type == "內校研究" ? 'checked="checked"': ''); ?> >Corresponding Author
+              <input  type="radio"  name="editer_type"  value="{{'Other'}}" <?php echo ($seminar->editer_type == "內校研究" ? 'checked="checked"': ''); ?> >Other   
           </div>
           <div class="form-group">    
               <label for="ISSN">ISSN:</label>
@@ -136,9 +136,9 @@
           </div>
             <div class="form-group">    
               <label for="language">語言:</label>
-              <input  type="radio"  name="language"  value="{{'繁體中文'}}" >繁體中文
-              <input  type="radio"  name="language"  value="{{'English'}}" >English
-              <input  type="radio"  name="language"  value="{{'其他'}}" >其他
+              <input  type="radio"  name="language"  value="{{'繁體中文'}}" <?php echo ($seminar->language == "繁體中文" ? 'checked="checked"': ''); ?> >繁體中文
+              <input  type="radio"  name="language"  value="{{'English'}}" <?php echo ($seminar->language == "English" ? 'checked="checked"': ''); ?> >English
+              <input  type="radio"  name="language"  value="{{'其他'}}" <?php echo ($seminar->language == "其他" ? 'checked="checked"': ''); ?> >其他
           </div> 
           <div class="form-group">    
               <label for="project_name">專案名稱:</label>

@@ -19,6 +19,13 @@ class PageController extends Controller
         return view('pages.index', compact('pages'));
     }
 
+    public function search(Request $request)
+    {
+        //$imformations = Imformation::paginate(10);
+        $search = $request->get('search');
+        $pages = Page::where('title', 'like', "%".$search."%")->paginate(10);
+        return view('pages.index', compact('pages'));
+    }
     /**
      * Show the form for creating a new resource.
      *

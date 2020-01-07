@@ -54,8 +54,8 @@
           <button type="submit" class="btn btn-primary">新增公告</button>
       </form>
   </div>
-
 </div>
+
 </div>
 @endsection
 

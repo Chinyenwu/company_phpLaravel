@@ -4,7 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class keyword extends Model
+class Keyword extends Model
 {
-    //
+    protected $fillable = [
+         'google','keyword', 'describe'
+    ];
 }

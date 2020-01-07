@@ -18,7 +18,6 @@ class CreateSetupchangesTable extends Migration
             $table->string('encryption');
             $table->string('logouttime');
             $table->string('loginfail');
-            $table->string('uploadfile');
             $table->string('uploadtype');
             $table->string('uploadsize');
             $table->string('picturetype');

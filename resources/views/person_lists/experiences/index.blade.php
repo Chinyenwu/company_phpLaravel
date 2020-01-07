@@ -5,7 +5,7 @@
 <div class="col-sm-12">
   <h1 class="display-3">經歷</h1>   
     <div>
-    <a style="margin: 19px;" href="{{ route('experiences.create')}}" class="btn btn-primary">新增活動</a>
+    <a style="margin: 19px;" href="{{ route('experiences.create')}}" class="btn btn-primary">新增經歷</a>
     </div>  
   <div>
   <table class="table table-striped">

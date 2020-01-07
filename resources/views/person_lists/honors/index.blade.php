@@ -5,7 +5,7 @@
 <div class="col-sm-12">
   <h1 class="display-3">獎項</h1>  
     <div>
-    <a style="margin: 19px;" href="{{ route('honors.create')}}" class="btn btn-primary">新增活動</a>
+    <a style="margin: 19px;" href="{{ route('honors.create')}}" class="btn btn-primary">新增榮譽</a>
     </div>  
   <div>
   <table class="table table-striped">

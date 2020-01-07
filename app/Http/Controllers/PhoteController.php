@@ -87,7 +87,7 @@ class PhoteController extends Controller
         $phote = new Phote([
             'belong' => $request->get('belong'),
             'name' => $request->file('file')->getClientOriginalName(),
-            'file' => Storage::putFileAs('phote'.'/'.$request->get('belong'), $request->file('file'),$request->file('file')->getClientOriginalName())
+            'file' => Storage::putFileAs('public/phote/'.$request->get('belong'), $request->file('file'),$request->file('file')->getClientOriginalName())
         ]);
 
         $phote->save();

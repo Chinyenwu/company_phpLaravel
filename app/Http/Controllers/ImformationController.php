@@ -21,7 +21,15 @@ class ImformationController extends Controller
     public function index()
     {
         $imformations = Imformation::paginate(10);
-        //$imformations = Imformation::where('title', 'like', '%'.$Search.'%')::paginate(10);
+        //$imformations = Imformation::where('title', 'like', '%'.$Search.'%')->paginate(10);
+        return view('imformations.index', compact('imformations'));
+    }
+
+    public function search(Request $request)
+    {
+        //$imformations = Imformation::paginate(10);
+        $search = $request->get('search');
+        $imformations = Imformation::where('title', 'like', "%".$search."%")->paginate(10);
         return view('imformations.index', compact('imformations'));
     }
 
@@ -30,6 +38,7 @@ class ImformationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         return view('imformations.create');
@@ -47,8 +56,8 @@ class ImformationController extends Controller
             'title'=>'required',
             'class'=>'required',
         ]);
-
-        $imformation = new Imformation([
+        if($request->file('file')!=null){
+            $imformation = new Imformation([
             'class' => $request->get('class'),
             'start_date' => $request->get('start_date'),
             'end_date' => $request->get('end_date'),
@@ -58,7 +67,22 @@ class ImformationController extends Controller
             'person' => $request->get('person'),
             'context' => $request->get('context'),
             'file' => Storage::putFileAs('information'.'/'.$request->get('class'), $request->file('file') ,$request->file('file')->getClientOriginalName())
-        ]);
+            ]);
+        }
+
+        else{
+            $imformation = new Imformation([
+            'class' => $request->get('class'),
+            'start_date' => $request->get('start_date'),
+            'end_date' => $request->get('end_date'),
+            'title' => $request->get('title'),
+            'second_title' => $request->get('second_title'),
+            'website' => $request->get('website'),
+            'person' => $request->get('person'),
+            'context' => $request->get('context'),
+            'file' => $request->file('file')
+            ]);            
+        }
         $imformation->save();
         return redirect('/imformations')->with('success', 'Imformation saved!');
     }
@@ -106,6 +130,7 @@ class ImformationController extends Controller
             'title'=>'required',
             'class'=>'required',
         ]);
+       if($request->file('file')!=null){
             $imformation = Imformation::find($id);
             $imformation->class = $request->get('class');
             $imformation->start_date = $request->get('start_date');
@@ -115,9 +140,21 @@ class ImformationController extends Controller
             $imformation->website = $request->get('website');
             $imformation->person = $request->get('person');
             $imformation->context = $request->get('context');
-            $imformation->file = Storage::putFile('information'.'/'.$request->get('class'), $request->file('file'),$request->file('file')->getClientOriginalName());
-            $imformation->save();
-
+            $imformation->file = Storage::putFile('information'.'/'.$request->get('class'), $request->file('file'),$request->file('file')->getClientOriginalName());        
+       }
+       else{
+            $imformation = Imformation::find($id);
+            $imformation->class = $request->get('class');
+            $imformation->start_date = $request->get('start_date');
+            $imformation->end_date = $request->get('end_date');
+            $imformation->title = $request->get('title');
+            $imformation->second_title = $request->get('second_title');
+            $imformation->website = $request->get('website');
+            $imformation->person = $request->get('person');
+            $imformation->context = $request->get('context');
+            $imformation->file = $request->file('file');   
+       }
+        $imformation->save();
         return redirect('/imformations')->with('success', 'Imformation update!');
 
     }

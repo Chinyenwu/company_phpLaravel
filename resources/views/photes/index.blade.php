@@ -13,6 +13,7 @@
           <td>屬於</td>
           <td>名子</td>
           <td>功能</td>
+          <td>照片</td>
         </tr>
     </thead>
     <tbody>
@@ -20,7 +21,7 @@
         <tr>
             <td>{{$phote->id}}</td>
             <td>{{$phote->belong}}</td>
-            <td><!--<img src="{{ asset($phote->file) }}" alt={{$phote->name}} title="" width="15%">-->{{$phote->name}}</td>
+            <td>{{$phote->name}}</td>
             <td>
                 <form action="{{ route('photes.destroy', $phote->id  )}}" method="post">
                   @csrf
@@ -31,6 +32,8 @@
             <td>
                 <a href="{{ route('photes.show',$phote->id)}}" class="btn btn-primary">下載</a>
             </td>
+            <td><img src="{{ url('storage/phote/'.$phote->belong.'/'.$phote->name) }}" alt="{{$phote->name}}" title="{{$phote->name}}" width="15%"></td>
+            <td>           
         </tr>
         @endforeach
     </tbody>

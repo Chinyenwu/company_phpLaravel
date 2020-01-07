@@ -12,11 +12,9 @@
     </div>
   @endif
 </div>-->
-  <form action="{{ route('imformations.show','1') }}" method="POST"><!--搜尋-->
-    @method('PATCH') 
-    @csrf
+  <form action="/imformations/index/search" method="GET"><!--搜尋-->
     <div class="input-group">
-        <input type="text" class="form-control" name="Search" placeholder="搜尋公告"> 
+        <input type="text" class="form-control" name="search" placeholder="搜尋公告"> 
         <span class="input-group-btn">
          <button type="submit" class="btn btn-primary">蒐尋公告</button>
         </span>

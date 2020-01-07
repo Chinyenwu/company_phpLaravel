@@ -87,7 +87,7 @@ class AdphoteController extends Controller
         $adphote = new Adphote([
             'belong' => $request->get('belong'),
             'name' => $request->file('file')->getClientOriginalName(),
-            'file' => Storage::putFileAs('adphote'.'/'.$request->get('belong'), $request->file('file'),$request->file('file')->getClientOriginalName())
+            'file' => Storage::putFileAs('public/adphote'.'/'.$request->get('belong'), $request->file('file'),$request->file('file')->getClientOriginalName())
         ]);
 
         $adphote->save();

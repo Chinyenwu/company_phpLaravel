@@ -5,7 +5,7 @@
 <div class="col-sm-12">
   <h1 class="display-3">專利</h1>  
     <div>
-    <a style="margin: 19px;" href="{{ route('patents.create')}}" class="btn btn-primary">新增活動</a>
+    <a style="margin: 19px;" href="{{ route('patents.create')}}" class="btn btn-primary">新增專利</a>
     </div>  
   <div>
   <table class="table table-striped">

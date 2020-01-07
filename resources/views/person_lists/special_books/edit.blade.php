@@ -60,9 +60,9 @@
           </div>
           <div class="form-group">    
               <label for="editer_type">作者型態:</label>
-              <input  type="radio"  name="editer_type"  value="{{'First Author'}}" >First Author
-              <input  type="radio"  name="editer_type"  value="{{'Corresponding Author'}}" >Corresponding Author
-              <input  type="radio"  name="editer_type"  value="{{'Other'}}" >Other   
+              <input  type="radio"  name="editer_type"  value="{{'First Author'}}" <?php echo ($special_book->editer_type == "First Author" ? 'checked="checked"': ''); ?> >First Author
+              <input  type="radio"  name="editer_type"  value="{{'Corresponding Author'}}" <?php echo ($special_book->editer_type == "Corresponding Author" ? 'checked="checked"': ''); ?> >Corresponding Author
+              <input  type="radio"  name="editer_type"  value="{{'Other'}}" <?php echo ($special_book->editer_type == "Other" ? 'checked="checked"': ''); ?> >Other   
           </div>
           <div class="form-group">    
               <label for="ISSN">ISSN:</label>
@@ -86,9 +86,9 @@
           </div>
             <div class="form-group">    
               <label for="language">語言:</label>
-              <input  type="radio"  name="language"  value="{{'繁體中文'}}" >繁體中文
-              <input  type="radio"  name="language"  value="{{'English'}}" >English
-              <input  type="radio"  name="language"  value="{{'其他'}}" >其他
+              <input  type="radio"  name="language"  value="{{'繁體中文'}}" <?php echo ($special_book->language == "繁體中文" ? 'checked="checked"': ''); ?> >繁體中文
+              <input  type="radio"  name="language"  value="{{'English'}}" <?php echo ($special_book->language == "繁體中文" ? 'checked="checked"': ''); ?> >English
+              <input  type="radio"  name="language"  value="{{'其他'}}" <?php echo ($special_book->language == "繁體中文" ? 'checked="checked"': ''); ?> >其他
           </div>
           <div class="form-group">    
               <label for="project_name">專案名稱:</label>

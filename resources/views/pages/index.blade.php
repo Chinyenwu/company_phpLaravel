@@ -3,7 +3,15 @@
 @section('content')
 <div class="row">
 <div class="col-sm-12">
-  <h1 class="display-3">頁面</h1>    
+  <h1 class="display-3">頁面</h1>
+  <form action="/pages/index/search" method="GET"><!--搜尋-->
+    <div class="input-group">
+        <input type="text" class="form-control" name="search" placeholder="搜尋公告"> 
+        <span class="input-group-btn">
+         <button type="submit" class="btn btn-primary">蒐尋公告</button>
+        </span>
+    </div>
+  </form>    
   <div>
   <table class="table table-striped">
     <thead>

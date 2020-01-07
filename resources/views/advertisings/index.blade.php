@@ -20,7 +20,6 @@
         @foreach($advertisings as $advertising)
         <tr>
             <td>{{$advertising->id}}</td>
-            <td></td>
             <td>{{$advertising->title}}</td>
             <td>
                 <a href="{{ route('advertisings.edit',$advertising->id)}}" class="btn btn-primary">編輯</a>

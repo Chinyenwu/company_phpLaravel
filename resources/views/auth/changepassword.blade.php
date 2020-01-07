@@ -15,8 +15,13 @@
         </div>
         <br /> 
         @endif
-        <form method="post" action="{{ route('auth.store', Auth::user() ) }}">
+        <!--<?php //var_dump(Auth::user()->name)?>-->
+        <form method="post" action="{{ route('auth.store') }}">
           @csrf
+          <div class="form-group" >
+              <label for="name">帳號:</label>
+              <input type="text" class="form-control" name="name" value={{Auth::user()->name}} >
+          </div>          
           <div class="form-group">
               <label for="password">密碼:</label>
               <input type="password" class="form-control" name="password"  >

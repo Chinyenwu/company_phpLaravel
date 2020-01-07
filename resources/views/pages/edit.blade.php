@@ -23,9 +23,8 @@
               <label for="class">類別:</label>
               <?php $page_classes = DB::table('page_classes')->get();?>
               <select class="form-control" name="class" >
-                  <option value={{ $page->class }} selected='selected'>{{ $page->class }}</option>
                   @foreach($page_classes as $page_class)
-                  <option value="{{$page_class->class}}">{{$page_class->class}}</option>
+                  <option value="{{$page_class->class}}" <?php echo ($page->class == $page_class->class ? 'selected="selected"': ''); ?>>{{$page_class->class}}</option>
                   @endforeach
               </select> 
           </div>

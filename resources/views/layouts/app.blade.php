@@ -11,8 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
     
+    <script src="//cdn.ckeditor.com/4.13.1/full/ckeditor.js"></script>
+    <!--<script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>-->
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

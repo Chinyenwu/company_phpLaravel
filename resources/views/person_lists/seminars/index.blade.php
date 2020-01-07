@@ -5,7 +5,7 @@
 <div class="col-sm-12">
   <h1 class="display-3">研討會</h1> 
     <div>
-    <a style="margin: 19px;" href="{{ route('seminars.create')}}" class="btn btn-primary">新增活動</a>
+    <a style="margin: 19px;" href="{{ route('seminars.create')}}" class="btn btn-primary">新增研討會</a>
     </div>   
   <div>
   <table class="table table-striped">

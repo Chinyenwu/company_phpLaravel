@@ -8,6 +8,6 @@ class DemoTask extends Model
 {
     //
     protected $fillable = [
-        'id', 'title','order', 'status',
+         'title','order', 'status'
     ];
 }

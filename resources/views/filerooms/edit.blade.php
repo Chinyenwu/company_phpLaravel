@@ -23,9 +23,8 @@
               <label for="class">類別:</label>
               <?php $fileroom_classes = DB::table('fileroom_classes')->get();?>
               <select class="form-control" name="class" >
-                  <option value={{ $fileroom->class }} selected='selected'>{{ $fileroom->class }}</option>
                   @foreach($fileroom_classes as $fileroom_class)
-                  <option value="{{$fileroom_class->class}}">{{$fileroom_class->class}}</option>
+                  <option value="{{$fileroom_class->class}}" <?php echo ($fileroom->class == $fileroom_class->class ? 'selected="selected"': ''); ?> >{{$fileroom_class->class}}</option>
                   @endforeach
               </select> 
           </div>
