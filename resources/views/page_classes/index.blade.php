@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 <div class="col-sm-12">
-    <h1 class="display-3">頁面類別</h1>  
+    <h1 >頁面類別</h1>  
     <div>
     <a style="margin: 19px;" href="{{ route('page_classes.create')}}" class="btn btn-primary">新增頁面類別</a>
     </div>   

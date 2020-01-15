@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\Seminar;
+use App\User;
 
 class SeminarController extends Controller
 {
@@ -13,10 +14,12 @@ class SeminarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $seminars = Seminar::paginate(10);
-        return view('person_lists/seminars.index', compact('seminars'));
+        $id = $request->get('id');
+        $user = User::find($id);
+        $seminars = Seminar::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/seminars.index', compact(['seminars'],['user']));
     }
 
     /**
@@ -24,9 +27,11 @@ class SeminarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('person_lists/seminars.create');
+        $id = $request->get('id');
+        $user = User::find($id);
+        return view('person_lists/seminars.create',compact('user'));
     }
 
     /**
@@ -62,11 +67,13 @@ class SeminarController extends Controller
             'website' => $request->get('website'),
             'language' => $request->get('language'),
             'project_name' => $request->get('project_name'),
-            'remark' => $request->get('remark')
+            'remark' => $request->get('remark'),
+            'person' => $request->get('person')
         ]);
         $seminar->save();
-        return redirect('/person_lists/seminars')->with('success', 'Seminar saved!');
-    }
+        $user = User::where('name',$request->get('person')) -> first();
+        $seminars = Seminar::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/seminars.index', compact(['seminars','user']));    }
 
     /**
      * Display the specified resource.
@@ -127,7 +134,9 @@ class SeminarController extends Controller
             $seminar->remark = $request->get('remark'); 
             $seminar->save();
 
-        return redirect('/person_lists/seminars')->with('success', 'Seminar update!');
+        $user = User::where('name',$seminar->person) -> first();
+        $seminars = Seminar::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/seminars.index', compact(['seminars','user']));    }
     }
 
     /**
@@ -140,6 +149,8 @@ class SeminarController extends Controller
     {
         $seminar = Seminar::find($id);
         $seminar->delete();
-        return redirect('/person_lists/seminars')->with('success', 'Seminar deleted!');
+        $user = User::where('name',$seminar->person) -> first();
+        $seminars = Seminar::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/seminars.index', compact(['seminars','user']));    }
     }
 }

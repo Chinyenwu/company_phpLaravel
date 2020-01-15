@@ -29,6 +29,7 @@ class CreateActivitiesTable extends Migration
             $table->string('website');
             $table->string('position');
             $table->string('remark');
+            $table->string('person');
             $table->timestamps();
         });
     }

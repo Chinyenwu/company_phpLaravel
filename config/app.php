@@ -177,6 +177,8 @@ return [
         //Lavary\Menu\ServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+        Harimayco\Menu\MenuServiceProvider::class,
     ],
 
     /*

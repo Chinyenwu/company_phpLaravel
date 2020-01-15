@@ -84,15 +84,20 @@ class PhoteController extends Controller
     public function update(Request $request, $id)
     {
         $photealbum = Photealbum::find($id);
-        $phote = new Phote([
+        if($request->hasfile('file'))
+        {
+            foreach($request->file('file') as $file)
+            {
+            $phote = new Phote([
             'belong' => $request->get('belong'),
-            'name' => $request->file('file')->getClientOriginalName(),
-            'file' => Storage::putFileAs('public/phote/'.$request->get('belong'), $request->file('file'),$request->file('file')->getClientOriginalName())
-        ]);
-
-        $phote->save();
+            'name' => $file->getClientOriginalName(),
+            'file' => Storage::putFileAs('public/phote/'.$request->get('belong'), $file,$file->getClientOriginalName())
+            ]);
+            $phote->save();
+            }     
+        }
         $photes = Phote::where('belong', '=', $photealbum->title)->paginate(10);
-        return view('photes.index', compact('photes','photealbum'));
+        return view('photes.index', compact(['photes'],['photealbum']));
     }
 
     /**

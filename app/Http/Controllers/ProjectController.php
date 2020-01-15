@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\Project;
+use App\User;
 
 class ProjectController extends Controller
 {
@@ -13,10 +14,12 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $projects = Project::paginate(10);
-        return view('person_lists/projects.index', compact('projects'));
+        $id = $request->get('id');
+        $user = User::find($id);
+        $projects = Project::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/projects.index', compact(['projects'],['user']));
     }
 
     /**
@@ -24,9 +27,11 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('person_lists/projects.create');
+        $id = $request->get('id');
+        $user = User::find($id);
+        return view('person_lists/projects.create',compact('user'));
     }
 
     /**
@@ -52,10 +57,13 @@ class ProjectController extends Controller
             'file' => $request->get('file'),
             'file_path' => $request->get('file_path'),
             'website' => $request->get('website'),
-            'remark' => $request->get('remark')
+            'remark' => $request->get('remark'),
+            'person' => $request->get('person')
         ]);
         $project->save();
-        return redirect('/person_lists/projects')->with('success', 'Project saved!');
+        $user = User::where('name',$request->get('person')) -> first();
+        $projects = Project::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/projects.index', compact(['projects','user']));
     }
 
     /**
@@ -106,7 +114,9 @@ class ProjectController extends Controller
             $project->remark = $request->get('remark'); 
             $project->save();
 
-        return redirect('/person_lists/projects')->with('success', 'Project update!');
+        $user = User::where('name',$project->person) -> first();
+        $projects = Project::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/projects.index', compact(['projects','user']));
     }
 
     /**
@@ -119,6 +129,8 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         $project->delete();
-        return redirect('/person_lists/projects')->with('success', 'Project deleted!');
+        $user = User::where('name',$project->person) -> first();
+        $projects = Project::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/projects.index', compact(['projects','user']));
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\Activity;
+use App\User;
 
 class ActivityController extends Controller
 {
@@ -13,10 +14,12 @@ class ActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $activities = Activity::paginate(10);
-        return view('person_lists/activities.index', compact('activities'));
+        $id = $request->get('id');
+        $user = User::find($id);
+        $activities = Activity::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/activities.index', compact(['activities','user']));
     }
 
     /**
@@ -24,9 +27,11 @@ class ActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('person_lists/activities.create');
+        $id = $request->get('id');
+        $user = User::find($id);
+        return view('person_lists/activities.create',compact('user'));
     }
 
     /**
@@ -56,10 +61,14 @@ class ActivityController extends Controller
             'file_path' => $request->get('file_path'),
             'website' => $request->get('website'),
             'position' => $request->get('position'),
-            'remark' => $request->get('remark')
+            'remark' => $request->get('remark'),
+            'person' => $request->get('person')
         ]);
+
         $activity->save();
-        return redirect('/person_lists/activities')->with('success', 'Activity saved!');
+        $user = User::where('name',$request->get('person')) -> first();
+        $activities = Activity::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/activities.index', compact(['activities','user']));
     }
 
     /**
@@ -115,7 +124,9 @@ class ActivityController extends Controller
             $activity->remark = $request->get('remark'); 
             $activity->save();
 
-        return redirect('/person_lists/activities')->with('success', 'Activity update!');
+        $user = User::where('name',$activity->person) -> first();
+        $activities = Activity::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/activities.index', compact(['activities','user']));
     }
 
     /**
@@ -128,6 +139,8 @@ class ActivityController extends Controller
     {
         $activity = Activity::find($id);
         $activity->delete();
-        return redirect('/person_lists/activities')->with('success', 'Activity deleted!');
+        $user = User::where('name',$activity->person) -> first();
+        $activities = Activity::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/activities.index', compact(['activities','user']));
     }
 }

@@ -21,6 +21,7 @@ class Activity extends Model
         'file_path',
         'website',
         'position',
-        'remark'       
+        'remark',
+        'person'      
     ];
 }

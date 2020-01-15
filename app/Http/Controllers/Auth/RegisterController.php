@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Permission;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -74,20 +75,82 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        if($data['permission']=='super_manager'){
+
+        $permission = new Permission([
             'name' => $data['name'],
-            'password' => Hash::make($data['password']),
-            'first_name' => $data['first_name'],
-            'email' => $data['email'],
-            'staff_number' => $data['staff_number'],
-            'contact_phone' => $data['contact_phone'],
-            'fax' => $data['fax'],
-            'cell_phone' => $data['cell_phone'],
-            'gender' => $data['gender'],
-            'birthday' => $data['birthday'],
-            'contact_address' => $data['contact_address'],
-            'class' => $data['class'],
-            'position' => $data['position'],
+            'advertising' => 'yes',
+            'imformation' => 'yes',
+            'fileroom' => 'yes',
+            'photealbum' => 'yes',
+            'page' => 'yes',
+            'auth' => 'yes',
+            'register' => 'yes',
+            'positions' => 'yes',
+            'setup' => 'yes',
+            'menus' => 'yes',
+            'website_information' => 'yes',
+            'keyword' => 'yes',
+            'setupchange' => 'yes'
         ]);
+
+        $permission->save();
+
+            return User::create([
+                'name' => $data['name'],
+                'password' => Hash::make($data['password']),
+                'first_name' => $data['first_name'],
+                'email' => $data['email'],
+                'staff_number' => $data['staff_number'],
+                'contact_phone' => $data['contact_phone'],
+                'fax' => $data['fax'],
+                'cell_phone' => $data['cell_phone'],
+                'gender' => $data['gender'],
+                'birthday' => $data['birthday'],
+                'contact_address' => $data['contact_address'],
+                'permission' => $data['permission'],
+                'class' => $data['class'],
+                'position' => $data['position'],
+            ]);
+        }
+
+        else{
+
+        $permission = new Permission([
+            'name' => $data['name'],
+            'advertising' => 'no',
+            'imformation' => 'no',
+            'fileroom' => 'no',
+            'photealbum' => 'no',
+            'page' => 'no',
+            'auth' => 'no',
+            'register' => 'no',
+            'positions' => 'no',
+            'setup' => 'no',
+            'menus' => 'no',
+            'website_information' => 'no',
+            'keyword' => 'no',
+            'setupchange' => 'no'
+        ]);
+
+        $permission->save();
+
+            return User::create([
+                'name' => $data['name'],
+                'password' => Hash::make($data['password']),
+                'first_name' => $data['first_name'],
+                'email' => $data['email'],
+                'staff_number' => $data['staff_number'],
+                'contact_phone' => $data['contact_phone'],
+                'fax' => $data['fax'],
+                'cell_phone' => $data['cell_phone'],
+                'gender' => $data['gender'],
+                'birthday' => $data['birthday'],
+                'contact_address' => $data['contact_address'],
+                'permission' => $data['permission'],
+                'class' => $data['class'],
+                'position' => $data['position'],
+            ]);            
+        }
     }
 }

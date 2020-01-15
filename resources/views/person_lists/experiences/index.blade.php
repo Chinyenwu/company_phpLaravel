@@ -3,9 +3,17 @@
 @section('content')
 <div class="row">
 <div class="col-sm-12">
-  <h1 class="display-3">經歷</h1>   
+  <h1 >經歷</h1>   
     <div>
-    <a style="margin: 19px;" href="{{ route('experiences.create')}}" class="btn btn-primary">新增經歷</a>
+    <form action="{{ route('experiences.create')}}" method="GET">
+          <div class="input-group">  
+              <input type="text" class="form-control" name="id" value={{ $user->id }}  style="display: none;"> 
+              <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary">新增活動</button>
+              </span>
+          </div>
+    </form>
+    <!--<a style="margin: 19px;" href="{{ route('experiences.create')}}" class="btn btn-primary">新增經歷</a>-->
     </div>  
   <div>
   <table class="table table-striped">

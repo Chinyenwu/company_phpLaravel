@@ -20,6 +20,13 @@ class PositionController extends Controller
         return view('positions.index', compact('positions'));
     }
 
+    public function search(Request $request)
+    {
+        //$imformations = Imformation::paginate(10);
+        $search = $request->get('search');
+        $positions = Position::where('class', 'like', "%".$search."%")->paginate(10);
+        return view('positions.index', compact('positions'));
+    }
     /**
      * Show the form for creating a new resource.
      *

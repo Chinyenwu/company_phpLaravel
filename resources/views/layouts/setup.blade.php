@@ -10,12 +10,13 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.13.1/full/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.13.1/full/adapters/jquery.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -23,37 +24,26 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+                <?php $permission = DB::table('permissions')->where('name', Auth::user()->name)->first()?>
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <!--{{ config('app.name', 'Laravel') }}-->
                     {{ config('首頁', '首頁') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <a class="nav-link" href="{{ url('/home') }}" >{{ __('網站功能') }}</a>
                         <a class="nav-link" href="{{ url('/member') }}" >{{ __('會員系統') }}</a>
                         <a class="nav-link" href="{{ url('/setup') }}" >{{ __('網站設定') }}</a>
                         @guest
-                            <li class="nav-item">
+                            <oi class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('登入') }}</a>
-                            </li>
+                            </oi>
                             <!--@if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('新增成員') }}</a>
                                 </li>
                             @endif-->
                         @else
-                            <li class="nav-item dropdown">
+                            <oi class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -69,13 +59,40 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
+                            </oi>
                         @endguest
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+
                     </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+                        <li><a class="btn btn-light" href="{{ url('/setup') }}" >系統資訊</a></li>
+                        @if($permission->menus=="yes")
+                        <li><a class="btn btn-light" href="{{ url('/setup/menus') }}" >網站架構</a></li>
+                        @endif
+                        @if($permission->website_information=="yes")
+                        <li><a class="btn btn-light" href="{{ route('website_informations.create') }}" >
+                        網站資訊</a></li>
+                        @endif
+                        @if($permission->keyword=="yes")
+                        <li><a class="btn btn-light" href="{{ route('keywords.create')}}" >關鍵字設定</a></li>
+                        @endif
+                        @if($permission->setupchange=="yes")
+                        <li><a class="btn btn-light" href="{{ route('setupchanges.create') }}" >配置修改</a></li>
+                        @endif
+                    </ul>
+
                 </div>
             </div>
         </nav>
-         <div style="float:left;">
+         <!--<div style="float:left;">
             <ul class="nav nav-tabs">
                 <li><a class="btn btn-light" href="{{ url('/setup') }}" >系統資訊</a></li>
             </ul>   
@@ -88,13 +105,13 @@
             <ul class="nav nav-tabs">   
                 <li><a class="btn btn-light" href="{{ route('keywords.create')}}" >關鍵字設定</a></li>
             </ul> 
-            <!--<ul class="nav nav-tabs">   
+            <ul class="nav nav-tabs">   
                 <li><a class="btn btn-light" href="{{ url('/setup/prefers') }}" >系統偏好</a></li>
-            </ul>--> 
+            </ul> 
             <ul class="nav nav-tabs">   
                 <li><a class="btn btn-light" href="{{ route('setupchanges.create') }}" >配置修改</a></li>
             </ul>                          
-        </div>   
+        </div>-->   
         <main class="py-4">
             @yield('content')
         </main>

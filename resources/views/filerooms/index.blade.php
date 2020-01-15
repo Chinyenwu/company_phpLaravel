@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 <div class="col-sm-12">
-  <h1 class="display-3">檔案室</h1>    
+  <h1 >檔案室</h1>    
   <div>
   <form action="/filerooms/index/search" method="GET"><!--搜尋-->
     <div class="input-group">

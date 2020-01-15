@@ -25,7 +25,8 @@ class Journal extends Model
         'website',
         'language',
         'project_name',
-        'remark'       
+        'remark',
+        'person'        
     ];
 }
 

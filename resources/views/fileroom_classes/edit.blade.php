@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">更改檔案室類別</h1>
+        <h1 >更改檔案室類別</h1>
 
         @if ($errors->any())
         <div class="alert alert-danger">

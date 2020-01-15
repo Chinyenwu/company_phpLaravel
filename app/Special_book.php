@@ -25,7 +25,8 @@ class Special_book extends Model
         'website',
         'language',
         'project_name',
-        'remark'       
+        'remark',
+        'person'        
     ];
 }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\Patent;
+use App\User;
 
 class PatentController extends Controller
 {
@@ -13,10 +14,12 @@ class PatentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $patents = Patent::paginate(10);
-        return view('person_lists/patents.index', compact('patents'));
+        $id = $request->get('id');
+        $user = User::find($id);
+        $patents = Patent::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/patents.index', compact(['patents'],['user']));
     }
 
     /**
@@ -24,9 +27,11 @@ class PatentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('person_lists/patents.create');
+        $id = $request->get('id');
+        $user = User::find($id);
+        return view('person_lists/patents.create',compact('user'));
     }
 
     /**
@@ -56,10 +61,13 @@ class PatentController extends Controller
             'file_path' => $request->get('file_path'),
             'website' => $request->get('website'),
             'language' => $request->get('language'),
-            'remark' => $request->get('remark')
+            'remark' => $request->get('remark'),
+            'person' => $request->get('person')
         ]);
         $patent->save();
-        return redirect('/person_lists/patents')->with('success', 'Patent saved!');
+        $user = User::where('name',$request->get('person')) -> first();
+        $patents = Patent::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/patents.index', compact(['patents','user']));
     }
 
     /**
@@ -115,7 +123,9 @@ class PatentController extends Controller
             $patent->remark = $request->get('remark'); 
             $patent->save();
 
-        return redirect('/person_lists/patents')->with('success', 'Patent update!');
+        $user = User::where('name',$patent->person) -> first();
+        $patents = Patent::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/patents.index', compact(['patents','user']));
     }
 
     /**
@@ -128,6 +138,8 @@ class PatentController extends Controller
     {
         $patent = Patent::find($id);
         $patent->delete();
-        return redirect('/person_lists/patents')->with('success', 'Patent deleted!');
+        $user = User::where('name',$patent->person) -> first();
+        $patents = Patent::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/patents.index', compact(['patents','user']));
     }
 }

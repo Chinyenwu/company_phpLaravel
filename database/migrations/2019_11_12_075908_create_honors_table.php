@@ -24,6 +24,7 @@ class CreateHonorsTable extends Migration
             $table->string('file_path');
             $table->string('website');
             $table->string('remark');
+            $table->string('person');
             $table->timestamps();
         });
     }

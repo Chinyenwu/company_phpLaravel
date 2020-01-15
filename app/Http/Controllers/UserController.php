@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\User;
+use App\Permission;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -29,6 +30,7 @@ class UserController extends Controller
         $users = User::where('name', 'like', "%".$search."%")->paginate(10);
         return view('auth.index', compact('users'));
     }
+
     /**
      * Show the form for creating a new resource.
      * @param
@@ -48,7 +50,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $name = $request->get('name');
-        $user = User::find($name);
+        $user = User::where('name', 'like', $name )->first();
         $request->validate([
             'password' => [ 'max:255'],
             'comfirm_password' => [ 'max:255'],
@@ -58,14 +60,15 @@ class UserController extends Controller
         $comfirm_password =  $request->get('comfirm_password');
         
         if($comfirm_password == $password){
-            $user->password = Hash::make($request->get('password'));
+            $password =  $request->get('password');
+            $user->password = Hash::make($password);
             $user->save();
 
             return redirect('member')->with('success', 'password update!');            
         }
 
         else{
-            return redirect('auth/show')->with('fial', 'password not math');   
+            return redirect('auth/show')->with('fail', 'password not math');   
         }
         
         /*
@@ -105,6 +108,12 @@ class UserController extends Controller
         return view('auth.edit', compact('user')); 
     }
 
+    public function personlist(Request $request)
+    {
+        $id = $request->get('id');
+        $user = User::find($id);
+        return view('auth.personlist', compact('user')); 
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -140,6 +149,7 @@ class UserController extends Controller
         $user->gender = $request->get('gender');
         $user->birthday = $request->get('birthday');
         $user->contact_address = $request->get('contact_address');
+        $user->permission = $request->get('permission');
         $user->class = $request->get('class');
         $user->position = $request->get('position');
         $user->save();
@@ -155,9 +165,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
+        $permission = Permission::where('name', 'like', $user->name )->first();
         $user->delete();
-
-        return redirect('/auth')->with('success', 'User deleted!');
-    
+        $permission->delete();
+        return redirect('/auth')->with('success', 'User deleted!');    
     }
 }

@@ -27,11 +27,17 @@
           <div class="form-group">
               <label for="website_head">網站頁首:</label>
               <textarea id="website_head" class="form-control" name="website_head" >{{ $website_information->website_head }}</textarea>
+              <script>
+                CKEDITOR.replace('website_head');
+              </script>
           </div>    
 
           <div class="form-group">
               <label for="website_tail">網站頁尾:</label>
               <textarea id="website_tail" class="form-control" name="website_tail" >{{ $website_information->website_tail }}</textarea>
+              <script>
+                CKEDITOR.replace('website_tail');
+              </script>              
           </div>
 
           <button type="submit" class="btn btn-primary">更新</button>

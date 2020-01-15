@@ -14,6 +14,7 @@ class Education extends Model
         'start_date',
         'end_date',
         'website',
-        'remark'       
+        'remark',
+        'person'        
     ];
 }

@@ -36,6 +36,7 @@ class CreateSeminarsTable extends Migration
             $table->string('language');
             $table->string('project_name');
             $table->string('remark');
+            $table->string('person');
             $table->timestamps();
         });
     }

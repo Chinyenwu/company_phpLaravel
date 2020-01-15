@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 <div class="col-sm-12">
-  <h1 class="display-3">輪播</h1>    
+  <h1 >輪播</h1>    
   <a href="{{ route('adphotes.edit',$advertising->id)}}" class="btn btn-primary">新增</a>
   <div>
   <table class="table table-striped">

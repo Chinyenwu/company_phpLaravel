@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\Special_book;
+use App\User;
 
 class Special_BookController extends Controller
 {
@@ -13,10 +14,12 @@ class Special_BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $special_books = Special_book::paginate(10);
-        return view('person_lists/special_books.index', compact('special_books'));
+        $id = $request->get('id');
+        $user = User::find($id);
+        $special_books = Special_book::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/special_books.index', compact(['special_books'],['user']));
     }
 
     /**
@@ -24,9 +27,11 @@ class Special_BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('person_lists/special_books.create');
+        $id = $request->get('id');
+        $user = User::find($id);
+        return view('person_lists/special_books.create',compact('user'));
     }
 
     /**
@@ -60,10 +65,13 @@ class Special_BookController extends Controller
             'website' => $request->get('website'),
             'language' => $request->get('language'),
             'project_name' => $request->get('project_name'),
-            'remark' => $request->get('remark')
+            'remark' => $request->get('remark'),
+            'person' => $request->get('person')
         ]);
         $special_book->save();
-        return redirect('/person_lists/special_books')->with('success', 'Special_book saved!');
+        $user = User::where('name',$request->get('person')) -> first();
+        $special_books = Special_book::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/special_books.index', compact(['special_books','user']));
     }
 
     /**
@@ -123,7 +131,9 @@ class Special_BookController extends Controller
             $special_book->remark = $request->get('remark'); 
             $special_book->save();
 
-        return redirect('/person_lists/special_books')->with('success', 'Special_book update!');
+        $user = User::where('name',$special_book->person) -> first();
+        $special_books = Special_book::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/special_books.index', compact(['special_books','user']));
     }
 
     /**
@@ -136,6 +146,8 @@ class Special_BookController extends Controller
     {
         $special_book = Special_book::find($id);
         $special_book->delete();
-        return redirect('/person_lists/special_books')->with('success', 'Special_book deleted!');
+        $user = User::where('name',$special_book->person) -> first();
+        $special_books = Special_book::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/special_books.index', compact(['special_books','user']));
     }
 }

@@ -31,6 +31,7 @@ class CreatePatentsTable extends Migration
             $table->string('website');
             $table->string('language');
             $table->string('remark');
+            $table->string('person');
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-    <h1 class="display-3">經驗編輯</h1>
+    <h1 >經驗編輯</h1>
   <div>
     @if ($errors->any())
       <div class="alert alert-danger">
@@ -23,8 +23,8 @@
               <input type="text" class="form-control" name="angency_name" value={{ $experience->angency_name}} >
           </div>
           <div class="form-group">    
-              <label for="agency">機構:</label>
-              <input type="text" class="form-control" name="agency" value={{ $experience->agency}}>
+              <label for="angency">機構:</label>
+              <input type="text" class="form-control" name="angency" value={{ $experience->agency}}>
           </div>
           <div class="form-group">    
               <label for="job_name">工作:</label>

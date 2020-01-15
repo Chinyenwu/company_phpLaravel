@@ -190,6 +190,16 @@
                         </div>
 
                          <div class="form-group row">
+                            <label for="permission" class="col-md-4 col-form-label text-md-right">{{ __('權限') }}</label>
+                            <div class="col-md-6" id="register_position1" >
+                            <select class="form-control" name="permission" >
+                                    <option value="manager">一般使用者</option>
+                                    <option value="super_manager">管理者</option>
+                            </select>
+                            </div>
+                        </div>
+
+                         <div class="form-group row">
                             <label for="class" class="col-md-4 col-form-label text-md-right">{{ __('職務類別') }}</label>
 
                             <div class="col-md-6">
@@ -206,8 +216,6 @@
 
                          <div class="form-group row">
                             <label for="position" class="col-md-4 col-form-label text-md-right">{{ __('職務名稱') }}</label>
-
-                            <div class="register_position1" style="display:none">
                             <div class="col-md-6" id="register_position1" >
                             <?php $positions = DB::table('positions')->where('class','=','教師')->get();?>
                             <select class="form-control" name="position" >
@@ -216,8 +224,9 @@
                                 @endforeach
                             </select> 
                             </div>
+                            <div class="register_position1" style="display:none">
                             </div>
-                            <div class="register_position2" style="display:none">
+                           <label for="position" class="col-md-4 col-form-label text-md-right">{{ __('職務名稱') }}</label>
                            <div class="col-md-6" id="register_position2" >
                             <?php $positions2 = DB::table('positions')->where('class','=','行政人員')->get();?>
                             <select class="form-control" name="position" >
@@ -227,6 +236,7 @@
                             </select> 
                             
                             </div>
+                            <div class="register_position2" style="display:none">
                             </div>
                         </div>
 

@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-    <h1 class="display-3">專利編輯</h1>
+    <h1 >專利編輯</h1>
   <div>
     @if ($errors->any())
       <div class="alert alert-danger">
@@ -61,7 +61,7 @@
           </div> 
           <div class="form-group">    
               <label for="file">檔案名稱:</label>
-              <input type="text" class="form-control" name="file" value={{$patent->file}}/>
+              <input type="text" class="form-control" name="file" value={{$patent->file}}>
           </div>
           <div class="form-group">    
               <label for="file_path">檔案路徑:</label>

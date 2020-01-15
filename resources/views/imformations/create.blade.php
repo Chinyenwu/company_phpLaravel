@@ -3,7 +3,7 @@
 
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-    <h1 class="display-3">新增公告</h1>
+    <h1 >新增公告</h1>
   <div>
     @if ($errors->any())
       <div class="alert alert-danger">
@@ -15,6 +15,7 @@
       </div><br />
     @endif
       <form method="post" action="{{ route('imformations.store') }}" enctype="multipart/form-data">
+          
           @csrf
           <div class="form-group">
               <label for="class">類別:</label>
@@ -62,7 +63,7 @@
               <textarea id="context"  name="context"></textarea>
               <script>
               CKEDITOR.replace( "context" );
-              </script> 
+              </script>
           </div>   
 
           <div class="form-group">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\Experience;
+use App\User;
 
 class ExperienceController extends Controller
 {
@@ -13,10 +14,12 @@ class ExperienceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $experiences = Experience::paginate(10);
-        return view('person_lists/experiences.index', compact('experiences'));
+        $id = $request->get('id');
+        $user = User::find($id);
+        $experiences = Experience::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/experiences.index', compact(['experiences','user']));
     }
 
     /**
@@ -24,9 +27,11 @@ class ExperienceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('person_lists/experiences.create');
+        $id = $request->get('id');
+        $user = User::find($id);
+        return view('person_lists/experiences.create',compact('user'));
     }
 
     /**
@@ -48,10 +53,13 @@ class ExperienceController extends Controller
             'start_date' => $request->get('start_date'),
             'end_date' => $request->get('end_date'),
             'website' => $request->get('website'),
-            'remark' => $request->get('remark')
+            'remark' => $request->get('remark'),
+            'person' => $request->get('person')
         ]);
         $experience->save();
-        return redirect('/person_lists/experiences')->with('success', 'Experience saved!');
+        $user = User::where('name',$request->get('person')) -> first();
+        $experiences = Experience::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/experiences.index', compact(['experiences','user']));
     }
 
     /**
@@ -99,7 +107,10 @@ class ExperienceController extends Controller
             $experience->remark = $request->get('remark'); 
             $experience->save();
 
-        return redirect('/person_lists/experiences')->with('success', 'Experience update!');
+        $user = User::where('name',$experience->person) -> first();
+        $experiences = Experience::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/experiences.index', compact(['experiences','user']));
+
     }
 
     /**
@@ -112,6 +123,8 @@ class ExperienceController extends Controller
     {
         $experience = Experience::find($id);
         $experience->delete();
-        return redirect('/person_lists/experiences')->with('success', 'Experience deleted!');
+        $user = User::where('name',$experience->person) -> first();
+        $experiences = Experience::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/experiences.index', compact(['experiences','user']));
     }
 }

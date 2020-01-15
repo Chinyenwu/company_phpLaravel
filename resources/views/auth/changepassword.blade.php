@@ -15,10 +15,9 @@
         </div>
         <br /> 
         @endif
-        <!--<?php //var_dump(Auth::user()->name)?>-->
         <form method="post" action="{{ route('auth.store') }}">
           @csrf
-          <div class="form-group" >
+          <div class="form-group" style="display: none;">
               <label for="name">帳號:</label>
               <input type="text" class="form-control" name="name" value={{Auth::user()->name}} >
           </div>          
@@ -37,6 +36,12 @@
         </div>
     </div>
 </div>
-
+ <script>
+    var msg = '{{Session::get('fail')}}';
+    var exist = '{{Session::has('fail')}}';
+    if(exist){
+      alert(msg);
+    }
+  </script>
 @endsection
 

@@ -21,7 +21,8 @@ class Patent extends Model
         'file_path',
         'website',
         'language',
-        'remark'       
+        'remark',
+        'person'        
     ];
 }
 

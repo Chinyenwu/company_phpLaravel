@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-    <h1 class="display-3">新增專利</h1>
+    <h1 >新增專利</h1>
   <div>
     @if ($errors->any())
       <div class="alert alert-danger">
@@ -80,7 +80,12 @@
               <label for="remark">備註:</label>
               <textarea  class="form-control" name="remark"></textarea>
           </div> 
-                     
+
+          <div class="form-group" style="display: none;">    
+              <label for="person">持有人:</label>
+              <input type="text" class="form-control" name="person" value={{$user->name}}>
+          </div> 
+                               
           <button type="submit" class="btn btn-primary">新增</button>
       </form>
   </div>

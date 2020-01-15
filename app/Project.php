@@ -18,7 +18,8 @@ class Project extends Model
         'file',
         'file_path',
         'website',
-        'remark'       
+        'remark',
+        'person'        
     ];
 }
 

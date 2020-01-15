@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\Reserch;
+use App\User;
 
 class ReserchController extends Controller
 {
@@ -13,10 +14,12 @@ class ReserchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $reserches = Reserch::paginate(10);
-        return view('person_lists/reserches.index', compact('reserches'));
+        $id = $request->get('id');
+        $user = User::find($id);
+        $reserches = Reserch::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/reserches.index', compact(['reserches'],['user']));
     }
 
     /**
@@ -24,9 +27,11 @@ class ReserchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('person_lists/reserches.create');
+        $id = $request->get('id');
+        $user = User::find($id);
+        return view('person_lists/reserches.create',compact('user'));
     }
 
     /**
@@ -52,10 +57,13 @@ class ReserchController extends Controller
             'file_path' => $request->get('file_path'),
             'website' => $request->get('website'),
             'language' => $request->get('language'),
-            'remark' => $request->get('remark')
+            'remark' => $request->get('remark'),
+            'person' => $request->get('person')
         ]);
         $reserch->save();
-        return redirect('/person_lists/reserches')->with('success', 'Reserch saved!');
+        $user = User::where('name',$request->get('person')) -> first();
+        $reserches = Reserch::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/reserches.index', compact(['reserches','user']));
     }
 
     /**
@@ -106,7 +114,9 @@ class ReserchController extends Controller
             $reserch->remark = $request->get('remark'); 
             $reserch->save();
 
-        return redirect('/person_lists/reserchs')->with('success', 'Reserch update!');
+        $user = User::where('name',$reserch->person) -> first();
+        $reserches = Reserch::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/reserches.index', compact(['reserches','user']));
     }
 
     /**
@@ -119,6 +129,8 @@ class ReserchController extends Controller
     {
         $reserch = Reserch::find($id);
         $reserch->delete();
-        return redirect('/person_lists/reserches')->with('success', 'Reserch deleted!');
+        $user = User::where('name',$reserch->person) -> first();
+        $reserches = Reserch::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/reserches.index', compact(['reserches','user']));
     }
 }

@@ -21,7 +21,7 @@ Auth::routes();
 Route::get('/member', 'MemberController@index')->name('member');
 Auth::routes();
 Route::get('/setup', 'SetupController@index')->name('setup');
-Route::get('setup/tasks','DemoController@showTasks');
+Route::get('setup/menus','DemoController@showTasks');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::resource('users', 'UserController');
 Route::resource('imformation_classes', 'Imformation_ClassController');
@@ -34,8 +34,12 @@ Route::resource('fileroom_classes', 'Fileroom_ClassController');
 Route::resource('filerooms', 'FileroomController');
 Route::get('filerooms/index/search','FileroomController@search');
 Route::resource('positions', 'PositionController');
+Route::get('positions/index/search', 'PositionController@search');
 Route::resource('auth', 'UserController');
 Route::get('auth/index/search', 'UserController@search');
+Route::get('auth/index/person_lists', 'UserController@personlist');
+Route::resource('permissions', 'PermissionController');
+Route::get('permissions/index/search', 'PermissionController@search');
 Route::resource('networklinks', 'NetworklinkController');
 Route::resource('networklink_classes', 'Networklink_ClassController');
 Route::resource('person_lists/activities', 'ActivityController');
@@ -57,15 +61,5 @@ Route::resource('setup/keywords', 'KeywordController');
 Route::resource('setup/prefers', 'PreferController');
 Route::resource('setup/setupchanges', 'SetupchangeController');
 Route::resource('setup/website_informations', 'website_informationController');
-//Route::get('adphones/', 'AdphoneController@store')->name('adphones.store');
-//Route::patch('setup/tasks/{id}', 'DemoController@updateTasksStatus');
-//Route::put('setup/tasks/updateAll', 'DemoController@updateTasksOrder');
-/*Route::get('/post/{any}', function () {
-  return view('demos/post');
-})->where('any', '.*');*/
-/*
-Route::get('setup/website_information','SetupController@websiteinformation');
-Route::get('setup/keyword','SetupController@keyword');
-Route::get('setup/prefer','SetupController@prefer');
-Route::get('setup/setupchange','SetupController@setupchange');*/
-//Route::get('/imformations/indexs', 'ImformationController@indexs')->name('imformations.indexs');
+
+

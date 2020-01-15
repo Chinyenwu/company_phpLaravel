@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\Education;
+use App\User;
 
 class EducationController extends Controller
 {
@@ -13,10 +14,12 @@ class EducationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $educations = Education::paginate(10);
-        return view('person_lists/educations.index', compact('educations'));
+        $id = $request->get('id');
+        $user = User::find($id);
+        $educations = Education::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/educations.index', compact(['educations','user']));
     }
 
     /**
@@ -24,9 +27,11 @@ class EducationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('person_lists/educations.create');
+        $id = $request->get('id');
+        $user = User::find($id);
+        return view('person_lists/educations.create',compact('user'));
     }
 
     /**
@@ -49,10 +54,13 @@ class EducationController extends Controller
             'start_date' => $request->get('start_date'),
             'end_date' => $request->get('end_date'),
             'website' => $request->get('website'),
-            'remark' => $request->get('remark')
+            'remark' => $request->get('remark'),
+            'person' => $request->get('person')
         ]);
         $education->save();
-        return redirect('/person_lists/educations')->with('success', 'Education saved!');
+        $user = User::where('name',$request->get('person')) -> first();
+        $educations = Education::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/educations.index', compact(['educations','user']));
     }
 
     /**
@@ -101,7 +109,9 @@ class EducationController extends Controller
             $education->remark = $request->get('remark'); 
             $education->save();
 
-        return redirect('/person_lists/educations')->with('success', 'Education update!');
+        $user = User::where('name',$education->person) -> first();
+        $educations = Education::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/educations.index', compact(['educations','user']));
     }
 
     /**
@@ -114,6 +124,8 @@ class EducationController extends Controller
     {
         $education = Education::find($id);
         $education ->delete();
-        return redirect('/person_lists/educations')->with('success', 'Education deleted!');
+        $user = User::where('name',$education->person) -> first();
+        $educations = Education::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/educations.index', compact(['educations','user']));
     }
 }

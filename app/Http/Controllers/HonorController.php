@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\Honor;
+use App\User;
 
 class HonorController extends Controller
 {
@@ -13,10 +14,12 @@ class HonorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $honors = Honor::paginate(10);
-        return view('person_lists/honors.index', compact('honors'));
+        $id = $request->get('id');
+        $user = User::find($id);
+        $honors = Honor::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/honors.index', compact(['honors'],['user']));
     }
 
     /**
@@ -24,9 +27,11 @@ class HonorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('person_lists/honors.create');
+        $id = $request->get('id');
+        $user = User::find($id);
+        return view('person_lists/honors.create',compact('user'));
     }
 
     /**
@@ -50,10 +55,13 @@ class HonorController extends Controller
             'file' => $request->get('file'),
             'file_path' => $request->get('file_path'),
             'website' => $request->get('website'),
-            'remark' => $request->get('remark')
+            'remark' => $request->get('remark'),
+            'person' => $request->get('person')
         ]);
         $honor->save();
-        return redirect('/person_lists/honors')->with('success', 'Honor saved!');
+        $user = User::where('name',$request->get('person')) -> first();
+        $honors = Honor::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/honors.index', compact(['honors','user']));
     }
 
     /**
@@ -103,7 +111,9 @@ class HonorController extends Controller
             $honor->remark = $request->get('remark'); 
             $honor->save();
 
-        return redirect('/person_lists/honors')->with('success', 'Honor update!');
+        $user = User::where('name',$honor->person) -> first();
+        $honors = Honor::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/honors.index', compact(['honors','user']));
     }
 
     /**
@@ -116,6 +126,8 @@ class HonorController extends Controller
     {
         $honor = Honor::find($id);
         $honor->delete();
-        return redirect('/person_lists/honors')->with('success', 'Honor deleted!');
+        $user = User::where('name',$honor->person) -> first();
+        $honors = Honor::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/honors.index', compact(['honors','user']));
     }
 }

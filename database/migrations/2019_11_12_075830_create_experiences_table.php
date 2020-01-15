@@ -22,6 +22,7 @@ class CreateExperiencesTable extends Migration
             $table->string('end_date');
             $table->string('website');
             $table->string('remark');
+            $table->string('person');
             $table->timestamps();
         });
     }

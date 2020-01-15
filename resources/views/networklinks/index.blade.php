@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 <div class="col-sm-12">
-  <h1 class="display-3">網路資源</h1>    
+  <h1 >網路資源</h1>    
     <div>
   <table class="table table-striped">
     <thead>

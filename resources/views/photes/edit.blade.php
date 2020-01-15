@@ -4,7 +4,7 @@
 
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-    <h1 class="display-3">新增檔案</h1>
+    <h1 >新增檔案</h1>
   <div>
     @if ($errors->any())
       <div class="alert alert-danger">
@@ -25,7 +25,7 @@
 
           <div class="form-group">
               <label for="file">檔案路徑:</label>
-              <input type="file" class="form-control" name="file">
+              <input type="file" class="form-control" name="file[]" multiple>
           </div>     
  
 

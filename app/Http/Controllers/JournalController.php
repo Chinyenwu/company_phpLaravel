@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
 use App\Journal;
+use App\User;
 
 class JournalController extends Controller
 {
@@ -13,10 +14,12 @@ class JournalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $journals = Journal::paginate(10);
-        return view('person_lists/journals.index', compact('journals'));
+        $id = $request->get('id');
+        $user = User::find($id);
+        $journals = Journal::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/journals.index', compact(['journals'],['user']));
     }
 
     /**
@@ -24,9 +27,11 @@ class JournalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('person_lists/journals.create');
+        $id = $request->get('id');
+        $user = User::find($id);
+        return view('person_lists/journals.create',compact('user'));
     }
 
     /**
@@ -60,10 +65,13 @@ class JournalController extends Controller
             'website' => $request->get('website'),
             'language' => $request->get('language'),
             'project_name' => $request->get('project_name'),
-            'remark' => $request->get('remark')
+            'remark' => $request->get('remark'),
+            'person' => $request->get('person')
         ]);
         $journal->save();
-        return redirect('/person_lists/journals')->with('success', 'Journal saved!');
+        $user = User::where('name',$request->get('person')) -> first();
+        $journals = Journal::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/journals.index', compact(['journals','user']));
     }
 
     /**
@@ -123,7 +131,9 @@ class JournalController extends Controller
             $journal->remark = $request->get('remark'); 
             $journal->save();
 
-        return redirect('/person_lists/journals')->with('success', 'Journal update!');
+        $user = User::where('name',$journal->person) -> first();
+        $journals = Journal::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/journals.index', compact(['journals','user']));
     }
 
     /**
@@ -136,6 +146,8 @@ class JournalController extends Controller
     {
         $journal = Journal::find($id);
         $journal->delete();
-        return redirect('/person_lists/journals')->with('success', 'Journal deleted!');
+        $user = User::where('name',$journal->person) -> first();
+        $journals = Journal::where('person', 'like', "%".$user->name."%")->paginate(10);
+        return view('person_lists/journals.index', compact(['journals','user']));
     }
 }
