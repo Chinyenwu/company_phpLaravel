@@ -24,7 +24,7 @@
         "spatie/laravel-permission": "^3.4",
         "spatie/laravel-searchable": "^1.4",
         "spatie/menu": "^2.8",
-        "unisharp/laravel-filemanager": "dev-master"
+        "unisharp/laravel-filemanager": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

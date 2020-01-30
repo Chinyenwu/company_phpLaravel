@@ -6301,27 +6301,27 @@
     },
     {
         "name": "unisharp/laravel-filemanager",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "v2.0.0",
+        "version_normalized": "2.0.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/UniSharp/laravel-filemanager.git",
-            "reference": "78aeffe12087b1ba43cdbd5e48385bb0e5221b0e"
+            "reference": "0d017dd8da173cadf896c9ae4882343042dc589b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/UniSharp/laravel-filemanager/zipball/78aeffe12087b1ba43cdbd5e48385bb0e5221b0e",
-            "reference": "78aeffe12087b1ba43cdbd5e48385bb0e5221b0e",
+            "url": "https://api.github.com/repos/UniSharp/laravel-filemanager/zipball/0d017dd8da173cadf896c9ae4882343042dc589b",
+            "reference": "0d017dd8da173cadf896c9ae4882343042dc589b",
             "shasum": ""
         },
         "require": {
             "ext-exif": "*",
             "ext-fileinfo": "*",
-            "illuminate/config": "5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.* || 6.*.*",
-            "illuminate/container": "5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.* || 6.*.*",
-            "illuminate/filesystem": "5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.* || 6.*.*",
-            "illuminate/http": "5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.* || 6.*.*",
-            "illuminate/support": "5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.* || 6.*.*",
+            "illuminate/config": "5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0",
+            "illuminate/container": "5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0",
+            "illuminate/filesystem": "5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0",
+            "illuminate/http": "5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0",
+            "illuminate/support": "5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0",
             "intervention/image": "2.*",
             "php": ">=5.4.0"
         },
@@ -6334,7 +6334,7 @@
             "ext-gd": "to use GD library based image processing.",
             "ext-imagick": "to use Imagick based image processing."
         },
-        "time": "2019-10-18T17:11:21+00:00",
+        "time": "2020-01-08T09:44:46+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -6364,7 +6364,7 @@
                 "email": "opensource@unisharp.com"
             }
         ],
-        "description": "A file upload/editor intended for use with Laravel 6 and CKEditor / TinyMCE",
+        "description": "A file upload/editor intended for use with Laravel 5 to 6 and CKEditor / TinyMCE",
         "keywords": [
             "CKEditor",
             "file",

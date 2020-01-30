@@ -64,7 +64,10 @@
               <label for="context">內文:</label>
               <textarea id="context"  name="context" >{{ $imformation->context }}</textarea>
               <script>
-                CKEDITOR.replace('context');
+                CKEDITOR.replace('context', {
+                filebrowserUploadUrl: 'ckeditor_4.13.1_full/ckeditor/ck_upload.php',
+                filebrowserUploadMethod: 'form'
+                });
               </script>
           </div>    
 

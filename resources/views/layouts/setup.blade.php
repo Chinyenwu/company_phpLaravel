@@ -14,6 +14,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="//cdn.ckeditor.com/4.13.1/full/ckeditor.js"></script>
     <script src="//cdn.ckeditor.com/4.13.1/full/adapters/jquery.js"></script>
+    <!--<script src="{{ asset('ckeditor_4.13.1_full/ckeditor/ckeditor.js') }}" ></script>
+    <script src="{{ asset('ckeditor_4.13.1_full/ckeditor/adapters/jquery.js') }}" ></script>-->
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -75,7 +77,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li><a class="btn btn-light" href="{{ url('/setup') }}" >系統資訊</a></li>
                         @if($permission->menus=="yes")
-                        <li><a class="btn btn-light" href="{{ url('/setup/menus') }}" >網站架構</a></li>
+                        <li><a class="btn btn-light" href="{{ route('menus.index') }}" >網站架構</a></li>
                         @endif
                         @if($permission->website_information=="yes")
                         <li><a class="btn btn-light" href="{{ route('website_informations.create') }}" >

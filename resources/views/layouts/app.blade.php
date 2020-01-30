@@ -11,11 +11,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" ></script>
-    <!--<script src="{{ asset('ckeditor_4.13.1_full/ckeditor/ckeditor.js') }}" ></script>
-    <script src="{{ asset('ckeditor_4.13.1_full/ckeditor/adapters/jquery.js') }}" ></script>-->
-    <script src="//cdn.ckeditor.com/4.13.1/full/ckeditor.js"></script>
-    <script src="//cdn.ckeditor.com/4.13.1/full/adapters/jquery.js"></script>
-    <!--<script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>-->
+    <script src="{{ asset('ckeditor_4.13.1_full/ckeditor/ckeditor.js') }}" ></script>
+    <script src="{{ asset('ckeditor_4.13.1_full/ckeditor/adapters/jquery.js') }}" ></script>
+    <!--<script src="//cdn.ckeditor.com/4.13.1/full/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.13.1/full/adapters/jquery.js"></script>-->
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

@@ -21,7 +21,6 @@ Auth::routes();
 Route::get('/member', 'MemberController@index')->name('member');
 Auth::routes();
 Route::get('/setup', 'SetupController@index')->name('setup');
-Route::get('setup/menus','DemoController@showTasks');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::resource('users', 'UserController');
 Route::resource('imformation_classes', 'Imformation_ClassController');
@@ -57,9 +56,12 @@ Route::resource('photealbum_classes', 'Photealbum_ClassController');
 Route::resource('photes', 'PhoteController');
 Route::resource('advertisings', 'AdvertisingController');
 Route::resource('adphotes', 'AdphoteController');
+Route::resource('setup/menus', 'MenuController');
 Route::resource('setup/keywords', 'KeywordController');
 Route::resource('setup/prefers', 'PreferController');
 Route::resource('setup/setupchanges', 'SetupchangeController');
 Route::resource('setup/website_informations', 'website_informationController');
+
+
 
 

@@ -179,6 +179,8 @@ return [
         Unisharp\Ckeditor\ServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Harimayco\Menu\MenuServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelfilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -231,6 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         //'Menu'=> Lavary\Menu\Facade::class,
         'Menu' => Harimayco\Menu\Facades\Menu::class,
+        'Image'=>Intervention\Image\Facades\Image::class,
     ],
 
 ];
